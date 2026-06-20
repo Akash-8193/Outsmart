@@ -20,7 +20,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 bg-[#F2EFE7]/80 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 bg-[#F2EFE7]/90 backdrop-blur-md text-[#0A0A0A]">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <img 
@@ -30,7 +30,7 @@ export default function Navbar() {
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.style.display = 'none';
-              target.parentElement!.innerHTML += '<span class="text-2xl font-bold tracking-tighter text-[--primary]">Outsmart<span class="text-[--secondary]">.</span></span>';
+              target.parentElement!.innerHTML += '<span class="text-2xl font-bold tracking-tighter text-[#0A0A0A]">Outsmart<span class="text-[--primary]">.</span></span>';
             }}
           />
         </Link>
@@ -41,22 +41,22 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="relative text-sm font-medium transition-colors hover:opacity-70"
+              className={`relative text-sm font-medium transition-colors hover:text-[--primary] ${pathname === link.href ? 'text-[--primary]' : 'text-gray-700'}`}
             >
               {link.name}
               {pathname === link.href && (
                 <motion.div
                   layoutId="navbar-indicator"
                   className="absolute left-0 right-0 -bottom-1 h-0.5"
-                  style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
+                  style={{ background: "var(--primary)" }}
                 />
               )}
             </Link>
           ))}
           <Link
             href="/contact"
-            className="px-6 py-2.5 rounded-full text-white text-sm font-semibold transition-transform hover:scale-105 shadow-lg"
-            style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
+            className="px-6 py-2.5 rounded-full text-white text-sm font-bold transition-transform hover:scale-105 shadow-lg"
+            style={{ backgroundColor: "var(--primary)" }}
           >
             Get in Touch
           </Link>
@@ -75,7 +75,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-[#F2EFE7] p-6 shadow-xl border-t border-black/5 md:hidden"
+            className="absolute top-full left-0 right-0 bg-[#F2EFE7] p-6 shadow-2xl border-t border-black/5 md:hidden"
           >
             <div className="flex flex-col space-y-4">
               {links.map((link) => (
@@ -85,7 +85,7 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className={clsx(
                     "text-lg font-medium py-2 border-b border-black/5",
-                    pathname === link.href ? "text-[--primary]" : "text-[--foreground]"
+                    pathname === link.href ? "text-[--primary]" : "text-gray-800"
                   )}
                 >
                   {link.name}

@@ -1,0 +1,110 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowRight, Code, Cpu, Cloud, Smartphone, Database, Bot } from "lucide-react";
+
+export default function ServicesSection() {
+  const services = [
+    {
+      title: "Custom Software",
+      desc: "Scalable enterprise web applications and complex systems built from the ground up to solve your unique challenges.",
+      icon: <Code className="w-8 h-8" />,
+      img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "AI Agents",
+      desc: "Autonomous generative AI agents that automate customer support, internal workflows, and complex data tasks.",
+      icon: <Bot className="w-8 h-8" />,
+      img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Cloud Architecture",
+      desc: "Robust cloud infrastructure, highly secure DevOps pipelines, and strategic IT consulting for the modern web.",
+      icon: <Cloud className="w-8 h-8" />,
+      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Mobile Apps",
+      desc: "Intelligent, high-performance mobile applications built natively for both iOS and Android platforms.",
+      icon: <Smartphone className="w-8 h-8" />,
+      img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Data Analytics",
+      desc: "Advanced data pipelines, sophisticated machine learning models, and predictive analytics dashboards.",
+      icon: <Database className="w-8 h-8" />,
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "SaaS Platforms",
+      desc: "End-to-end development of secure, highly scalable, multi-tenant Software as a Service digital products.",
+      icon: <Cpu className="w-8 h-8" />,
+      img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+    }
+  ];
+
+  return (
+    <section className="py-24 px-6 bg-[#F2EFE7] font-sans">
+      <div className="max-w-[1400px] mx-auto">
+        
+        {/* Header Section */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
+          <div className="max-w-2xl">
+            <h4 className="font-bold tracking-widest text-sm mb-4 flex items-center gap-2" style={{ color: "var(--primary)" }}>
+              / Services
+            </h4>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight mb-6">
+              We Provide The Best Services
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed font-medium">
+              We offer top-tier software engineering and AI solutions tailored to your enterprise needs. Our expert team builds scalable, secure, and intelligent systems to drive unparalleled growth.
+            </p>
+          </div>
+          
+          <Link 
+            href="/contact" 
+            className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-transform hover:-translate-y-1 shrink-0"
+            style={{ backgroundColor: "var(--primary)" }}
+          >
+            Book A Consultation <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+        
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {services.map((service, idx) => (
+            <div key={idx} className="group relative rounded-3xl overflow-hidden aspect-[4/5] shadow-lg cursor-pointer">
+              {/* Background Image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
+                style={{ backgroundImage: `url(${service.img})` }}
+              />
+              
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+              
+              {/* Top Left Icon */}
+              <div className="absolute top-6 left-6 w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition-colors duration-300 border border-white/30 group-hover:bg-[--primary] group-hover:border-[--primary]">
+                {service.icon}
+              </div>
+              
+              {/* Bottom Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
+                <p className="text-white/80 text-sm leading-relaxed mb-8 font-medium">
+                  {service.desc}
+                </p>
+                
+                {/* Arrow Button */}
+                <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition-colors duration-300 border border-white/30 group-hover:bg-[--primary] group-hover:border-[--primary]">
+                  <ArrowRight className="w-5 h-5" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+      </div>
+    </section>
+  );
+}

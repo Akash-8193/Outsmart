@@ -120,26 +120,14 @@ export default function AboutUsSection() {
             </div>
           </div>
           
-          {/* Bottom Row: Avatar + Button */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-6 border-t border-gray-200">
-            {/* User Profile */}
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full overflow-hidden border-2" style={{ borderColor: "var(--primary)" }}>
-                <img src="https://i.pravatar.cc/150?img=68" alt="Alex Morgan" className="w-full h-full object-cover" />
-              </div>
-              <div>
-                <h4 className="font-bold text-lg text-gray-900">Alex Morgan</h4>
-                <p className="text-sm text-gray-500 font-medium">Lead Software Engineer</p>
-              </div>
-            </div>
-            
-            {/* Button */}
+          {/* Bottom Row: Button */}
+          <div className="pt-6 border-t border-gray-200">
             <Link 
               href="/about" 
-              className="text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-transform hover:-translate-y-1"
+              className="inline-block text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-transform hover:-translate-y-1"
               style={{ backgroundColor: "var(--primary)" }}
             >
-              More About
+              More About Us
             </Link>
           </div>
           

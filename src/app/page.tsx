@@ -5,9 +5,11 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ThreeDBackground from "@/components/ThreeDBackground";
+
 import PageTransition from "@/components/PageTransition";
 import AboutUsSection from "@/components/AboutUsSection";
+import ServicesSection from "@/components/ServicesSection";
+import FeaturesSection from "@/components/FeaturesSection";
 import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
 import { ArrowRight, Code, Cpu, Smartphone, Server } from "lucide-react";
@@ -64,98 +66,120 @@ export default function Home() {
     <PageTransition>
       <div className="relative min-h-screen overflow-hidden" ref={containerRef}>
         {/* Hero Section */}
-        <motion.section 
-          className="relative h-screen flex flex-col items-center justify-center text-center px-6"
-          style={{ y: heroY, opacity: heroOpacity }}
-        >
-          <ThreeDBackground />
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6" style={{ color: "var(--primary)" }}>
-                We Build Software <br className="hidden md:block" /> That Thinks Ahead.
+        <section className="relative pt-32 pb-0 lg:pt-40 lg:pb-0 px-6 bg-[#F2EFE7] overflow-hidden flex flex-col justify-between" style={{ minHeight: "90vh" }}>
+          
+          {/* Right Side Background Arch */}
+          <div className="absolute right-0 bottom-0 w-[55%] h-[85%] bg-white rounded-tl-[300px] z-0 hidden lg:block shadow-[0_0_50px_rgba(0,0,0,0.03)]" />
+          
+          <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center relative z-10 w-full flex-grow">
+            {/* Left Content */}
+            <div className="w-full lg:w-1/2 text-[#0A0A0A] z-20 pb-20">
+              <div className="flex items-center gap-3 mb-8">
+                <span className="w-2.5 h-2.5 rounded-full bg-[--primary]"></span>
+                <span className="tracking-widest uppercase text-xs font-bold tracking-[0.2em] text-gray-500">WELCOME TO OUTSMART</span>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-black leading-[1.05] mb-8 tracking-tight text-gray-900">
+                Expert Software Engineering & AI Solutions
               </h1>
-            </motion.div>
+              
+              <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-12 max-w-xl font-medium">
+                We provide fast, reliable custom software and AI agents. Our expert engineers use elite architectures to ensure your digital systems scale flawlessly.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 mb-14">
+                <Link 
+                  href="/contact" 
+                  className="text-white font-black px-8 py-4.5 rounded-xl shadow-lg transition-transform hover:-translate-y-1 whitespace-nowrap"
+                  style={{ backgroundColor: "var(--primary)" }}
+                >
+                  Book Free Consultation
+                </Link>
+                
+                <div className="flex items-center gap-4">
+                  <div className="flex -space-x-3">
+                    <img className="w-12 h-12 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=1" alt="Avatar" />
+                    <img className="w-12 h-12 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=2" alt="Avatar" />
+                    <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center text-xs font-black z-10 text-white" style={{ backgroundColor: "var(--primary)" }}>
+                      150+
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600 font-semibold leading-tight max-w-[120px]">
+                    Successful Enterprise Projects
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded flex items-center justify-center bg-[--primary]">
+                    <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span className="font-bold text-sm text-gray-700 tracking-wide">Comprehensive Diagnostics</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded flex items-center justify-center bg-[--primary]">
+                    <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span className="font-bold text-sm text-gray-700 tracking-wide">High-Quality Code Delivery</span>
+                </div>
+              </div>
+            </div>
             
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-[--foreground] mb-10 max-w-2xl mx-auto font-medium"
-            >
-              Outsmart Technology partners with forward-thinking leaders to create custom AI solutions and scalable software systems that redefine the possible.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <Link 
-                href="/contact"
-                className="w-full sm:w-auto px-8 py-4 rounded-full text-white font-semibold text-lg transition-transform hover:scale-105 shadow-xl flex items-center justify-center gap-2"
-                style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
-              >
-                Book a Free Consultation
-                <ArrowRight size={20} />
-              </Link>
-              <Link 
-                href="/portfolio"
-                className="w-full sm:w-auto px-8 py-4 rounded-full text-[--primary] border-2 border-[--primary] font-semibold text-lg transition-colors hover:bg-[--primary] hover:text-white flex items-center justify-center"
-              >
-                View Our Work
-              </Link>
-            </motion.div>
+            {/* Right Image */}
+            <div className="w-full lg:w-1/2 relative mt-12 lg:mt-0 flex justify-center items-end h-full">
+              <div className="absolute top-1/4 left-10 text-[--primary] animate-pulse z-20">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/></svg>
+              </div>
+              
+              <div className="relative z-10 w-full max-w-[600px] ml-auto mix-blend-multiply pb-10">
+                <img src="/ai-hero-white.png" alt="AI Agent" className="w-full h-auto object-contain" style={{ maxHeight: "75vh" }} />
+              </div>
+
+              {/* Floating Learn More Badge */}
+              <div className="absolute top-1/3 right-10 bg-white w-[140px] h-[140px] rounded-full border border-gray-100 flex items-center justify-center shadow-2xl z-20 hidden md:flex">
+                 <Code className="text-[--primary] w-10 h-10 absolute" />
+                 <svg className="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]" viewBox="0 0 100 100">
+                    <path id="circlePathHero" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none" />
+                    <text className="text-[12px] font-black uppercase tracking-[0.2em] fill-gray-800">
+                      <textPath href="#circlePathHero" startOffset="0%">
+                        • LEARN MORE • LEARN MORE 
+                      </textPath>
+                    </text>
+                 </svg>
+              </div>
+            </div>
           </div>
-        </motion.section>
+        </section>
+
+        {/* Ticker / Marquee */}
+        <div className="w-full overflow-hidden py-5 shadow-xl relative z-20" style={{ backgroundColor: "var(--primary)" }}>
+          <div className="flex animate-marquee items-center gap-16 text-white font-black text-xl lg:text-2xl tracking-widest uppercase">
+             <span className="whitespace-nowrap">• Custom Software</span>
+             <span className="whitespace-nowrap">• Autonomous AI Agents</span>
+             <span className="whitespace-nowrap">• Enterprise SaaS</span>
+             <span className="whitespace-nowrap">• Cloud Architecture</span>
+             <span className="whitespace-nowrap">• Digital Transformation</span>
+             {/* Duplicate for infinite effect */}
+             <span className="whitespace-nowrap">• Custom Software</span>
+             <span className="whitespace-nowrap">• Autonomous AI Agents</span>
+             <span className="whitespace-nowrap">• Enterprise SaaS</span>
+             <span className="whitespace-nowrap">• Cloud Architecture</span>
+             <span className="whitespace-nowrap">• Digital Transformation</span>
+             <span className="whitespace-nowrap">• Custom Software</span>
+             <span className="whitespace-nowrap">• Autonomous AI Agents</span>
+             <span className="whitespace-nowrap">• Enterprise SaaS</span>
+          </div>
+        </div>
 
         {/* About Us Section */}
         <AboutUsSection />
 
-        {/* Services Preview */}
-        <section className="py-32 px-6 services-section relative z-10">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "var(--primary)" }}>Our Core Services</h2>
-                <p className="text-lg text-gray-600 max-w-lg">Comprehensive technology solutions tailored for modern businesses aiming to lead their industry.</p>
-              </div>
-              <Link href="/services" className="hidden md:inline-flex items-center text-[--secondary] font-semibold hover:underline group">
-                View All Services <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
+        {/* Services Section */}
+        <ServicesSection />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { title: "Custom Software", icon: <Code size={32} />, desc: "Scalable web apps, SaaS products, and enterprise systems." },
-                { title: "AI Agents", icon: <Cpu size={32} />, desc: "Autonomous AI agents for business and workflow automation." },
-                { title: "AI Apps", icon: <Smartphone size={32} />, desc: "Intelligent mobile and web applications powered by LLMs." },
-                { title: "IT Solutions", icon: <Server size={32} />, desc: "Cloud infrastructure, DevOps, and strategic IT consulting." },
-              ].map((service, idx) => (
-                <div key={idx} className="service-card bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl transition-shadow group cursor-pointer">
-                  <div className="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center text-white" style={{ background: "linear-gradient(135deg, var(--primary), var(--secondary))" }}>
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">{service.desc}</p>
-                  <div className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[--primary] group-hover:border-[--primary] group-hover:text-white transition-colors">
-                    <ArrowRight size={14} />
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-12 text-center md:hidden">
-              <Link href="/services" className="inline-flex items-center text-[--secondary] font-semibold hover:underline">
-                View All Services <ArrowRight size={16} className="ml-2" />
-              </Link>
-            </div>
-          </div>
-        </section>
+        {/* Features Section */}
+        <FeaturesSection />
 
         {/* Quick Stats */}
         <section ref={statsRef} className="py-20 relative overflow-hidden text-white" style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>
@@ -179,38 +203,7 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none" />
         </section>
 
-        {/* Portfolio Preview */}
-        <section className="py-32 px-6 bg-[#F2EFE7]">
-          <div className="max-w-7xl mx-auto text-center">
-             <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: "var(--primary)" }}>Featured Work</h2>
-             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-16">Explore how we've helped forward-thinking companies implement robust software and AI solutions to dominate their markets.</p>
-             
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-               {[
-                 { title: "Nexus AI Chatbot", category: "AI App Development", img: "bg-gray-300" },
-                 { title: "FinTech Dashboard", category: "Custom Software", img: "bg-gray-400" },
-                 { title: "AutoVoice Agent", category: "AI Agents", img: "bg-gray-500" },
-               ].map((project, idx) => (
-                 <div key={idx} className="group relative rounded-3xl overflow-hidden aspect-[4/3] shadow-lg">
-                   <div className={`absolute inset-0 ${project.img} transition-transform duration-700 group-hover:scale-105`} />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                   <div className="absolute bottom-0 left-0 right-0 p-8 text-left">
-                     <p className="text-[--secondary] text-sm font-bold uppercase tracking-wider mb-2">{project.category}</p>
-                     <h3 className="text-2xl font-bold text-white mb-0">{project.title}</h3>
-                   </div>
-                 </div>
-               ))}
-             </div>
-             
-             <Link 
-                href="/portfolio"
-                className="inline-flex px-8 py-4 rounded-full text-white font-semibold text-lg transition-transform hover:scale-105 shadow-xl items-center justify-center gap-2"
-                style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
-              >
-                View Complete Portfolio
-             </Link>
-          </div>
-        </section>
+
 
         {/* Testimonials */}
         <section className="py-32 px-6 bg-white relative z-10">
