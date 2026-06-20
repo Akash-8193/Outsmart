@@ -1,0 +1,119 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import PageTransition from "@/components/PageTransition";
+import { ExternalLink, ArrowRight } from "lucide-react";
+
+const categories = ["All", "Software", "AI Agents", "AI Apps"];
+
+const projects = [
+  { id: 1, title: "Nexus AI Chatbot", category: "AI Apps", img: "bg-gray-200", client: "Nexus E-Commerce", desc: "A smart customer support agent reducing ticket volume by 40%." },
+  { id: 2, title: "FinTech Dashboard", category: "Software", img: "bg-gray-300", client: "GlobalPay", desc: "Enterprise-grade real-time transaction monitoring platform." },
+  { id: 3, title: "AutoVoice Agent", category: "AI Agents", img: "bg-gray-400", client: "TeleSales Co", desc: "Autonomous outbound calling agent with human-like latency." },
+  { id: 4, title: "Supply Chain AI", category: "AI Apps", img: "bg-gray-500", client: "Logistics Pro", desc: "Predictive routing and inventory management system." },
+  { id: 5, title: "HealthTech Portal", category: "Software", img: "bg-gray-600", client: "MedCare", desc: "HIPAA-compliant patient data management SaaS." },
+  { id: 6, title: "CodeReview Bot", category: "AI Agents", img: "bg-gray-700", client: "DevShop", desc: "Automated PR review agent ensuring code quality." },
+];
+
+export default function Portfolio() {
+  const [activeTab, setActiveTab] = useState("All");
+
+  const filteredProjects = projects.filter((project) => {
+    if (activeTab === "All") return true;
+    return project.category === activeTab;
+  });
+
+  return (
+    <PageTransition>
+      <div className="pt-32 pb-20 px-6 min-h-screen">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-5xl md:text-7xl font-bold mb-6"
+              style={{ color: "var(--primary)" }}
+            >
+              Our Work.
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-xl text-gray-600 max-w-2xl mx-auto"
+            >
+              A selection of our latest projects and technical achievements.
+            </motion.p>
+          </div>
+
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveTab(category)}
+                className={`px-6 py-2 rounded-full text-sm font-semibold transition-colors relative ${activeTab === category ? "text-white" : "text-gray-600 hover:text-[--primary]"}`}
+              >
+                {activeTab === category && (
+                  <motion.div
+                    layoutId="active-tab"
+                    className="absolute inset-0 rounded-full z-[-1]"
+                    style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                {category}
+              </button>
+            ))}
+          </div>
+
+          {/* Projects Grid */}
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <AnimatePresence>
+              {filteredProjects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                  className="group cursor-pointer"
+                >
+                  <div className="relative rounded-3xl overflow-hidden aspect-[4/3] mb-6 shadow-sm group-hover:shadow-xl transition-shadow">
+                    <div className={`absolute inset-0 ${project.img} transition-transform duration-700 group-hover:scale-105`} />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                      <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[--primary] transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <ExternalLink />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="px-2">
+                    <p className="text-[--secondary] text-xs font-bold uppercase tracking-wider mb-2">{project.category} • {project.client}</p>
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-[--primary] transition-colors">{project.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{project.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          <div className="mt-24 text-center">
+             <div className="inline-flex items-center justify-center w-full max-w-2xl bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
+               <div className="text-left">
+                  <h3 className="text-3xl font-bold mb-4">Have a project in mind?</h3>
+                  <p className="text-gray-600">We're currently taking on new projects for Q3.</p>
+               </div>
+               <div className="ml-auto">
+                 <a href="/contact" className="w-14 h-14 rounded-full text-white flex items-center justify-center transition-transform hover:scale-110 shadow-lg" style={{ background: "linear-gradient(135deg, var(--primary), var(--secondary))" }}>
+                   <ArrowRight />
+                 </a>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </PageTransition>
+  );
+}
