@@ -43,10 +43,9 @@ export default function Preloader() {
               alt="Outsmart Technology" 
               className="relative z-10 w-auto h-16 md:h-24 object-contain"
               onError={(e) => {
-                // Fallback text if the logo image isn't placed in the public folder yet
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
-                target.parentElement!.innerHTML += '<span class="text-3xl font-bold text-[--primary]">Outsmart.</span>';
+                target.parentElement!.innerHTML += '<span class="text-4xl font-bold tracking-tighter text-[--primary]">Outsmart.</span>';
               }}
             />
             

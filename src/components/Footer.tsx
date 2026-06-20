@@ -1,77 +1,156 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1A1A] text-[#F2EFE7] py-16 px-6 md:px-12 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
-        <div className="md:col-span-1">
-          <Link href="/" className="text-3xl font-bold tracking-tighter block mb-4">
-            Outsmart<span style={{ color: "var(--primary)" }}>.</span>
-          </Link>
-          <p className="text-[#F2EFE7]/60 text-sm mb-6 leading-relaxed">
-            We Build Software That Thinks Ahead. Partner with us to outsmart the competition.
-          </p>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-[--primary] transition-colors">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-            </a>
-            <a href="#" className="hover:text-[--primary] transition-colors">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="#" className="hover:text-[--primary] transition-colors">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-            </a>
+    <footer className="bg-[#0A0A0A] text-white pt-20 pb-8 px-6 font-sans border-t border-gray-900">
+      <div className="max-w-[1400px] mx-auto">
+        
+        {/* Top Header Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start mb-14">
+          
+          {/* Logo & Description */}
+          <div className="col-span-1">
+            <Link href="/" className="inline-flex items-center mb-6 bg-white/95 p-3 rounded-xl shadow-lg">
+              <img src="/logo.png" alt="Outsmart Technology" className="h-10 w-auto object-contain" />
+            </Link>
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+              We Build Software That Thinks Ahead. Partner with us to outsmart the competition.
+            </p>
+          </div>
+          
+          {/* Location */}
+          <div className="col-span-1 flex items-start gap-5 lg:justify-center">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center shrink-0 shadow-lg" style={{ backgroundColor: "var(--primary)" }}>
+              <MapPin className="text-white w-6 h-6" />
+            </div>
+            <div>
+              <h4 className="text-xl font-bold mb-2">Location:</h4>
+              <p className="text-gray-400 text-sm leading-relaxed max-w-[250px]">
+                F-111, 2nd floor, Sector 8, Noida,<br />
+                U.P.-201301
+              </p>
+            </div>
+          </div>
+          
+          {/* Socials */}
+          <div className="col-span-1 flex flex-col lg:items-end">
+            <h4 className="text-xl font-bold mb-4">Follow Us On:</h4>
+            <div className="flex items-center gap-3">
+              <a href="https://x.com/outsmartpayroll" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center hover:-translate-y-1 transition-transform shadow-lg" style={{ backgroundColor: "var(--primary)" }}>
+                <svg className="w-5 h-5 text-white fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/company/fovesttahrmssolution/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center hover:-translate-y-1 transition-transform shadow-lg" style={{ backgroundColor: "var(--primary)" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="https://www.instagram.com/outsmarttechnology/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center hover:-translate-y-1 transition-transform shadow-lg" style={{ backgroundColor: "var(--primary)" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-white"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </a>
+              <a href="https://www.facebook.com/people/Fovestta-HRMS-Solution/61569130985939/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center hover:-translate-y-1 transition-transform shadow-lg" style={{ backgroundColor: "var(--primary)" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+            </div>
           </div>
         </div>
-
-        <div>
-          <h4 className="text-lg font-semibold mb-4">Services</h4>
-          <ul className="space-y-3 text-sm text-[#F2EFE7]/70">
-            <li><Link href="/services#custom-software" className="hover:text-[--secondary] transition-colors">Custom Software</Link></li>
-            <li><Link href="/services#ai-agents" className="hover:text-[--secondary] transition-colors">AI Agents</Link></li>
-            <li><Link href="/services#ai-apps" className="hover:text-[--secondary] transition-colors">AI Apps</Link></li>
-            <li><Link href="/services#it-solutions" className="hover:text-[--secondary] transition-colors">IT Solutions</Link></li>
-          </ul>
+        
+        {/* Divider */}
+        <div className="w-full h-px bg-gray-800 mb-14"></div>
+        
+        {/* Bottom Body Row */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16">
+          
+          {/* Contacts Column */}
+          <div className="md:col-span-4 flex flex-col gap-8">
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 rounded-full flex items-center justify-center shrink-0 shadow-lg" style={{ backgroundColor: "var(--primary)" }}>
+                <Phone className="text-white w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold mb-1">Urgent Support?</h4>
+                <a href="tel:+919599342525" className="text-gray-400 hover:text-white transition-colors text-sm font-medium">
+                  +91-9599-34-2525
+                </a>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 rounded-full flex items-center justify-center shrink-0 shadow-lg" style={{ backgroundColor: "var(--primary)" }}>
+                <Mail className="text-white w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold mb-1">E-Mail Us</h4>
+                <a href="mailto:info@outsmarttechnology.com" className="text-gray-400 hover:text-white transition-colors text-sm font-medium">
+                  info@outsmarttechnology.com
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          {/* Quick Links Column */}
+          <div className="md:col-span-2">
+            <h4 className="text-xl font-bold mb-6">Quick Links</h4>
+            <ul className="flex flex-col gap-4">
+              {['Home', 'About Us', 'Services', 'Contact Us'].map((item) => (
+                <li key={item} className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--primary)" }}></span>
+                  <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm font-medium">
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* Services Column */}
+          <div className="md:col-span-3">
+            <h4 className="text-xl font-bold mb-6">Our Services</h4>
+            <ul className="flex flex-col gap-4">
+              {['AI Agents', 'Custom Software', 'SaaS Platforms', 'Data Transformation'].map((item) => (
+                <li key={item} className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--primary)" }}></span>
+                  <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm font-medium">
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* Newsletter Column */}
+          <div className="md:col-span-3">
+            <h4 className="text-xl font-bold mb-6">Subscribe Our Newsletter</h4>
+            <form className="flex flex-col sm:flex-row gap-3 mb-5" onSubmit={(e) => e.preventDefault()}>
+              <input 
+                type="email" 
+                placeholder="Your Email" 
+                className="bg-[#1A1A1A] border border-gray-800 rounded-lg px-4 py-3.5 text-sm focus:outline-none focus:border-gray-500 w-full text-white placeholder:text-gray-600"
+                required
+              />
+              <button 
+                type="submit" 
+                className="text-white font-bold px-6 py-3.5 rounded-lg whitespace-nowrap transition-opacity hover:opacity-90 shadow-lg"
+                style={{ backgroundColor: "var(--primary)" }}
+              >
+                Subscribe
+              </button>
+            </form>
+            <p className="text-xs text-gray-500 leading-relaxed font-medium">
+              *Stay updated with the latest tech trends, expert tips, and software insights in your inbox.
+            </p>
+          </div>
+          
         </div>
-
-        <div>
-          <h4 className="text-lg font-semibold mb-4">Company</h4>
-          <ul className="space-y-3 text-sm text-[#F2EFE7]/70">
-            <li><Link href="/about" className="hover:text-[--secondary] transition-colors">About Us</Link></li>
-            <li><Link href="/portfolio" className="hover:text-[--secondary] transition-colors">Portfolio</Link></li>
-            <li><Link href="/contact" className="hover:text-[--secondary] transition-colors">Contact</Link></li>
-          </ul>
+        
+        {/* Copyright */}
+        <div className="text-center border-t border-gray-800 pt-8 pb-2">
+          <p className="text-gray-500 text-sm font-medium tracking-wide">
+            Copyright © 2026 Outsmart Technology. All Rights Reserved.
+          </p>
         </div>
-
-        <div>
-          <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
-          <p className="text-sm text-[#F2EFE7]/60 mb-4">Stay updated with our latest AI insights.</p>
-          <form className="flex" onSubmit={(e) => e.preventDefault()}>
-            <input 
-              type="email" 
-              placeholder="Your email" 
-              className="bg-white/10 px-4 py-2 rounded-l-md focus:outline-none focus:ring-1 focus:ring-[--primary] text-sm w-full"
-            />
-            <button className="px-4 py-2 rounded-r-md text-white transition-opacity hover:opacity-90" style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>
-              <ArrowRight size={18} />
-            </button>
-          </form>
-        </div>
+        
       </div>
-      
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-[#F2EFE7]/40 relative z-10">
-        <p>© {new Date().getFullYear()} Outsmart Technology. All rights reserved.</p>
-        <div className="flex space-x-4 mt-4 md:mt-0">
-          <Link href="#">Privacy Policy</Link>
-          <Link href="#">Terms of Service</Link>
-        </div>
-      </div>
-
-      {/* Decorative grid */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)", backgroundSize: "50px 50px" }} />
     </footer>
   );
 }

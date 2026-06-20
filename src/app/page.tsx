@@ -7,6 +7,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ThreeDBackground from "@/components/ThreeDBackground";
 import PageTransition from "@/components/PageTransition";
+import AboutUsSection from "@/components/AboutUsSection";
+import BlogSection from "@/components/BlogSection";
+import FAQSection from "@/components/FAQSection";
 import { ArrowRight, Code, Cpu, Smartphone, Server } from "lucide-react";
 
 export default function Home() {
@@ -110,18 +113,8 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* About Teaser */}
-        <section className="py-24 px-6 bg-white/50 relative z-10 backdrop-blur-sm">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">The Future is Autonomous.</h2>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-              We don't just build apps; we architect intelligent systems. From generative AI agents that automate customer support to enterprise-grade web applications that scale seamlessly, we provide the technical foundation for your next leap forward.
-            </p>
-            <Link href="/about" className="inline-flex items-center text-[--secondary] font-semibold hover:underline">
-              Learn more about our mission <ArrowRight size={16} className="ml-2" />
-            </Link>
-          </div>
-        </section>
+        {/* About Us Section */}
+        <AboutUsSection />
 
         {/* Services Preview */}
         <section className="py-32 px-6 services-section relative z-10">
@@ -250,6 +243,12 @@ export default function Home() {
              </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQSection />
+
+        {/* Blog Section */}
+        <BlogSection />
 
         {/* Final CTA */}
         <section className="py-32 px-6 text-center">

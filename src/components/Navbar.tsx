@@ -22,8 +22,17 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 bg-[#F2EFE7]/80 backdrop-blur-md">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold tracking-tighter" style={{ color: "var(--primary)" }}>
-          Outsmart<span style={{ color: "var(--secondary)" }}>.</span>
+        <Link href="/" className="flex items-center">
+          <img 
+            src="/logo.png" 
+            alt="Outsmart Technology" 
+            className="h-8 w-auto object-contain transition-transform hover:scale-105"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              target.parentElement!.innerHTML += '<span class="text-2xl font-bold tracking-tighter text-[--primary]">Outsmart<span class="text-[--secondary]">.</span></span>';
+            }}
+          />
         </Link>
 
         {/* Desktop Links */}
