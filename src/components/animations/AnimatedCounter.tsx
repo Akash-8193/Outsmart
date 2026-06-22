@@ -29,7 +29,7 @@ export function AnimatedCounter({ value, suffix = "", prefix = "", className = "
   useEffect(() => {
     return springValue.on("change", (latest) => {
       if (ref.current) {
-        ref.current.textContent = `${prefix}${Intl.NumberFormat("en-US").format(latest.toFixed(0))}${suffix}`;
+        ref.current.textContent = `${prefix}${Intl.NumberFormat("en-US").format(Math.round(latest))}${suffix}`;
       }
     });
   }, [springValue, prefix, suffix]);
