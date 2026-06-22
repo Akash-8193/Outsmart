@@ -141,6 +141,7 @@ export default function Footer() {
               />
               <button 
                 type="submit" 
+                suppressHydrationWarning
                 className="text-white font-bold px-6 py-3.5 rounded-lg whitespace-nowrap transition-opacity hover:opacity-90 shadow-lg"
                 style={{ backgroundColor: "var(--primary)" }}
               >

@@ -25,8 +25,8 @@ export default function WhatWeDoSection() {
   ];
 
   return (
-    <section className="py-12 px-6 bg-transparent overflow-hidden">
-      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+    <section className="py-8 md:py-12 px-6 bg-transparent overflow-hidden">
+      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-20">
         
         {/* Left Side: Content & List */}
         <div className="w-full lg:w-[55%] flex flex-col">
@@ -87,7 +87,7 @@ export default function WhatWeDoSection() {
         </div>
 
         {/* Right Side: Image & Circle Background */}
-        <div className="w-full lg:w-[45%] relative mt-12 lg:mt-0 flex justify-center lg:justify-end">
+        <div className="w-full lg:w-[45%] relative mt-8 md:mt-12 lg:mt-0 flex justify-center lg:justify-end">
           
           {/* Large Circle Background */}
           <motion.div 

@@ -71,7 +71,7 @@ export default function Services() {
         {/* Soft primary gradient matching the vibe */}
         <div className="absolute top-0 left-0 w-1/2 h-full opacity-[0.03] z-0 pointer-events-none" style={{ background: "linear-gradient(to bottom right, var(--primary), transparent)" }}></div>
 
-        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-10 lg:gap-16">
+        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-0 md:gap-10 lg:gap-16">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
             <h3 className="text-lg font-bold tracking-[0.2em] uppercase mb-4" style={{ color: "var(--primary)" }}>
@@ -82,9 +82,9 @@ export default function Services() {
               Our Services
             </Text3DBounce>
 
-            <div className="w-16 h-1 mb-8 mt-6" style={{ backgroundColor: "var(--primary)" }}></div>
+            <div className="w-16 h-1 mb-6 md:mb-8 mt-6" style={{ backgroundColor: "var(--primary)" }}></div>
 
-            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 max-w-md font-medium">
+            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 max-w-md font-medium">
               Discover who we are, what drives us, and how we build technology that empowers businesses to grow. We don't do off-the-shelf. We provide tailored, high-end technology services.
             </p>
 
@@ -103,7 +103,7 @@ export default function Services() {
           </div>
 
           {/* Right Image (Pure transparent PNG with floating GSAP animation, matching About page) */}
-          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-16 lg:mt-0">
+          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-4 md:mt-16 lg:mt-0">
             <img src="/services_hero_3d.png" alt="Our Services 3D Illustration" className="relative z-10 w-full max-w-[850px] ml-auto h-auto object-contain gsap-float scale-105 lg:scale-110 lg:translate-x-8" style={{ filter: "hue-rotate(15deg) saturate(1.1)" }} />
 
             {/* Soft backdrop glow to enhance the 3D effect */}

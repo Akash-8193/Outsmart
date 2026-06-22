@@ -9,8 +9,8 @@ import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 
 export default function AboutUsSection() {
   return (
-    <section className="py-12 px-6 bg-transparent font-sans overflow-hidden">
-      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+    <section className="py-8 px-6 bg-transparent font-sans overflow-hidden">
+      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
         
         {/* Left Column - Image Grid */}
         <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4 md:gap-6 relative">

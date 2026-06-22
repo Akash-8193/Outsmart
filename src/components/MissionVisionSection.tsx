@@ -7,7 +7,7 @@ import { ImageReveal } from "@/components/animations/ImageReveal";
 
 export default function MissionVisionSection() {
   return (
-    <section className="bg-transparent w-full pt-20 pb-16">
+    <section className="bg-transparent w-full py-8">
       <div className="max-w-7xl mx-auto px-6 flex flex-col">
         
         {/* Mission Row */}

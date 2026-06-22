@@ -17,7 +17,7 @@ export default function Contact() {
         {/* Soft primary gradient matching the vibe */}
         <div className="absolute top-0 left-0 w-1/2 h-full opacity-[0.03] z-0 pointer-events-none" style={{ background: "linear-gradient(to bottom right, var(--primary), transparent)" }}></div>
 
-        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-10 lg:gap-16">
+        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-0 md:gap-10 lg:gap-16">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
             <Text3DBounce as="h1" className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-black leading-[1.1] mb-2 tracking-tight drop-shadow-sm font-sans whitespace-nowrap" style={{ color: "var(--foreground)" }}>
@@ -31,7 +31,7 @@ export default function Contact() {
             
             <div className="w-16 h-1 mb-8" style={{ backgroundColor: "var(--primary)" }}></div>
             
-            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 max-w-md font-medium">
+            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 max-w-md font-medium">
               Whether it's custom software, AI solutions, or enterprise systems, our team is ready to help you grow.
             </p>
             
@@ -50,7 +50,7 @@ export default function Contact() {
           </div>
           
           {/* Right Image */}
-          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-16 lg:mt-0">
+          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-4 md:mt-16 lg:mt-0">
             {/* mix-blend-multiply is placed on a non-animated wrapper to prevent CSS composite layer bugs with GSAP */}
             <div className="relative z-10 w-full max-w-[950px] ml-auto mix-blend-multiply">
               <div className="w-full h-full gsap-float">

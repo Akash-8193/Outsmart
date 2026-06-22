@@ -73,14 +73,14 @@ export default function Home() {
     <PageTransition>
       <div className="relative min-h-screen overflow-hidden" ref={containerRef}>
         {/* Hero Section */}
-        <section className="relative pt-32 pb-0 lg:pt-40 lg:pb-0 px-6 bg-[#F2EFE7] overflow-hidden flex flex-col justify-between" style={{ minHeight: "90vh" }}>
+        <section className="relative pt-24 md:pt-32 pb-0 lg:pt-40 lg:pb-0 px-6 bg-[#F2EFE7] overflow-hidden flex flex-col justify-between" style={{ minHeight: "90vh" }}>
           
           {/* Right Side Background Arch */}
           <div className="absolute right-0 bottom-0 w-[55%] h-[85%] bg-white rounded-tl-[300px] z-0 hidden lg:block shadow-[0_0_50px_rgba(0,0,0,0.03)]" />
           
           <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center relative z-10 w-full flex-grow">
             {/* Left Content */}
-            <div className="w-full lg:w-1/2 text-[#0A0A0A] z-20 pb-20">
+            <div className="w-full lg:w-1/2 text-[#0A0A0A] z-20 pb-10 md:pb-20">
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-2.5 h-2.5 rounded-full bg-[--primary]"></span>
                 <span className="tracking-widest uppercase text-xs font-bold tracking-[0.2em] text-gray-500">WELCOME TO OUTSMART</span>
@@ -241,7 +241,7 @@ export default function Home() {
         <BlogSection />
 
         {/* Final CTA */}
-        <section className="py-16 px-6 text-center">
+        <section className="py-10 md:py-16 px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <Text3DBounce as="h2" className="text-4xl md:text-6xl font-bold mb-8">Ready to Outsmart the Competition?</Text3DBounce>
             <p className="text-xl text-gray-600 mb-6">Let's build smarter digital solutions together.</p>

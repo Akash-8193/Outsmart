@@ -33,11 +33,11 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-4 left-0 right-0 z-50 px-4 md:px-8 pointer-events-none flex justify-center">
+    <header className="fixed top-0 md:top-4 left-0 right-0 z-50 px-0 md:px-8 pointer-events-none flex justify-center">
       <nav 
         className={clsx(
-          "w-full max-w-6xl bg-white rounded-full py-2.5 px-4 md:px-6 flex items-center justify-between pointer-events-auto border border-gray-100 transition-all duration-300",
-          scrolled ? "shadow-[0_10px_40px_rgba(0,0,0,0.08)] translate-y-0" : "shadow-md translate-y-2"
+          "w-full max-w-6xl bg-white rounded-none md:rounded-full py-2.5 px-4 md:px-6 flex items-center justify-between pointer-events-auto border-b md:border border-gray-100 transition-all duration-300",
+          scrolled ? "shadow-[0_10px_40px_rgba(0,0,0,0.08)] translate-y-0" : "shadow-md md:translate-y-2"
         )}
       >
         {/* Logo - Left */}
@@ -80,17 +80,17 @@ export default function Navbar() {
         <div className="flex-1 flex items-center justify-end">
           <Link
             href="/contact"
-            className="hidden md:flex items-center gap-3 pl-1.5 pr-5 py-1.5 rounded-xl text-white text-[15px] font-bold transition-all hover:shadow-lg hover:-translate-y-0.5 group"
+            className="flex items-center gap-1.5 md:gap-3 pl-1 md:pl-1.5 pr-3 md:pr-5 py-1 md:py-1.5 rounded-lg md:rounded-xl text-white text-[12px] sm:text-[13px] md:text-[15px] font-bold transition-all hover:shadow-lg hover:-translate-y-0.5 group whitespace-nowrap"
             style={{ backgroundColor: "var(--primary)" }}
           >
-            <div className="w-8 h-8 rounded-lg bg-black/20 flex items-center justify-center transition-transform group-hover:bg-black/30">
-              <ArrowUpRight className="w-4 h-4 text-white group-hover:rotate-12 transition-transform" />
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-md md:rounded-lg bg-black/20 flex items-center justify-center transition-transform group-hover:bg-black/30">
+              <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4 text-white group-hover:rotate-12 transition-transform" />
             </div>
             Get in Touch
           </Link>
 
           {/* Mobile Menu Toggle */}
-          <button className="lg:hidden ml-4 p-2 rounded-full bg-gray-50 text-gray-800" onClick={() => setIsOpen(!isOpen)}>
+          <button suppressHydrationWarning className="lg:hidden ml-2 md:ml-4 p-1.5 md:p-2 rounded-full bg-gray-50 text-gray-800" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -113,8 +113,9 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className={clsx(
                     "text-lg font-bold py-3 px-4 rounded-xl transition-colors",
-                    pathname === link.href ? "bg-[--primary] text-white" : "text-gray-800 hover:bg-gray-50"
+                    pathname === link.href ? "text-white shadow-md" : "text-gray-800 hover:bg-gray-50"
                   )}
+                  style={pathname === link.href ? { backgroundColor: "var(--primary)" } : {}}
                 >
                   {link.name}
                 </Link>

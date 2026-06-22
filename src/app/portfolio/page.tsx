@@ -9,12 +9,12 @@ import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 const categories = ["All", "Enterprise SaaS", "Custom Software", "Web Apps", "Operations"];
 
 const projects = [
-  { id: 1, title: "FOVESTTA HRMS", category: "Enterprise SaaS", img: "bg-[url('/project_hrms.png')] bg-cover bg-center", client: "Corporate Enterprises", desc: "Advanced human resource management platform simplifying workforce operations through automation.", slug: "fovestta" },
-  { id: 2, title: "Complaint Management Software", category: "Custom Software", img: "bg-[url('/project_complaint.png')] bg-cover bg-center", client: "NBCC", desc: "Streamlines complaint registration, tracking, escalation, and resolution across departments.", slug: "nbcc-complaint" },
-  { id: 3, title: "Inventory Management System", category: "Operations", img: "bg-[url('/project_inventory.png')] bg-cover bg-center", client: "Retail & Logistics", desc: "Helps businesses track, manage, and optimize inventory operations with real-time visibility.", slug: "inventory-management" },
-  { id: 4, title: "Global Supply Chain ERP", category: "Custom Software", img: "bg-[url('https://images.unsplash.com/photo-1586528116311-ad8ed7c663be?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center", client: "Logistics", desc: "Automated workflows and accurate stock control across multiple warehouse locations.", slug: "" },
-  { id: 5, title: "Multi-Vendor E-Commerce", category: "Web Apps", img: "bg-[url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center", client: "Retail", desc: "Scalable digital platforms that accelerate growth and modernize retail operations.", slug: "" },
-  { id: 6, title: "Patient Data Management SaaS", category: "Enterprise SaaS", img: "bg-[url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center", client: "Healthcare", desc: "HIPAA-compliant patient data management and predictive analytics dashboards.", slug: "" },
+  { id: 1, title: "FOVESTTA HRMS", category: "Enterprise SaaS", img: "bg-[url('/project_hrms.png')] bg-cover bg-center", rawUrl: "/project_hrms.png", client: "Corporate Enterprises", desc: "Advanced human resource management platform simplifying workforce operations through automation.", slug: "fovestta" },
+  { id: 2, title: "Complaint Management Software", category: "Custom Software", img: "bg-[url('/project_complaint.png')] bg-cover bg-center", rawUrl: "/project_complaint.png", client: "NBCC", desc: "Streamlines complaint registration, tracking, escalation, and resolution across departments.", slug: "nbcc-complaint" },
+  { id: 3, title: "Inventory Management System", category: "Operations", img: "bg-[url('/project_inventory.png')] bg-cover bg-center", rawUrl: "/project_inventory.png", client: "Retail & Logistics", desc: "Helps businesses track, manage, and optimize inventory operations with real-time visibility.", slug: "inventory-management" },
+  { id: 4, title: "Global Supply Chain ERP", category: "Custom Software", img: "bg-[url('https://images.unsplash.com/photo-1586528116311-ad8ed7c663be?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center", rawUrl: "https://images.unsplash.com/photo-1586528116311-ad8ed7c663be?auto=format&fit=crop&w=1000&q=80", client: "Logistics", desc: "Automated workflows and accurate stock control across multiple warehouse locations.", slug: "" },
+  { id: 5, title: "Multi-Vendor E-Commerce", category: "Web Apps", img: "bg-[url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center", rawUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80", client: "Retail", desc: "Scalable digital platforms that accelerate growth and modernize retail operations.", slug: "" },
+  { id: 6, title: "Patient Data Management SaaS", category: "Enterprise SaaS", img: "bg-[url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center", rawUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80", client: "Healthcare", desc: "HIPAA-compliant patient data management and predictive analytics dashboards.", slug: "" },
 ];
 
 export default function Projects() {
@@ -35,7 +35,7 @@ export default function Projects() {
         {/* Soft primary gradient matching the vibe */}
         <div className="absolute top-0 left-0 w-1/2 h-full opacity-[0.03] z-0 pointer-events-none" style={{ background: "linear-gradient(to bottom right, var(--primary), transparent)" }}></div>
 
-        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-10 lg:gap-16">
+        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-0 md:gap-10 lg:gap-16">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
             <h3 className="text-lg font-bold tracking-[0.2em] uppercase mb-4" style={{ color: "var(--primary)" }}>
@@ -53,7 +53,7 @@ export default function Projects() {
               </Text3DBounce>
             </div>
             
-            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 mt-6 max-w-md font-medium">
+            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 mt-6 max-w-md font-medium">
               Explore the digital products, enterprise solutions, and AI innovations we've built for ambitious businesses.
             </p>
             
@@ -72,7 +72,7 @@ export default function Projects() {
           </div>
           
           {/* Right Image with mix-blend-multiply wrapper and soft mask to hide white fringing and shadows seamlessly */}
-          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-16 lg:mt-0">
+          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-4 md:mt-16 lg:mt-0">
             <div className="relative z-10 w-full max-w-[850px] ml-auto mix-blend-multiply">
               <div className="w-full h-full" style={{ WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 95%)", maskImage: "linear-gradient(to bottom, black 85%, transparent 95%)" }}>
                 <img src="/projects_hexagon_hero.png" alt="Our Projects Hexagon 3D Illustration" className="w-full h-auto object-contain brightness-105 contrast-105" />
@@ -144,7 +144,13 @@ export default function Projects() {
                     {/* @ts-ignore */}
                     <CardWrapper {...wrapperProps} className="flex flex-col h-full">
                       <div className="relative rounded-3xl overflow-hidden aspect-[4/3] mb-6 shadow-[0_10px_40px_rgba(0,0,0,0.06)] group-hover:shadow-xl transition-shadow">
-                        <div className={`absolute inset-0 ${project.img} transition-transform duration-700 group-hover:scale-105`} />
+                        {/* Desktop Image (using tailwind bg-[url]) */}
+                        <div className={`hidden md:block absolute inset-0 ${project.img} transition-transform duration-700 group-hover:scale-105`} />
+                        {/* Mobile Image (using inline style to fix tailwind parsing issues for external URLs) */}
+                        <div 
+                          className="md:hidden absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" 
+                          style={{ backgroundImage: `url('${project.rawUrl}')` }}
+                        />
                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
                           <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[--primary] transform translate-y-4 group-hover:translate-y-0 transition-transform">
                             <ExternalLink />

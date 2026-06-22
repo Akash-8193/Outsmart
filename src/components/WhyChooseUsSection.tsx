@@ -50,8 +50,8 @@ const features = [
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="py-12 px-6 bg-transparent font-sans overflow-hidden">
-      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-8 items-center">
+    <section className="py-8 px-6 bg-transparent font-sans overflow-hidden">
+      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-8 items-center">
         
         {/* Left Content Column */}
         <div className="w-full lg:w-1/2 flex flex-col pr-0 lg:pr-12 relative z-10">
@@ -128,7 +128,7 @@ export default function WhyChooseUsSection() {
         </div>
 
         {/* Right Images Column with Creative Animation */}
-        <div className="w-full lg:w-1/2 relative min-h-[500px] lg:min-h-[700px] mt-16 lg:mt-0">
+        <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[500px] mt-12 lg:mt-0">
           
           {/* Top Right Image */}
           <motion.div 
