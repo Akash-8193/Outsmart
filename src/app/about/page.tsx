@@ -117,6 +117,22 @@ export default function About() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] rounded-full blur-3xl -z-10 pointer-events-none opacity-20" style={{ backgroundColor: "var(--primary)" }}></div>
           </div>
         </div>
+        
+        {/* Scroll Down Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center z-30 opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+          onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
+        >
+          <span className="text-[--primary] text-[0.65rem] font-bold tracking-[0.3em] uppercase mb-3 drop-shadow-sm">Scroll Down</span>
+          <div className="w-[28px] h-[46px] border-2 rounded-full flex justify-center p-1.5 shadow-sm" style={{ borderColor: 'var(--primary)' }}>
+            <motion.div 
+              animate={{ y: [0, 16, 0] }} 
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              className="w-1.5 h-3 rounded-full" style={{ backgroundColor: 'var(--primary)' }}
+            />
+          </div>
+        </motion.div>
       </section>
       <div className="pb-20 px-6 min-h-screen">
 

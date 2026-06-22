@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PageTransition from "@/components/PageTransition";
-import PageHero from "@/components/PageHero";
+import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import Link from "next/link";
 import ProcessSection from "@/components/ProcessSection";
 import ContactSection from "@/components/ContactSection";
@@ -15,12 +15,12 @@ export default function Services() {
     gsap.registerPlugin(ScrollTrigger);
 
     const panels = gsap.utils.toArray(".fullscreen-panel");
-    
+
     panels.forEach((panel: any) => {
       ScrollTrigger.create({
         trigger: panel,
-        start: "top top", 
-        pin: true, 
+        start: "top top",
+        pin: true,
         pinSpacing: false, // Allows the next section to scroll over this one
       });
     });
@@ -63,24 +63,84 @@ export default function Services() {
 
   return (
     <PageTransition>
-      {/* Intro Panel */}
-      <PageHero 
-        subtitle="WHAT WE DO"
-        title="OUR SERVICES"
-        description="We don't do off-the-shelf. We provide tailored, high-end technology services designed to give your business an unfair advantage."
-        image="/service_cloud_saas.png"
-      />
+      {/* Custom Services Hero matching the exact About/Contact page layout */}
+      <section className="relative w-full min-h-screen flex items-center bg-white overflow-hidden pt-24 pb-12">
+        {/* Dotted Background using the dedicated world map image */}
+        <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply" style={{ backgroundImage: "url('/dotted_world_map_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
+
+        {/* Soft primary gradient matching the vibe */}
+        <div className="absolute top-0 left-0 w-1/2 h-full opacity-[0.03] z-0 pointer-events-none" style={{ background: "linear-gradient(to bottom right, var(--primary), transparent)" }}></div>
+
+        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-10 lg:gap-16">
+          {/* Left Content */}
+          <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
+            <h3 className="text-lg font-bold tracking-[0.2em] uppercase mb-4" style={{ color: "var(--primary)" }}>
+              Our Services
+            </h3>
+
+            <Text3DBounce as="h1" className="text-5xl sm:text-6xl md:text-[5rem] lg:text-[6.5rem] font-black leading-[1.1] mb-2 tracking-tight drop-shadow-sm font-sans whitespace-nowrap" style={{ color: "var(--foreground)" }}>
+              Our Services
+            </Text3DBounce>
+
+            <div className="w-16 h-1 mb-8 mt-6" style={{ backgroundColor: "var(--primary)" }}></div>
+
+            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 max-w-md font-medium">
+              Discover who we are, what drives us, and how we build technology that empowers businesses to grow. We don't do off-the-shelf. We provide tailored, high-end technology services.
+            </p>
+
+            <button
+              onClick={() => {
+                document.getElementById('services-list')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="inline-flex items-center justify-center gap-3 text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 btn-default"
+              style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
+            >
+              <span className="relative z-10">Explore Services</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="relative z-10">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Right Image (Pure transparent PNG with floating GSAP animation, matching About page) */}
+          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-16 lg:mt-0">
+            <img src="/services_hero_3d.png" alt="Our Services 3D Illustration" className="relative z-10 w-full max-w-[850px] ml-auto h-auto object-contain gsap-float scale-105 lg:scale-110 lg:translate-x-8" style={{ filter: "hue-rotate(15deg) saturate(1.1)" }} />
+
+            {/* Soft backdrop glow to enhance the 3D effect */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] rounded-full blur-3xl -z-10 pointer-events-none opacity-20" style={{ backgroundColor: "var(--primary)" }}></div>
+          </div>
+        </div>
+        
+        {/* Scroll Down Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center z-30 opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+          onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
+        >
+          <span className="text-[--primary] text-[0.65rem] font-bold tracking-[0.3em] uppercase mb-3 drop-shadow-sm">Scroll Down</span>
+          <div className="w-[28px] h-[46px] border-2 rounded-full flex justify-center p-1.5 shadow-sm" style={{ borderColor: 'var(--primary)' }}>
+            <motion.div 
+              animate={{ y: [0, 16, 0] }} 
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              className="w-1.5 h-3 rounded-full" style={{ backgroundColor: 'var(--primary)' }}
+            />
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Anchor for scroll */}
+      <div id="services-list"></div>
 
       {/* Full-Screen Service Cards */}
       {services.map((service, idx) => (
-        <div 
-          key={service.id} 
+        <div
+          key={service.id}
           className="fullscreen-panel h-screen w-full relative overflow-hidden flex items-center justify-center"
           style={{ zIndex: 20 + idx }}
         >
           {/* Background Image & Overlay */}
           <div className="absolute inset-0 z-0 bg-[#FCFBFA]">
-            <div 
+            <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-[20s] ease-out hover:scale-110"
               style={{ backgroundImage: `url(${service.image})` }}
             />
@@ -91,15 +151,15 @@ export default function Services() {
               <h4 className="text-sm font-bold tracking-[0.2em] uppercase mb-4 flex items-center gap-3" style={{ color: "var(--primary)" }}>
                 <span>0{idx + 1} / {service.category}</span>
               </h4>
-              
+
               <h2 className="text-4xl md:text-6xl lg:text-[5.5rem] font-serif tracking-tight text-gray-900 leading-[1.1] mb-4 drop-shadow-sm whitespace-nowrap">
                 {service.title}
               </h2>
-              
+
               <p className="text-lg md:text-2xl text-gray-800 font-medium italic tracking-wide mb-8 max-w-xl">
                 {service.subtitle}
               </p>
-              
+
               <Link
                 href={`/service/${service.id}`}
                 className="group inline-flex items-center gap-4 text-sm font-bold tracking-widest uppercase text-gray-900"
@@ -111,7 +171,7 @@ export default function Services() {
           </div>
         </div>
       ))}
-      
+
       {/* Subsequent Sections wrapper with z-30 and bg-white to slide over the pinned panels */}
       <div className="relative z-30 bg-white pt-20">
         <ProcessSection />

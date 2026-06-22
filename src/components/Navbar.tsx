@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import clsx from "clsx";
 
 const links = [
@@ -17,80 +17,117 @@ const links = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 bg-[#F2EFE7]/90 backdrop-blur-md text-[#0A0A0A]">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center">
-          <img
-            src="/logo.png"
-            alt="Outsmart Technology"
-            className="h-8 w-auto object-contain transition-transform hover:scale-105"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.style.display = 'none';
-              target.parentElement!.innerHTML += '<span class="text-2xl font-bold tracking-tighter text-[#0A0A0A]">Outsmart<span class="text-[--primary]">.</span></span>';
-            }}
-          />
-        </Link>
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-8">
+  return (
+    <header className="fixed top-4 left-0 right-0 z-50 px-4 md:px-8 pointer-events-none flex justify-center">
+      <nav 
+        className={clsx(
+          "w-full max-w-6xl bg-white rounded-full py-2.5 px-4 md:px-6 flex items-center justify-between pointer-events-auto border border-gray-100 transition-all duration-300",
+          scrolled ? "shadow-[0_10px_40px_rgba(0,0,0,0.08)] translate-y-0" : "shadow-md translate-y-2"
+        )}
+      >
+        {/* Logo - Left */}
+        <div className="flex-1 flex items-center">
+          <Link href="/" className="flex items-center">
+            <img
+              src="/logo.png"
+              alt="Outsmart Technology"
+              className="h-8 w-auto object-contain transition-transform hover:scale-105"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                target.parentElement!.innerHTML += '<span class="text-xl font-black tracking-tight text-gray-900">Outsmart<span style="color: var(--primary)">.</span></span>';
+              }}
+            />
+          </Link>
+        </div>
+
+        {/* Links - Center */}
+        <div className="hidden lg:flex items-center justify-center space-x-8 flex-1">
           {links.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`relative text-sm font-medium transition-colors hover:text-[--primary] ${pathname === link.href ? 'text-[--primary]' : 'text-gray-700'}`}
+              className={`relative text-[15px] font-bold transition-colors hover:text-[--primary] ${pathname === link.href ? 'text-[--primary]' : 'text-gray-800'}`}
             >
               {link.name}
               {pathname === link.href && (
                 <motion.div
                   layoutId="navbar-indicator"
-                  className="absolute left-0 right-0 -bottom-1 h-0.5"
+                  className="absolute left-1/2 -translate-x-1/2 -bottom-1.5 h-1 w-1 rounded-full"
                   style={{ background: "var(--primary)" }}
                 />
               )}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            className="px-6 py-2.5 rounded-full text-white text-sm font-bold transition-transform hover:scale-105 shadow-lg"
-            style={{ backgroundColor: "var(--primary)" }}
-          >
-            Get in Touch
-          </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X /> : <Menu />}
-        </button>
+        {/* CTA Button - Right */}
+        <div className="flex-1 flex items-center justify-end">
+          <Link
+            href="/contact"
+            className="hidden md:flex items-center gap-3 pl-1.5 pr-5 py-1.5 rounded-xl text-white text-[15px] font-bold transition-all hover:shadow-lg hover:-translate-y-0.5 group"
+            style={{ backgroundColor: "var(--primary)" }}
+          >
+            <div className="w-8 h-8 rounded-lg bg-black/20 flex items-center justify-center transition-transform group-hover:bg-black/30">
+              <ArrowUpRight className="w-4 h-4 text-white group-hover:rotate-12 transition-transform" />
+            </div>
+            Get in Touch
+          </Link>
+
+          {/* Mobile Menu Toggle */}
+          <button className="lg:hidden ml-4 p-2 rounded-full bg-gray-50 text-gray-800" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-[#F2EFE7] p-6 shadow-2xl border-t border-black/5 md:hidden"
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            className="absolute top-full left-4 right-4 mt-4 bg-white rounded-2xl p-6 shadow-2xl border border-gray-100 lg:hidden pointer-events-auto"
           >
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-2">
               {links.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={clsx(
-                    "text-lg font-medium py-2 border-b border-black/5",
-                    pathname === link.href ? "text-[--primary]" : "text-gray-800"
+                    "text-lg font-bold py-3 px-4 rounded-xl transition-colors",
+                    pathname === link.href ? "bg-[--primary] text-white" : "text-gray-800 hover:bg-gray-50"
                   )}
                 >
                   {link.name}
                 </Link>
               ))}
+              <Link
+                href="/contact"
+                onClick={() => setIsOpen(false)}
+                className="mt-4 flex items-center justify-center gap-2 py-4 rounded-xl text-white font-bold shadow-md"
+                style={{ backgroundColor: "var(--primary)" }}
+              >
+                Get in Touch
+                <ArrowUpRight className="w-5 h-5" />
+              </Link>
             </div>
           </motion.div>
         )}

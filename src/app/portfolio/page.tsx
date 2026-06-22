@@ -5,8 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import PageHero from "@/components/PageHero";
-
+import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 const categories = ["All", "Enterprise SaaS", "Custom Software", "Web Apps", "Operations"];
 
 const projects = [
@@ -28,12 +27,79 @@ export default function Projects() {
 
   return (
     <PageTransition>
-      <PageHero 
-        subtitle="OUR EXPERTISE"
-        title="PORTFOLIO"
-        description="A selection of our latest projects and technical achievements across enterprise sectors."
-        image="/project_hrms.png"
-      />
+      {/* Custom Projects Hero matching the exact About/Contact/Services page layout */}
+      <section className="relative w-full min-h-screen flex items-center bg-white overflow-hidden pt-24 pb-12">
+        {/* Dotted Background using the dedicated world map image */}
+        <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply" style={{ backgroundImage: "url('/dotted_world_map_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
+        
+        {/* Soft primary gradient matching the vibe */}
+        <div className="absolute top-0 left-0 w-1/2 h-full opacity-[0.03] z-0 pointer-events-none" style={{ background: "linear-gradient(to bottom right, var(--primary), transparent)" }}></div>
+
+        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-10 lg:gap-16">
+          {/* Left Content */}
+          <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
+            <h3 className="text-lg font-bold tracking-[0.2em] uppercase mb-4" style={{ color: "var(--primary)" }}>
+              Our Projects
+            </h3>
+            
+            <div className="w-16 h-1 mb-8 mt-2" style={{ backgroundColor: "var(--primary)" }}></div>
+            
+            <div className="flex flex-wrap gap-x-4">
+              <Text3DBounce as="h1" className="text-5xl sm:text-6xl md:text-[5rem] lg:text-[6.5rem] font-black leading-[1.1] mb-2 tracking-tight drop-shadow-sm font-sans" style={{ color: "var(--foreground)" }}>
+                Our
+              </Text3DBounce>
+              <Text3DBounce as="h1" className="text-5xl sm:text-6xl md:text-[5rem] lg:text-[6.5rem] font-black leading-[1.1] mb-2 tracking-tight drop-shadow-sm font-sans" style={{ color: "var(--primary)" }}>
+                Projects
+              </Text3DBounce>
+            </div>
+            
+            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 mt-6 max-w-md font-medium">
+              Explore the digital products, enterprise solutions, and AI innovations we've built for ambitious businesses.
+            </p>
+            
+            <button 
+              onClick={() => {
+                document.getElementById('portfolio-grid')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="inline-flex items-center justify-center gap-3 text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 btn-default"
+              style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
+            >
+              <span className="relative z-10">View Portfolio</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="relative z-10">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          
+          {/* Right Image with mix-blend-multiply wrapper and soft mask to hide white fringing and shadows seamlessly */}
+          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-16 lg:mt-0">
+            <div className="relative z-10 w-full max-w-[850px] ml-auto mix-blend-multiply">
+              <div className="w-full h-full" style={{ WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 95%)", maskImage: "linear-gradient(to bottom, black 85%, transparent 95%)" }}>
+                <img src="/projects_hexagon_hero.png" alt="Our Projects Hexagon 3D Illustration" className="w-full h-auto object-contain brightness-105 contrast-105" />
+              </div>
+            </div>
+            
+            {/* Soft backdrop glow to enhance the 3D effect */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] rounded-full blur-3xl -z-10 pointer-events-none opacity-20" style={{ backgroundColor: "var(--primary)" }}></div>
+          </div>
+        </div>
+        
+        {/* Scroll Down Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center z-30 opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+          onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
+        >
+          <span className="text-[--primary] text-[0.65rem] font-bold tracking-[0.3em] uppercase mb-3 drop-shadow-sm">Scroll Down</span>
+          <div className="w-[28px] h-[46px] border-2 rounded-full flex justify-center p-1.5 shadow-sm" style={{ borderColor: 'var(--primary)' }}>
+            <motion.div 
+              animate={{ y: [0, 16, 0] }} 
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              className="w-1.5 h-3 rounded-full" style={{ backgroundColor: 'var(--primary)' }}
+            />
+          </div>
+        </motion.div>
+      </section>
       <div className="pb-20 px-6 min-h-screen">
         <div className="max-w-[1400px] mx-auto pt-16">
 
