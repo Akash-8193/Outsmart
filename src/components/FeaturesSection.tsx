@@ -1,30 +1,30 @@
 "use client";
 
-import { Sparkles, MessageSquare, LayoutDashboard, Mic, Globe } from "lucide-react";
+import { Sparkles, MessageSquare, LayoutDashboard, Mic, Globe, Users } from "lucide-react";
 
 export default function FeaturesSection() {
   const features = [
     {
-      title: "Nexus AI Chatbot",
-      desc: "AI App Development",
+      title: "FOVESTTA HRMS",
+      desc: "Attendance, Payroll, Recruitment",
+      icon: <Users className="w-8 h-8" />,
+      color: "var(--primary)"
+    },
+    {
+      title: "Complaint Management",
+      desc: "Custom Solution for NBCC",
       icon: <MessageSquare className="w-8 h-8" />,
       color: "var(--primary)"
     },
     {
-      title: "FinTech Dashboard",
-      desc: "Custom Software",
+      title: "Inventory Management",
+      desc: "Stock & Warehouse Tracking",
       icon: <LayoutDashboard className="w-8 h-8" />,
-      color: "var(--primary)"
+      color: "#1A1A1A"
     },
     {
-      title: "AutoVoice Agent",
-      desc: "AI Agents",
-      icon: <Mic className="w-8 h-8" />,
-      color: "#1A1A1A" // Dark accent mimicking the blue in the screenshot
-    },
-    {
-      title: "Global Supply Chain ERP",
-      desc: "Enterprise SaaS Platforms",
+      title: "Custom ERP Systems",
+      desc: "Workflow Automation & Analytics",
       icon: <Globe className="w-8 h-8" />,
       color: "var(--primary)"
     }
@@ -70,10 +70,10 @@ export default function FeaturesSection() {
 
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#0A0A0A] leading-[1.1] tracking-tight mb-6">
-            Featured <span style={{ color: "var(--primary)" }}>Work</span>
+            Our Custom <span style={{ color: "var(--primary)" }}>Solutions</span>
           </h2>
           <p className="text-gray-600 leading-relaxed font-medium text-lg mb-12">
-            Explore how we've helped forward-thinking companies implement robust software and AI solutions to dominate their markets.
+            From enterprise systems to customer-focused platforms, we build powerful digital solutions that streamline operations, drive growth, and create meaningful experiences.
           </p>
 
           {/* Grid of Features */}

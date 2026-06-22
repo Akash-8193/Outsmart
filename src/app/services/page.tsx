@@ -5,7 +5,9 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PageTransition from "@/components/PageTransition";
-import { CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import ProcessSection from "@/components/ProcessSection";
+import ContactSection from "@/components/ContactSection";
 
 export default function Services() {
   useEffect(() => {
@@ -30,35 +32,31 @@ export default function Services() {
   const services = [
     {
       id: "custom-software",
-      title: "Custom Software Development",
+      category: "Software Engineering",
+      title: "Custom Software",
       subtitle: "Scalable. Secure. Bespoke.",
-      desc: "We engineer high-performance web applications, SaaS platforms, and enterprise systems tailored to your unique operational workflows. Our tech stack is modern, our architecture is robust, and our code is clean.",
-      features: ["Next.js & React Native App Development", "Microservices Architecture", "Cloud-native deployments (AWS/GCP)", "Legacy system modernization"],
-      color: "var(--primary)"
+      image: "/service_custom_software.png"
     },
     {
-      id: "ai-agents",
-      title: "AI Agent Development",
-      subtitle: "Autonomous Digital Workers.",
-      desc: "Transform your operations with autonomous AI agents capable of reasoning, executing complex workflows, and integrating with your existing APIs. We build custom agents that handle support, sales, and internal automation.",
-      features: ["Custom LLM Integration & Fine-tuning", "Autonomous Task Execution", "Multi-agent System Architecture", "Data Privacy & Compliance"],
-      color: "var(--secondary)"
+      id: "web-mobile",
+      category: "Digital Platforms",
+      title: "Web & Mobile Apps",
+      subtitle: "Intuitive & Powerful Interfaces.",
+      image: "/service_web_mobile.png"
     },
     {
-      id: "ai-apps",
-      title: "AI App Development",
-      subtitle: "Intelligence built-in.",
-      desc: "We infuse generative AI into consumer and B2B applications. From intelligent chatbots and content generators to predictive analytics dashboards, we make your software smarter.",
-      features: ["Conversational AI Interfaces", "RAG (Retrieval-Augmented Generation)", "AI-driven Predictive Analytics", "Generative Image & Text Pipelines"],
-      color: "var(--primary)"
+      id: "ai-automation",
+      category: "Intelligence",
+      title: "AI & Automation",
+      subtitle: "Transformative Autonomous Workflows.",
+      image: "/service_ai_automation.png"
     },
     {
-      id: "it-solutions",
-      title: "Full IT Solutions",
+      id: "cloud-saas",
+      category: "Infrastructure",
+      title: "Cloud & SaaS Products",
       subtitle: "Infrastructure you can trust.",
-      desc: "Beyond software development, we provide complete IT consulting, robust DevOps pipelines, and 24/7 maintenance. We ensure your digital backbone is secure, scalable, and fully optimized.",
-      features: ["Cloud Infrastructure Setup", "CI/CD Pipeline Automation", "Cybersecurity Audits", "24/7 Monitoring & Support"],
-      color: "var(--secondary)"
+      image: "/service_cloud_saas.png"
     }
   ];
 
@@ -90,49 +88,52 @@ export default function Services() {
       {services.map((service, idx) => (
         <div 
           key={service.id} 
-          className="fullscreen-panel h-screen w-full flex items-center justify-center px-6 md:px-12 relative shadow-[0_-20px_40px_rgba(0,0,0,0.05)] border-t border-black/5"
-          style={{ 
-            // Alternate colors so the overlap is visually distinct
-            background: idx % 2 === 0 ? "#ffffff" : "#F2EFE7",
-            zIndex: 20 + idx 
-          }}
+          className="fullscreen-panel h-screen w-full relative overflow-hidden flex items-center justify-center"
+          style={{ zIndex: 20 + idx }}
         >
-          <div className="max-w-7xl w-full flex flex-col md:flex-row gap-10 md:gap-16 items-center pt-20">
-            {/* Text Content */}
-            <div className="w-full md:w-1/2">
-              <h3 className="text-sm font-bold tracking-widest uppercase mb-4" style={{ color: service.color }}>
-                0{idx + 1}. {service.subtitle}
-              </h3>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 text-[--foreground] leading-tight">
+          {/* Background Image & Overlay */}
+          <div className="absolute inset-0 z-0 bg-[#FCFBFA]">
+            <div 
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-[20s] ease-out hover:scale-110"
+              style={{ backgroundImage: `url(${service.image})` }}
+            />
+          </div>
+
+          <div className="relative z-10 w-full max-w-7xl px-6 flex flex-col items-start justify-center h-full pt-16">
+            <div className="bg-white/40 backdrop-blur-md border border-white/60 p-8 md:p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] inline-flex flex-col max-w-full">
+              <h4 className="text-sm font-bold tracking-[0.2em] uppercase mb-4 flex items-center gap-3" style={{ color: "var(--primary)" }}>
+                <span>0{idx + 1} / {service.category}</span>
+              </h4>
+              
+              <h2 className="text-4xl md:text-6xl lg:text-[5.5rem] font-serif tracking-tight text-gray-900 leading-[1.1] mb-4 drop-shadow-sm whitespace-nowrap">
                 {service.title}
               </h2>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
-                {service.desc}
+              
+              <p className="text-lg md:text-2xl text-gray-800 font-medium italic tracking-wide mb-8 max-w-xl">
+                {service.subtitle}
               </p>
-            </div>
-            
-            {/* Feature List Card */}
-            <div className="w-full md:w-1/2 bg-white/60 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-white/80 flex flex-col justify-center">
-              <h4 className="text-2xl font-bold mb-8">What's Included</h4>
-              <ul className="space-y-6">
-                {service.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-4">
-                    <CheckCircle2 className="mt-1 flex-shrink-0" style={{ color: service.color }} />
-                    <span className="text-gray-700 text-lg font-medium">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              
+              <Link
+                href={`/service/${service.id}`}
+                className="group inline-flex items-center gap-4 text-sm font-bold tracking-widest uppercase text-gray-900"
+              >
+                <span>Explore Experience</span>
+                <span className="w-12 h-[1px] bg-gray-900 transition-all duration-300 group-hover:w-24 group-hover:bg-[--primary]"></span>
+              </Link>
             </div>
           </div>
         </div>
       ))}
       
-      {/* Spacer to allow the footer to scroll up over the last pinned panel.
-          The footer is 100vh below us effectively, so we just need an empty block 
-          that pushes the scroll height so the footer can come into view. 
-          Without a spacer, we couldn't scroll past the last pinned panel.
-      */}
-      <div className="h-screen w-full relative" style={{ zIndex: 10 }} />
+      {/* Subsequent Sections wrapper with z-30 and bg-white to slide over the pinned panels */}
+      <div className="relative z-30 bg-white pt-20">
+        <ProcessSection />
+
+        {/* Final CTA / Contact Form */}
+        <div className="bg-[#F2EFE7] mt-20 pt-10">
+          <ContactSection />
+        </div>
+      </div>
     </PageTransition>
   );
 }

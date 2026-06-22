@@ -80,13 +80,14 @@ export default function AboutUsSection() {
           </div>
           
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.05] tracking-tight mb-6">
-            YOUR VISION OUR EXPERT SOFTWARE CARE
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.05] tracking-tight mb-6 uppercase">
+            Our Purpose. Our Commitment.
           </h2>
           
           {/* Paragraph */}
           <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-10 font-medium">
-            We specialize in fast, reliable custom software and autonomous AI agents. Our highly skilled engineers ensure your enterprise tech stack is future-proof, bringing your digital ideas to life with precision, scalability, and absolute care.
+            <strong className="text-gray-900">Vision:</strong> To become a trusted global technology partner enabling businesses through innovative digital solutions.<br/><br/>
+            <strong className="text-gray-900">Mission:</strong> To deliver scalable, intelligent, and user-focused software products that create measurable business impact.
           </p>
           
           {/* Two Horizontal Cards */}
@@ -96,7 +97,7 @@ export default function AboutUsSection() {
               <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors" style={{ backgroundColor: "var(--primary)" }}>
                 <Layers className="w-6 h-6 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 text-sm md:text-base leading-tight">Fast and Reliable<br/>Deployment</h4>
+              <h4 className="font-bold text-gray-900 text-sm md:text-base leading-tight">Innovative Digital<br/>Solutions</h4>
             </div>
             
             {/* Card 2 */}
@@ -104,7 +105,7 @@ export default function AboutUsSection() {
               <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors" style={{ backgroundColor: "var(--primary)" }}>
                 <Server className="w-6 h-6 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 text-sm md:text-base leading-tight">Scalable Enterprise<br/>Solutions</h4>
+              <h4 className="font-bold text-gray-900 text-sm md:text-base leading-tight">Measurable Business<br/>Impact</h4>
             </div>
           </div>
           

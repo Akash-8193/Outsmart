@@ -12,9 +12,10 @@ import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import FeaturesSection from "@/components/FeaturesSection";
+import ProjectsSection from "@/components/ProjectsSection";
 import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
+import OurExpertiseSection from "@/components/OurExpertiseSection";
 import { ArrowRight, Code, Cpu, Smartphone, Server } from "lucide-react";
 
 export default function Home() {
@@ -83,11 +84,11 @@ export default function Home() {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-black leading-[1.05] mb-8 tracking-tight text-gray-900">
-                Expert Software Engineering & AI Solutions
+                Full-Stack Software & Digital Transformation
               </h1>
               
               <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-12 max-w-xl font-medium">
-                We provide fast, reliable custom software and AI agents. Our expert engineers use elite architectures to ensure your digital systems scale flawlessly.
+                Outsmart Technology delivers scalable, intelligent, and future-ready technology solutions. We help organizations modernize operations, automate workflows, and build digital products that accelerate growth.
               </p>
               
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 mb-14">
@@ -184,11 +185,14 @@ export default function Home() {
         {/* Process Section */}
         <ProcessSection />
 
+        {/* Our Expertise Section */}
+        <OurExpertiseSection />
+
         {/* Why Choose Us Section */}
         <WhyChooseUsSection />
 
-        {/* Features Section */}
-        <FeaturesSection />
+        {/* Projects Section (Replacing Features Section) */}
+        <ProjectsSection />
 
         {/* Quick Stats */}
         <section ref={statsRef} className="py-20 relative overflow-hidden text-white" style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>
@@ -227,7 +231,10 @@ export default function Home() {
         <section className="py-32 px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-bold mb-8">Ready to Outsmart the Competition?</h2>
-            <p className="text-xl text-gray-600 mb-12">Let's build something extraordinary together.</p>
+            <p className="text-xl text-gray-600 mb-6">Let's build smarter digital solutions together.</p>
+            <p className="text-lg font-bold text-gray-800 mb-12">
+              <span className="text-[--primary]">+91 9599 34 2525</span> | info@outsmarttechnology.com
+            </p>
             <Link 
               href="/contact"
               className="inline-block px-10 py-5 rounded-full text-white font-bold text-xl transition-all hover:scale-105 shadow-2xl hover:shadow-[--primary]/50"

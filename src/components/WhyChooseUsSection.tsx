@@ -18,11 +18,11 @@ export default function WhyChooseUsSection() {
 
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#0A0A0A] leading-[1.1] tracking-tight mb-6">
-            Why enterprises trust our engineering
+            Why businesses choose us
           </h2>
           
           <p className="text-gray-600 leading-relaxed font-medium text-lg mb-12 max-w-xl">
-            We stand out by delivering scalable, secure, and future-proof software solutions designed to give your business an unfair competitive advantage.
+            We combine expertise, technology, and dedication to deliver solutions that help your business grow faster and smarter.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
@@ -31,9 +31,9 @@ export default function WhyChooseUsSection() {
               <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 bg-gray-50 border border-gray-100">
                 <Code className="w-6 h-6" style={{ color: "var(--primary)" }} />
               </div>
-              <h3 className="text-xl font-black text-gray-900 mb-3 tracking-tight">Elite Talent</h3>
+              <h3 className="text-xl font-black text-gray-900 mb-3 tracking-tight">Scalable Architecture</h3>
               <p className="text-gray-600 text-sm leading-relaxed font-medium">
-                From frontend to architecture, our senior engineers write flawless code for every project.
+                Systems designed to grow with your business, handling increasing load and data flawlessly.
               </p>
             </div>
             {/* Feature 2 */}
@@ -41,9 +41,9 @@ export default function WhyChooseUsSection() {
               <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 bg-gray-50 border border-gray-100">
                 <ShieldCheck className="w-6 h-6" style={{ color: "var(--primary)" }} />
               </div>
-              <h3 className="text-xl font-black text-gray-900 mb-3 tracking-tight">Zero Tech Debt</h3>
+              <h3 className="text-xl font-black text-gray-900 mb-3 tracking-tight">Fast Delivery</h3>
               <p className="text-gray-600 text-sm leading-relaxed font-medium">
-                We build scalable systems that are secure, documented, and exceptionally easy to maintain.
+                Quick turnaround without compromising quality, thanks to our experienced team and robust processes.
               </p>
             </div>
           </div>

@@ -8,44 +8,30 @@ export default function ServicesSection() {
     {
       id: "custom-software",
       title: "Custom Software",
-      desc: "Scalable enterprise web applications and complex systems built from the ground up to solve your unique challenges.",
+      desc: "ERP Systems, CRM Solutions, HRMS Platforms, Inventory & Warehouse Systems, Workflow Automation.",
       icon: <Code className="w-8 h-8" />,
       img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
     },
     {
-      id: "ai-agents",
-      title: "AI Agents",
-      desc: "Autonomous generative AI agents that automate customer support, internal workflows, and complex data tasks.",
-      icon: <Bot className="w-8 h-8" />,
-      img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: "cloud-architecture",
-      title: "Cloud Architecture",
-      desc: "Robust cloud infrastructure, highly secure DevOps pipelines, and strategic IT consulting for the modern web.",
-      icon: <Cloud className="w-8 h-8" />,
-      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: "mobile-apps",
-      title: "Mobile Apps",
-      desc: "Intelligent, high-performance mobile applications built natively for both iOS and Android platforms.",
+      id: "web-mobile",
+      title: "Web & Mobile Apps",
+      desc: "Android/iOS Apps, Customer Portals, Business Dashboards, Multi-Vendor Platforms.",
       icon: <Smartphone className="w-8 h-8" />,
       img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80"
     },
     {
-      id: "data-analytics",
-      title: "Data Analytics",
-      desc: "Advanced data pipelines, sophisticated machine learning models, and predictive analytics dashboards.",
-      icon: <Database className="w-8 h-8" />,
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+      id: "ai-automation",
+      title: "AI & Automation",
+      desc: "AI Integrations, Chatbots, Predictive Analytics, Process Automation.",
+      icon: <Bot className="w-8 h-8" />,
+      img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
     },
     {
-      id: "saas-platforms",
-      title: "SaaS Platforms",
-      desc: "End-to-end development of secure, highly scalable, multi-tenant Software as a Service digital products.",
-      icon: <Cpu className="w-8 h-8" />,
-      img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+      id: "cloud-saas",
+      title: "Cloud & SaaS Products",
+      desc: "Multi-Tenant SaaS, Subscription Platforms, Scalable Cloud Apps.",
+      icon: <Cloud className="w-8 h-8" />,
+      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -77,7 +63,7 @@ export default function ServicesSection() {
         </div>
         
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {services.map((service, idx) => (
             <Link href={`/service/${service.id}`} key={idx} className="group relative rounded-3xl overflow-hidden h-[320px] sm:h-[280px] shadow-lg cursor-pointer block">
               {/* Background Image */}

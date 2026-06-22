@@ -1,115 +1,158 @@
 "use client";
 
-import { useParams, notFound } from "next/navigation";
+import { use } from "react";
+import Link from "next/link";
+import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
+import { notFound } from "next/navigation";
 
-const servicesData = {
+// Define the service data mapping
+const serviceData: Record<string, any> = {
   "custom-software": {
+    id: "01",
+    category: "Software Engineering",
     title: "Custom Software",
-    subtitle: "Precision, Impact, and Technical Excellence.",
-    desc: "From massive enterprise architectures to intimate internal tools, we deliver custom software that aligns perfectly with your strategic vision. We handle every technical detail—from backend engineering and database optimization to intuitive front-end interfaces—ensuring a seamless, high-performance experience that leaves a lasting impression on your users.",
-    img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=80",
-    color: "var(--primary)",
+    subtitle: "Precision, Impact, and Brand Excellence.",
+    desc: "We engineer high-performance web applications, SaaS platforms, and enterprise systems tailored to your unique operational workflows.",
+    features: ["ERP Systems", "CRM Solutions", "HRMS Platforms", "Inventory & Warehouse Systems", "Workflow Automation"],
+    image: "/service_custom_software.png",
+    longDesc: "From massive enterprise systems to intimate internal tools, we deliver custom software that aligns perfectly with your brand's vision. We handle every technical detail—from architecture design and API integration to scalable deployments and post-launch analytics—ensuring a seamless, professional experience that leaves a lasting impact on your operations."
   },
-  "ai-agents": {
-    title: "AI Agents",
-    subtitle: "Autonomy, Intelligence, and Relentless Execution.",
-    desc: "From complex multi-agent workflows to targeted virtual assistants, we deliver AI agents that align perfectly with your operational needs. We handle every conversational detail—from LLM fine-tuning and context window management to seamless API integrations—ensuring an autonomous, hyper-intelligent system that leaves a lasting impact on your efficiency.",
-    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1920&q=80",
-    color: "var(--primary)",
+  "web-mobile": {
+    id: "02",
+    category: "Digital Platforms",
+    title: "Web & Mobile Apps",
+    subtitle: "Intuitive & Powerful Interfaces.",
+    desc: "From sleek consumer apps to complex business portals, we build cross-platform applications that deliver seamless user experiences.",
+    features: ["Android/iOS Apps", "Customer Portals", "Business Dashboards", "Multi-Vendor Platforms"],
+    image: "/service_web_mobile.png",
+    longDesc: "Our team crafts highly engaging, intuitive web and mobile applications designed to perform flawlessly across all devices. We focus on stunning UI/UX, robust performance, and scalable backends to ensure your digital products provide exceptional value to your users."
   },
-  "cloud-architecture": {
-    title: "Cloud Architecture",
-    subtitle: "Scalability, Security, and Flawless Reliability.",
-    desc: "From massive global deployments to secure private networks, we deliver cloud architectures that align perfectly with your scaling vision. We handle every infrastructural detail—from zero-trust security and load balancing to CI/CD pipelines—ensuring a resilient, high-availability foundation that leaves your enterprise immune to downtime.",
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80",
-    color: "var(--primary)",
+  "ai-automation": {
+    id: "03",
+    category: "Intelligence",
+    title: "AI & Automation",
+    subtitle: "Transformative Autonomous Workflows.",
+    desc: "Transform your operations with intelligent automation and AI. We build custom solutions that handle support and predict trends.",
+    features: ["AI Integrations", "Chatbots", "Predictive Analytics", "Process Automation"],
+    image: "/service_ai_automation.png",
+    longDesc: "Embrace the future with our advanced AI and automation solutions. We integrate cutting-edge machine learning models, autonomous chatbots, and predictive analytics directly into your business processes, dramatically reducing manual effort and uncovering new opportunities for growth."
   },
-  "mobile-apps": {
-    title: "Mobile Apps",
-    subtitle: "Fluidity, Engagement, and Native Performance.",
-    desc: "From massive consumer applications to specialized B2B tools, we deliver mobile experiences that align perfectly with your brand's vision. We handle every interaction detail—from fluid 120hz animations and gesture controls to offline-first architectures—ensuring a seamless, premium mobile experience that leaves a lasting impression on your users.",
-    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1920&q=80",
-    color: "var(--primary)",
-  },
-  "data-analytics": {
-    title: "Data Analytics",
-    subtitle: "Foresight, Clarity, and Strategic Advantage.",
-    desc: "From massive real-time pipelines to intimate predictive models, we deliver data analytics solutions that align perfectly with your decision-making vision. We handle every analytical detail—from data warehousing and ETL processes to interactive dashboards—ensuring a crystal-clear, actionable data ecosystem that leaves you perpetually ahead of the curve.",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80",
-    color: "var(--primary)",
-  },
-  "saas-platforms": {
-    title: "SaaS Platforms",
-    subtitle: "Multi-tenant, Robust, and Market-Ready.",
-    desc: "From massive enterprise rollouts to disruptive consumer offerings, we deliver SaaS platforms that align perfectly with your monetization vision. We handle every product detail—from secure multi-tenant architectures and subscription billing to onboarding flows—ensuring a flawless, highly-scalable platform that leaves a lasting impression on your subscribers.",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80",
-    color: "var(--primary)",
+  "cloud-saas": {
+    id: "04",
+    category: "Infrastructure",
+    title: "Cloud & SaaS Products",
+    subtitle: "Infrastructure you can trust.",
+    desc: "We design, build, and deploy highly scalable cloud-native products and multi-tenant SaaS platforms ready for global audiences.",
+    features: ["Multi-Tenant SaaS", "Subscription Platforms", "Scalable Cloud Apps", "Cloud Infrastructure Setup"],
+    image: "/service_cloud_saas.png",
+    longDesc: "Build your digital empire on a solid foundation. We architect and deploy multi-tenant SaaS platforms and cloud infrastructures using AWS, Azure, and Google Cloud. Enjoy unparalleled scalability, bulletproof security, and seamless continuous delivery for your most critical products."
   }
 };
 
-export default function ServiceDetail() {
-  const params = useParams();
-  const id = params?.id as string;
-  const service = servicesData[id as keyof typeof servicesData];
+export default function ServiceDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = use(params);
+  const service = serviceData[resolvedParams.id];
 
   if (!service) {
-    return notFound();
+    notFound();
   }
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-[#050505] text-white selection:bg-[--primary] selection:text-white">
+      <div className="bg-[#FCFBFA] min-h-screen font-sans text-gray-900 pb-24">
         
         {/* Hero Section */}
-        <div className="relative h-[75vh] w-full flex flex-col justify-end pb-16 md:pb-32 px-6 md:px-16 lg:px-24">
+        <div className="relative w-full h-[70vh] min-h-[600px] flex flex-col justify-end overflow-hidden">
           
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-            style={{ 
-              backgroundImage: `url(${service.img})`,
-              backgroundAttachment: "fixed" 
-            }}
-          />
-          
-          {/* Gradients to fade smoothly into black */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-[#050505] z-0" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-0" />
+          {/* Background Image & Overlay */}
+          <div className="absolute inset-0 z-0 bg-[#FCFBFA]">
+            <div 
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-105"
+              style={{ backgroundImage: `url(${service.image})` }}
+            />
+          </div>
 
-          {/* Content */}
-          <div className="relative z-10 max-w-5xl">
-            {/* Tag */}
-            <div className="flex items-center gap-4 mb-6">
-              <span 
-                className="tracking-[0.3em] text-sm font-bold uppercase"
-                style={{ color: service.color }}
+          {/* Top Navigation */}
+          <div className="absolute top-0 left-0 w-full p-8 z-20">
+            <div className="max-w-7xl mx-auto flex justify-start">
+              <Link 
+                href="/" 
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/90 backdrop-blur-md shadow-sm border border-gray-200 text-sm font-bold tracking-widest uppercase transition-all hover:bg-gray-900 hover:text-white group"
               >
-                Service Details
-              </span>
+                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+                Back To Home
+              </Link>
             </div>
+          </div>
 
-            {/* Title */}
-            <h1 className="text-6xl md:text-8xl lg:text-[8rem] leading-[0.9] tracking-tight font-serif mb-6 drop-shadow-2xl">
-              {service.title}
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-xl md:text-3xl lg:text-4xl italic text-white/90 font-serif drop-shadow-lg font-light">
-              {service.subtitle}
-            </p>
+          {/* Hero Content */}
+          <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pb-20">
+            <div className="bg-white/40 backdrop-blur-md border border-white/60 p-8 md:p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] inline-flex flex-col max-w-full">
+              <h4 className="text-sm font-bold tracking-[0.2em] uppercase mb-4 flex items-center gap-3" style={{ color: "var(--primary)" }}>
+                <span>{service.id}</span>
+                <span className="w-8 h-[1px] bg-[--primary]"></span>
+                <span>{service.category}</span>
+              </h4>
+              
+              <h1 className="text-4xl md:text-6xl lg:text-[5.5rem] font-serif tracking-tight text-gray-900 leading-[1.1] mb-4 drop-shadow-sm whitespace-nowrap">
+                {service.title}
+              </h1>
+              
+              <p className="text-lg md:text-2xl text-gray-800 font-medium italic tracking-wide max-w-xl">
+                {service.subtitle}
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Content Section */}
-        <div className="relative z-10 max-w-5xl px-6 md:px-16 lg:px-24 py-16 md:py-24">
-          <p className="text-lg md:text-2xl lg:text-3xl leading-relaxed md:leading-[1.8] text-white/80 font-serif">
-            {service.desc}
-          </p>
+        <div className="max-w-7xl mx-auto px-6 pt-24">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+            
+            {/* Left Column - Label */}
+            <div className="w-full lg:w-1/4 shrink-0">
+              <h3 className="text-sm font-bold tracking-[0.2em] uppercase sticky top-32" style={{ color: "var(--primary)" }}>
+                Service Details
+              </h3>
+            </div>
+            
+            {/* Right Column - Details */}
+            <div className="w-full lg:w-3/4 flex flex-col">
+              <h2 className="text-2xl md:text-3xl font-medium text-gray-900 leading-[1.6] mb-12">
+                {service.longDesc}
+              </h2>
+              
+              <div className="w-full h-[1px] bg-gray-200 mb-12" />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-6">Overview</h4>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    {service.desc}
+                  </p>
+                </div>
+                
+                <div className="bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-gray-100">
+                  <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "var(--primary)" }}></span>
+                    Included Offerings
+                  </h4>
+                  <ul className="space-y-4">
+                    {service.features.map((feature: string, idx: number) => (
+                      <li key={idx} className="flex items-start gap-3 text-gray-700 font-medium">
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 shrink-0" style={{ color: "var(--primary)" }} />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              
+            </div>
+          </div>
         </div>
-        
-        {/* Extra spacing at bottom */}
-        <div className="h-32"></div>
+
       </div>
     </PageTransition>
   );

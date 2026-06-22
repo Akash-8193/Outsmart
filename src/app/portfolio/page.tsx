@@ -5,15 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import { ExternalLink, ArrowRight } from "lucide-react";
 
-const categories = ["All", "Software", "AI Agents", "AI Apps"];
+const categories = ["All", "Enterprise SaaS", "Custom Software", "Web Apps", "Operations"];
 
 const projects = [
-  { id: 1, title: "Nexus AI Chatbot", category: "AI Apps", img: "bg-gray-200", client: "Nexus E-Commerce", desc: "A smart customer support agent reducing ticket volume by 40%." },
-  { id: 2, title: "FinTech Dashboard", category: "Software", img: "bg-gray-300", client: "GlobalPay", desc: "Enterprise-grade real-time transaction monitoring platform." },
-  { id: 3, title: "AutoVoice Agent", category: "AI Agents", img: "bg-gray-400", client: "TeleSales Co", desc: "Autonomous outbound calling agent with human-like latency." },
-  { id: 4, title: "Supply Chain AI", category: "AI Apps", img: "bg-gray-500", client: "Logistics Pro", desc: "Predictive routing and inventory management system." },
-  { id: 5, title: "HealthTech Portal", category: "Software", img: "bg-gray-600", client: "MedCare", desc: "HIPAA-compliant patient data management SaaS." },
-  { id: 6, title: "CodeReview Bot", category: "AI Agents", img: "bg-gray-700", client: "DevShop", desc: "Automated PR review agent ensuring code quality." },
+  { id: 1, title: "FOVESTTA HRMS", category: "Enterprise SaaS", img: "bg-[url('/project_hrms.png')] bg-cover bg-center", client: "Corporate Enterprises", desc: "Advanced human resource management platform simplifying workforce operations through automation." },
+  { id: 2, title: "Complaint Management Software", category: "Custom Software", img: "bg-[url('/project_complaint.png')] bg-cover bg-center", client: "NBCC", desc: "Streamlines complaint registration, tracking, escalation, and resolution across departments." },
+  { id: 3, title: "Inventory Management System", category: "Operations", img: "bg-[url('/project_inventory.png')] bg-cover bg-center", client: "Retail & Logistics", desc: "Helps businesses track, manage, and optimize inventory operations with real-time visibility." },
+  { id: 4, title: "Global Supply Chain ERP", category: "Custom Software", img: "bg-[url('https://images.unsplash.com/photo-1586528116311-ad8ed7c663be?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center", client: "Logistics", desc: "Automated workflows and accurate stock control across multiple warehouse locations." },
+  { id: 5, title: "Multi-Vendor E-Commerce", category: "Web Apps", img: "bg-[url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center", client: "Retail", desc: "Scalable digital platforms that accelerate growth and modernize retail operations." },
+  { id: 6, title: "Patient Data Management SaaS", category: "Enterprise SaaS", img: "bg-[url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center", client: "Healthcare", desc: "HIPAA-compliant patient data management and predictive analytics dashboards." },
 ];
 
 export default function Portfolio() {
