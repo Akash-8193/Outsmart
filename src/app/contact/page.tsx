@@ -20,7 +20,7 @@ export default function Contact() {
         <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-10 lg:gap-16">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
-            <Text3DBounce as="h1" className="text-5xl sm:text-6xl md:text-[5rem] lg:text-[6.5rem] font-black leading-[1.1] mb-2 tracking-tight drop-shadow-sm font-sans whitespace-nowrap" style={{ color: "var(--foreground)" }}>
+            <Text3DBounce as="h1" className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-black leading-[1.1] mb-2 tracking-tight drop-shadow-sm font-sans whitespace-nowrap" style={{ color: "var(--foreground)" }}>
               Contact Us
             </Text3DBounce>
             
@@ -94,7 +94,7 @@ export default function Contact() {
       </div>
 
       {/* Location Map Section Matching User Design */}
-      <section className="w-full py-24 bg-[var(--background)] relative flex flex-col items-center px-6 md:px-12 lg:px-20 xl:px-32">
+      <section id="location-map" className="w-full py-24 bg-[var(--background)] relative flex flex-col items-center px-6 md:px-12 lg:px-20 xl:px-32">
         {/* Pill Badge */}
         <div className="flex items-center gap-3 px-5 py-2 bg-white rounded-full shadow-sm mb-6 border border-gray-100">
           <div className="w-2.5 h-2.5 rounded-full bg-red-600 shadow-[0_0_8px_rgba(220,38,38,0.6)]"></div>

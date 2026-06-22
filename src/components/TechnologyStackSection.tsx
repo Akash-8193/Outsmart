@@ -76,7 +76,7 @@ export default function TechnologyStackSection() {
               <span className="text-sm font-bold tracking-[0.15em] uppercase text-gray-800">Technology Stack</span>
             </motion.div>
             
-            <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-[4rem] font-black text-gray-900 leading-[1.1] mb-6 tracking-tight uppercase">
+            <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-5xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight uppercase">
               Future-Ready <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>Tech Solutions</span>
             </Text3DBounce>

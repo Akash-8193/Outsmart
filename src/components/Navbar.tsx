@@ -46,11 +46,11 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Outsmart Technology"
-              className="h-8 w-auto object-contain transition-transform hover:scale-105"
+              className="h-10 md:h-12 w-auto object-contain transition-transform hover:scale-105"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
-                target.parentElement!.innerHTML += '<span class="text-xl font-black tracking-tight text-gray-900">Outsmart<span style="color: var(--primary)">.</span></span>';
+                target.parentElement!.innerHTML += '<span class="text-2xl font-black tracking-tight text-gray-900">Outsmart<span style="color: var(--primary)">.</span></span>';
               }}
             />
           </Link>

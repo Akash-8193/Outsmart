@@ -5,6 +5,7 @@ import { CheckSquare, Code, Layers, Server, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import { ImageReveal } from "@/components/animations/ImageReveal";
+import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 
 export default function AboutUsSection() {
   return (
@@ -29,7 +30,9 @@ export default function AboutUsSection() {
           >
             {/* Top Half */}
             <div className="flex-1 flex flex-col items-center justify-center p-6 text-white text-center pb-12" style={{ backgroundColor: "var(--primary)" }}>
-               <h3 className="text-4xl md:text-5xl font-black mb-1">10+</h3>
+               <h3 className="text-4xl md:text-5xl font-black mb-1">
+                 <AnimatedCounter value={10} suffix="+" />
+               </h3>
                <p className="font-bold uppercase tracking-widest text-xs md:text-sm opacity-90">Years of<br/>experience</p>
             </div>
             
@@ -70,7 +73,7 @@ export default function AboutUsSection() {
           </div>
           
           {/* Heading */}
-          <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.05] tracking-tight mb-6 uppercase">
+          <Text3DBounce as="h2" className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-[1.05] tracking-tight mb-6 uppercase">
             Our Purpose. Our Commitment.
           </Text3DBounce>
           

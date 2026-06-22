@@ -16,7 +16,7 @@ export default function BlogSection() {
             <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "var(--primary)" }}></span>
             Latest Blog
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black uppercase leading-[1.05] tracking-tight text-gray-900 max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl lg:text-5xl font-black uppercase leading-[1.05] tracking-tight text-gray-900 max-w-4xl mx-auto">
             INSIGHTS AND INSPIRATION FROM OUR LATEST BLOG
           </h2>
         </div>

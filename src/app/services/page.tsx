@@ -78,7 +78,7 @@ export default function Services() {
               Our Services
             </h3>
 
-            <Text3DBounce as="h1" className="text-5xl sm:text-6xl md:text-[5rem] lg:text-[6.5rem] font-black leading-[1.1] mb-2 tracking-tight drop-shadow-sm font-sans whitespace-nowrap" style={{ color: "var(--foreground)" }}>
+            <Text3DBounce as="h1" className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-black leading-[1.1] mb-2 tracking-tight drop-shadow-sm font-sans whitespace-nowrap" style={{ color: "var(--foreground)" }}>
               Our Services
             </Text3DBounce>
 
@@ -152,7 +152,7 @@ export default function Services() {
                 <span>0{idx + 1} / {service.category}</span>
               </h4>
 
-              <h2 className="text-4xl md:text-6xl lg:text-[5.5rem] font-serif tracking-tight text-gray-900 leading-[1.1] mb-4 drop-shadow-sm whitespace-nowrap">
+              <h2 className="text-4xl md:text-6xl lg:text-5xl font-serif tracking-tight text-gray-900 leading-[1.1] mb-4 drop-shadow-sm whitespace-nowrap">
                 {service.title}
               </h2>
 

@@ -51,7 +51,7 @@ export default function IndustriesWeServeSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-6xl lg:text-[5rem] font-black text-gray-900 leading-[1.05] tracking-tight mb-8"
+            className="text-4xl md:text-5xl lg:text-5xl font-black text-gray-900 leading-[1.05] tracking-tight mb-8"
           >
             Industries <br/>
             <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>We Serve.</span>

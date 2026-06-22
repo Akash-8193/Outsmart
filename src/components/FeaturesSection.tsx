@@ -69,7 +69,7 @@ export default function FeaturesSection() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#0A0A0A] leading-[1.1] tracking-tight mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#0A0A0A] leading-[1.1] tracking-tight mb-6">
             Our Custom <span style={{ color: "var(--primary)" }}>Solutions</span>
           </h2>
           <p className="text-gray-600 leading-relaxed font-medium text-lg mb-12">

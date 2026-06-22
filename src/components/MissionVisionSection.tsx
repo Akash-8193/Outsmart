@@ -36,7 +36,7 @@ export default function MissionVisionSection() {
             
             <Text3DBounce 
               as="h2"
-              className="text-4xl md:text-5xl lg:text-[3.5rem] font-black text-gray-900 leading-[1.1] mb-6 tracking-tight"
+              className="text-4xl md:text-5xl lg:text-5xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight"
             >
               Delivering scalable and intelligent software products
             </Text3DBounce>
@@ -100,7 +100,7 @@ export default function MissionVisionSection() {
             
             <Text3DBounce 
               as="h2"
-              className="text-4xl md:text-5xl lg:text-[3.5rem] font-black text-gray-900 leading-[1.1] mb-6 tracking-tight"
+              className="text-4xl md:text-5xl lg:text-5xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight"
             >
               Your trusted global technology partner
             </Text3DBounce>

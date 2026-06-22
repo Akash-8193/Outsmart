@@ -67,7 +67,7 @@ export default function WhyChooseUsSection() {
           </motion.div>
 
           {/* Heading */}
-          <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-6xl font-black text-[#0A0A0A] leading-[1.1] tracking-tight mb-6 uppercase">
+          <Text3DBounce as="h2" className="text-3xl md:text-4xl lg:text-5xl font-black text-[#0A0A0A] leading-[1.1] tracking-tight mb-6 uppercase">
             Why Businesses Choose Us
           </Text3DBounce>
           
@@ -136,7 +136,7 @@ export default function WhyChooseUsSection() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-0 right-0 w-[85%] h-[65%] rounded-[2rem] overflow-hidden shadow-2xl z-0 image-anime"
           >
-             <div className="absolute inset-0 bg-[url('/why_choose_us_1.png')] bg-cover bg-center hover:scale-105 transition-transform duration-700" />
+             <img src="/why_choose_us_1.png" alt="Why Choose Us 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           </motion.div>
           
           {/* Bottom Left Image */}
@@ -145,7 +145,7 @@ export default function WhyChooseUsSection() {
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             className="absolute bottom-10 left-0 w-[85%] h-[65%] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] z-10 border-[12px] border-[#FCFBFA] image-anime"
           >
-             <div className="absolute inset-0 bg-[url('/why_choose_us_2.png')] bg-cover bg-center hover:scale-105 transition-transform duration-700" />
+             <img src="/why_choose_us_2.png" alt="Why Choose Us 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           </motion.div>
 
           {/* Creative Floating Badge */}

@@ -55,7 +55,7 @@ export default function TestimonialsSection() {
 
       {/* Background large text */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
-        <h1 className="text-[7rem] md:text-[14rem] lg:text-[18rem] font-black text-black/[0.05] tracking-tighter leading-none mt-4 uppercase">
+        <h1 className="text-[5rem] md:text-[10rem] lg:text-[12rem] font-black text-black/[0.05] tracking-tighter leading-none mt-4 uppercase">
           TESTIMONIALS
         </h1>
       </div>
@@ -67,7 +67,7 @@ export default function TestimonialsSection() {
           <span className="text-[#C18A58] uppercase tracking-[0.3em] font-bold text-sm mb-4">
             TRUSTED BY GROWING BUSINESSES
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#050505] leading-tight mb-6 drop-shadow-sm uppercase">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#050505] leading-tight mb-6 drop-shadow-sm uppercase">
             What Our Clients Say
           </h2>
           <p className="text-base md:text-lg text-gray-600 font-medium max-w-3xl leading-relaxed">

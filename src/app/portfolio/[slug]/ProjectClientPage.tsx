@@ -67,7 +67,7 @@ export default function ProjectClientPage({ project }: { project: any }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-[5rem] font-black text-[#0A0A0A] leading-[1.05] tracking-tight mb-8"
+              className="text-4xl md:text-5xl lg:text-5xl font-black text-[#0A0A0A] leading-[1.05] tracking-tight mb-8"
             >
               {project.title.split(" ").map((word: string, i: number) => (
                 <span key={i} className={i === 0 ? "text-transparent bg-clip-text" : ""} style={i === 0 ? { backgroundImage: "linear-gradient(90deg, var(--primary), var(--secondary))" } : {}}>

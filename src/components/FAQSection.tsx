@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, X, Star } from "lucide-react";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import { ImageReveal } from "@/components/animations/ImageReveal";
+import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -55,7 +56,7 @@ export default function FAQSection() {
               4.9/5
             </div>
             <div className="text-sm font-semibold opacity-90 leading-tight">
-              Based on 2500+<br/>reviews
+              Based on <AnimatedCounter value={2500} suffix="+" /><br/>reviews
             </div>
           </div>
         </div>
@@ -68,7 +69,7 @@ export default function FAQSection() {
             Frequently Asked Questions
           </div>
           
-          <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-[3.5rem] font-black uppercase leading-[1.05] mb-12 tracking-tight text-gray-900">
+          <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-5xl font-black uppercase leading-[1.05] mb-12 tracking-tight text-gray-900">
             Answers To The Question You Might Have About Us
           </Text3DBounce>
 

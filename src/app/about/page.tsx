@@ -92,7 +92,7 @@ export default function About() {
         <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-10 lg:gap-16">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
-            <Text3DBounce as="h1" className="text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] font-black leading-[1.1] mb-4 tracking-tight drop-shadow-sm font-sans" style={{ color: "var(--foreground)" }}>
+            <Text3DBounce as="h1" className="text-4xl md:text-5xl lg:text-5xl font-black leading-[1.1] mb-4 tracking-tight drop-shadow-sm font-sans" style={{ color: "var(--foreground)" }}>
               About us
             </Text3DBounce>
             

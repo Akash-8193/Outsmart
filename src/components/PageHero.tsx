@@ -41,7 +41,7 @@ export default function PageHero({ title, subtitle, description, image }: PageHe
           </span>
         )}
         
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black text-white uppercase tracking-tight leading-none mb-6 drop-shadow-lg">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-black text-white uppercase tracking-tight leading-none mb-6 drop-shadow-lg">
           {title}
         </h1>
         

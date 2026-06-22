@@ -22,18 +22,18 @@ export default function Footer() {
           </div>
           
           {/* Location */}
-          <div className="col-span-1 flex items-start gap-5 lg:justify-center">
-            <div className="w-14 h-14 rounded-full flex items-center justify-center shrink-0 shadow-lg" style={{ backgroundColor: "var(--primary)" }}>
+          <Link href="/contact#location-map" className="col-span-1 flex items-start gap-5 lg:justify-center group cursor-pointer">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 transition-transform" style={{ backgroundColor: "var(--primary)" }}>
               <MapPin className="text-white w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-xl font-bold mb-2">Location:</h4>
-              <p className="text-gray-400 text-sm leading-relaxed max-w-[250px]">
+              <h4 className="text-xl font-bold mb-2 group-hover:text-[--primary] transition-colors">Location:</h4>
+              <p className="text-gray-400 text-sm leading-relaxed max-w-[250px] group-hover:text-gray-200 transition-colors">
                 F-111, 2nd floor, Sector 8, Noida,<br />
                 U.P.-201301
               </p>
             </div>
-          </div>
+          </Link>
           
           {/* Socials */}
           <div className="col-span-1 flex flex-col lg:items-end">
@@ -92,11 +92,16 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h4 className="text-xl font-bold mb-6">Quick Links</h4>
             <ul className="flex flex-col gap-4">
-              {['Home', 'About Us', 'Services', 'Contact Us'].map((item) => (
-                <li key={item} className="flex items-center gap-3">
+              {[
+                { name: 'Home', href: '/' },
+                { name: 'About Us', href: '/about' },
+                { name: 'Services', href: '/services' },
+                { name: 'Contact Us', href: '/contact' }
+              ].map((item) => (
+                <li key={item.name} className="flex items-center gap-3">
                   <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--primary)" }}></span>
-                  <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm font-medium">
-                    {item}
+                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors text-sm font-medium">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -107,11 +112,16 @@ export default function Footer() {
           <div className="md:col-span-3">
             <h4 className="text-xl font-bold mb-6">Our Services</h4>
             <ul className="flex flex-col gap-4">
-              {['AI Agents', 'Custom Software', 'SaaS Platforms', 'Data Transformation'].map((item) => (
-                <li key={item} className="flex items-center gap-3">
+              {[
+                { name: 'AI Agents', href: '/services' },
+                { name: 'Custom Software', href: '/services' },
+                { name: 'SaaS Platforms', href: '/services' },
+                { name: 'Data Transformation', href: '/services' }
+              ].map((item) => (
+                <li key={item.name} className="flex items-center gap-3">
                   <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--primary)" }}></span>
-                  <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm font-medium">
-                    {item}
+                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors text-sm font-medium">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -127,6 +137,7 @@ export default function Footer() {
                 placeholder="Your Email" 
                 className="bg-[#1A1A1A] border border-gray-800 rounded-lg px-4 py-3.5 text-sm focus:outline-none focus:border-gray-500 w-full text-white placeholder:text-gray-600"
                 required
+                suppressHydrationWarning
               />
               <button 
                 type="submit" 

@@ -53,7 +53,7 @@ export default function OurExpertiseSection() {
             <span className="text-sm font-bold tracking-widest uppercase text-gray-800">Our Expertise</span>
           </motion.div>
           
-          <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight">
+          <Text3DBounce as="h2" className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight">
             Our expertise in reliable digital transformation
           </Text3DBounce>
 

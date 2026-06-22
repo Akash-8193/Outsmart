@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
+import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 
 export default function WhatWeDoSection() {
   const services = [
@@ -41,7 +42,7 @@ export default function WhatWeDoSection() {
           </motion.div>
 
           <h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight mb-6 flex flex-wrap gap-x-3"
+            className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-[1.1] tracking-tight mb-6 flex flex-wrap gap-x-3"
           >
             <Text3DBounce as="span">Enterprise software</Text3DBounce>
             <br className="hidden md:block w-full"/>
@@ -123,7 +124,9 @@ export default function WhatWeDoSection() {
             transition={{ delay: 0.6, type: "spring", stiffness: 150 }}
             className="absolute top-1/4 right-0 lg:-right-8 bg-white p-6 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-20 border border-gray-100 flex flex-col items-center gsap-float"
           >
-            <span className="text-4xl font-black mb-1" style={{ color: "var(--primary)" }}>10+</span>
+            <span className="text-4xl font-black mb-1 flex items-center justify-center" style={{ color: "var(--primary)" }}>
+              <AnimatedCounter value={10} suffix="+" />
+            </span>
             <span className="text-sm font-bold text-gray-600 uppercase tracking-wider">Years Experience</span>
           </motion.div>
 

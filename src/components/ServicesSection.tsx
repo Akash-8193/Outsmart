@@ -46,7 +46,7 @@ export default function ServicesSection() {
             <h4 className="font-bold tracking-widest text-sm mb-4 flex items-center gap-2" style={{ color: "var(--primary)" }}>
               / Services
             </h4>
-            <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight mb-6">
+            <Text3DBounce as="h2" className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-[1.1] tracking-tight mb-6">
               We Provide The Best Services
             </Text3DBounce>
             <p className="text-gray-600 text-lg leading-relaxed font-medium">

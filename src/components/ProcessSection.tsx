@@ -82,7 +82,7 @@ export default function ProcessSection() {
           <span className="text-[--primary] uppercase tracking-[0.3em] font-bold text-sm mb-4">
             OUR APPROACH
           </span>
-          <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#050505] leading-tight mb-6 drop-shadow-sm uppercase">
+          <Text3DBounce as="h2" className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#050505] leading-tight mb-6 drop-shadow-sm uppercase">
             Our Development Process
           </Text3DBounce>
           <p className="text-base md:text-lg text-gray-600 font-medium max-w-2xl leading-relaxed">
@@ -102,17 +102,17 @@ export default function ProcessSection() {
               return (
                 <div 
                   key={step.num} 
-                  className={`flex flex-col md:flex-row items-center w-full gap-8 md:gap-0 ${isEven ? "md:flex-row-reverse" : ""}`}
+                  className={`flex flex-col md:flex-row items-center w-full gap-12 md:gap-0 ${isEven ? "md:flex-row-reverse" : ""}`}
                 >
                   
                   {/* Timeline Center Node (Desktop only) */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full border-[4px] border-[--primary] bg-transparent z-20 shadow-sm items-center justify-center">
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full border-[4px] border-[--primary] bg-white z-20 shadow-sm items-center justify-center">
                   </div>
 
                   {/* Text Content Block */}
-                  <div className={`w-full md:w-1/2 flex flex-col ${isEven ? "md:items-start md:pl-16" : "md:items-end md:text-right md:pr-16"} text-center md:text-left`}>
-                    <div className="max-w-xl">
-                      <span className="text-5xl md:text-7xl font-black block mb-2 text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>
+                  <div className={`w-full md:w-1/2 flex flex-col ${isEven ? "md:items-start md:text-left md:pl-16 lg:pl-24" : "md:items-end md:text-right md:pr-16 lg:pr-24"} text-center`}>
+                    <div className="max-w-lg w-full">
+                      <span className="text-4xl md:text-6xl font-black block mb-2 text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>
                         {step.num}
                       </span>
                       <span className="uppercase tracking-widest text-[--secondary] font-bold text-xs md:text-sm mb-2 block">
@@ -136,8 +136,8 @@ export default function ProcessSection() {
                   </div>
 
                   {/* Image Block */}
-                  <div className={`w-full md:w-1/2 flex ${isEven ? "md:justify-end md:pr-8" : "md:justify-start md:pl-8"} justify-center`}>
-                    <ImageReveal className="w-full max-w-[500px] aspect-[4/3] rounded-[2rem] shadow-2xl">
+                  <div className={`w-full md:w-1/2 flex ${isEven ? "md:justify-end md:pr-16 lg:pr-24" : "md:justify-start md:pl-16 lg:pl-24"} justify-center`}>
+                    <ImageReveal className="w-full max-w-[450px] lg:max-w-[500px] aspect-[4/3] rounded-[2rem] shadow-2xl relative z-10">
                       <div 
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
                         style={{ backgroundImage: `url(${step.img})` }}

@@ -95,7 +95,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
                 <span>{service.category}</span>
               </h4>
               
-              <h1 className="text-4xl md:text-6xl lg:text-[5.5rem] font-serif tracking-tight text-gray-900 leading-[1.1] mb-4 drop-shadow-sm whitespace-nowrap">
+              <h1 className="text-4xl md:text-6xl lg:text-5xl font-serif tracking-tight text-gray-900 leading-[1.1] mb-4 drop-shadow-sm whitespace-nowrap">
                 {service.title}
               </h1>
               
