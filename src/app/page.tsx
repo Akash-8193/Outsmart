@@ -8,14 +8,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import PageTransition from "@/components/PageTransition";
 import AboutUsSection from "@/components/AboutUsSection";
-import ServicesSection from "@/components/ServicesSection";
+import WhatWeDoSection from "@/components/WhatWeDoSection";
 import ProcessSection from "@/components/ProcessSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import IndustriesWeServeSection from "@/components/IndustriesWeServeSection";
+import TechnologyStackSection from "@/components/TechnologyStackSection";
 import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
 import OurExpertiseSection from "@/components/OurExpertiseSection";
+import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import { ArrowRight, Code, Cpu, Smartphone, Server } from "lucide-react";
 
 export default function Home() {
@@ -83,9 +86,9 @@ export default function Home() {
                 <span className="tracking-widest uppercase text-xs font-bold tracking-[0.2em] text-gray-500">WELCOME TO OUTSMART</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-black leading-[1.05] mb-8 tracking-tight text-gray-900">
+              <Text3DBounce as="h1" className="text-5xl md:text-6xl lg:text-[4.5rem] font-black leading-[1.05] mb-8 tracking-tight text-gray-900">
                 Full-Stack Software & Digital Transformation
-              </h1>
+              </Text3DBounce>
               
               <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-12 max-w-xl font-medium">
                 Outsmart Technology delivers scalable, intelligent, and future-ready technology solutions. We help organizations modernize operations, automate workflows, and build digital products that accelerate growth.
@@ -94,7 +97,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 mb-14">
                 <Link 
                   href="/contact" 
-                  className="text-white font-black px-8 py-4.5 rounded-xl shadow-lg transition-transform hover:-translate-y-1 whitespace-nowrap"
+                  className="text-white font-black px-8 py-4.5 rounded-xl shadow-lg btn-default whitespace-nowrap"
                   style={{ backgroundColor: "var(--primary)" }}
                 >
                   Book Free Consultation
@@ -136,12 +139,12 @@ export default function Home() {
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/></svg>
               </div>
               
-              <div className="relative z-10 w-full max-w-[600px] ml-auto mix-blend-multiply pb-10">
+              <div className="relative z-10 w-full max-w-[600px] ml-auto mix-blend-multiply pb-10 image-anime">
                 <img src="/ai-hero-white.png" alt="AI Agent" className="w-full h-auto object-contain" style={{ maxHeight: "75vh" }} />
               </div>
 
               {/* Floating Learn More Badge */}
-              <div className="absolute top-1/3 right-10 bg-white w-[140px] h-[140px] rounded-full border border-gray-100 flex items-center justify-center shadow-2xl z-20 hidden md:flex">
+              <div className="absolute top-1/3 right-10 bg-white w-[140px] h-[140px] rounded-full border border-gray-100 flex items-center justify-center shadow-2xl z-20 hidden md:flex gsap-float">
                  <Code className="text-[--primary] w-10 h-10 absolute" />
                  <svg className="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]" viewBox="0 0 100 100">
                     <path id="circlePathHero" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none" />
@@ -179,32 +182,42 @@ export default function Home() {
         {/* About Us Section */}
         <AboutUsSection />
 
-        {/* Services Section */}
-        <ServicesSection />
-
-        {/* Process Section */}
-        <ProcessSection />
-
-        {/* Our Expertise Section */}
-        <OurExpertiseSection />
+        {/* What We Do Section (Replaces ServicesSection based on slide) */}
+        <WhatWeDoSection />
 
         {/* Why Choose Us Section */}
         <WhyChooseUsSection />
 
+
+
+        {/* Our Expertise Section */}
+        <OurExpertiseSection />
+
+
+
         {/* Projects Section (Replacing Features Section) */}
         <ProjectsSection />
 
+        {/* Process Section */}
+        <ProcessSection />
+
+        {/* Industries We Serve Section */}
+        <IndustriesWeServeSection />
+
+        {/* Technology Stack Section */}
+        <TechnologyStackSection />
+
         {/* Quick Stats */}
-        <section ref={statsRef} className="py-20 relative overflow-hidden text-white" style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>
+        <section ref={statsRef} className="py-12 relative overflow-hidden text-white" style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>
           <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center excellence-counter-boxes">
               {[
                 { value: "150+", label: "Projects Delivered" },
                 { value: "45+", label: "AI Agents Built" },
                 { value: "99%", label: "Happy Clients" },
                 { value: "10+", label: "Years Experience" },
               ].map((stat, idx) => (
-                <div key={idx} className="stat-item flex flex-col items-center justify-center p-6 bg-white/10 rounded-3xl backdrop-blur-md border border-white/20">
+                <div key={idx} className="stat-item excellence-counter-item flex flex-col items-center justify-center p-6 bg-white/10 rounded-3xl backdrop-blur-md border border-white/20">
                   <span className="text-4xl md:text-5xl font-black mb-2">{stat.value}</span>
                   <span className="text-sm md:text-base font-medium text-white/80 uppercase tracking-wider">{stat.label}</span>
                 </div>
@@ -228,16 +241,16 @@ export default function Home() {
         <BlogSection />
 
         {/* Final CTA */}
-        <section className="py-32 px-6 text-center">
+        <section className="py-16 px-6 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-bold mb-8">Ready to Outsmart the Competition?</h2>
+            <Text3DBounce as="h2" className="text-4xl md:text-6xl font-bold mb-8">Ready to Outsmart the Competition?</Text3DBounce>
             <p className="text-xl text-gray-600 mb-6">Let's build smarter digital solutions together.</p>
             <p className="text-lg font-bold text-gray-800 mb-12">
               <span className="text-[--primary]">+91 9599 34 2525</span> | info@outsmarttechnology.com
             </p>
             <Link 
               href="/contact"
-              className="inline-block px-10 py-5 rounded-full text-white font-bold text-xl transition-all hover:scale-105 shadow-2xl hover:shadow-[--primary]/50"
+              className="inline-block px-10 py-5 rounded-full text-white font-bold text-xl shadow-2xl hover:shadow-[--primary]/50 btn-default"
               style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
             >
               Start Your Project

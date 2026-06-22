@@ -21,7 +21,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <PageTransition>
-      <article className="min-h-screen bg-[#F9F8F6] pb-32">
+      <article className="min-h-screen bg-[#F9F8F6] pb-16">
         {/* Hero Section */}
         <div className="relative w-full h-[60vh] min-h-[500px]">
           <div 

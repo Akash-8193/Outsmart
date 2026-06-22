@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PageTransition from "@/components/PageTransition";
+import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import ProcessSection from "@/components/ProcessSection";
 import ContactSection from "@/components/ContactSection";
@@ -63,26 +64,12 @@ export default function Services() {
   return (
     <PageTransition>
       {/* Intro Panel */}
-      <div className="fullscreen-panel h-screen w-full flex items-center justify-center px-6 relative z-10 shadow-[0_10px_30px_rgba(0,0,0,0.1)]" style={{ background: "var(--background)" }}>
-        <div className="max-w-4xl mx-auto text-center mt-20">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold mb-8"
-            style={{ color: "var(--primary)" }}
-          >
-            Engineering the <br className="hidden md:block" /> Impossible.
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-gray-700 leading-relaxed"
-          >
-            We don't do off-the-shelf. We provide tailored, high-end technology services designed to give your business an unfair advantage. Scroll down to explore.
-          </motion.p>
-        </div>
-      </div>
+      <PageHero 
+        subtitle="WHAT WE DO"
+        title="OUR SERVICES"
+        description="We don't do off-the-shelf. We provide tailored, high-end technology services designed to give your business an unfair advantage."
+        image="/service_cloud_saas.png"
+      />
 
       {/* Full-Screen Service Cards */}
       {services.map((service, idx) => (
@@ -130,7 +117,7 @@ export default function Services() {
         <ProcessSection />
 
         {/* Final CTA / Contact Form */}
-        <div className="bg-[#F2EFE7] mt-20 pt-10">
+        <div className="bg-[#F2EFE7] mt-10 pt-10">
           <ContactSection />
         </div>
       </div>

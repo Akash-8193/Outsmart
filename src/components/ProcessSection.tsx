@@ -2,45 +2,71 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
+import { ImageReveal } from "@/components/animations/ImageReveal";
 
 const steps = [
   {
     num: "01",
-    subtitle: "UNDERSTANDING YOUR VISION",
-    title: "Discovery & Strategy",
-    desc: "Every great product begins with a deep dive. We listen intensely—your business goals, your target audience, your specific challenges, and the legacy systems we need to integrate. This strategic foundation ensures that our architecture perfectly aligns with your real-world needs.",
-    quote: "\"A thorough technical brief is the difference between an average app and an industry-disrupting platform.\"",
+    subtitle: "INITIAL PHASE",
+    title: "Discovery",
+    desc: "We understand your business, goals, and challenges. Every great product begins with a deep dive where we listen intensely to build a strategic foundation that aligns perfectly with your real-world needs.",
+    quote: "\"A thorough understanding is the difference between an average app and an industry-disrupting platform.\"",
     img: "/process_step1.png",
   },
   {
     num: "02",
-    subtitle: "BUILDING THE BLUEPRINT",
-    title: "Architecture & Design",
-    desc: "Our senior architects transform your requirements into a robust, scalable blueprint. We craft detailed system designs, API contracts, UI/UX mockups, and database schemas—all engineered uniquely for your enterprise to ensure zero bottlenecks at scale.",
-    quote: "\"Every component is intentional. Every database index is optimized. Nothing is left to chance.\"",
+    subtitle: "PLANNING",
+    title: "Strategy",
+    desc: "We plan the right approach to achieve your objectives. Our architects transform your requirements into a robust, scalable blueprint designed uniquely for your enterprise.",
+    quote: "\"Every component is intentional. Every choice is optimized. Nothing is left to chance.\"",
     img: "/process_step2.png",
   },
   {
     num: "03",
-    subtitle: "WRITING THE CODE",
-    title: "Development & Engineering",
-    desc: "Frontend mastery, backend resilience, cloud integrations, and AI model fine-tuning—our elite developers execute the blueprint with meticulous precision. We employ agile methodologies with continuous integration to keep every thread connected and moving fast.",
-    quote: "\"Clean code, automated testing, and zero technical debt. All working seamlessly for your product.\"",
+    subtitle: "USER EXPERIENCE",
+    title: "Design",
+    desc: "We create intuitive designs focused on user experience. From API contracts to UI/UX mockups, everything is engineered to ensure zero bottlenecks at scale.",
+    quote: "\"Beautiful interfaces that guide the user seamlessly through complex workflows.\"",
     img: "/process_step3.png",
   },
   {
     num: "04",
-    subtitle: "ZERO SURPRISES ON LAUNCH",
-    title: "Deployment & Scaling",
-    desc: "We run exhaustive QA cycles, security audits, load testing, and staging walkthroughs. When deployment day arrives, every system parameter is dialed in. Your software launches flawlessly, ready to handle thousands of concurrent users from day one.",
-    quote: "\"Our mantra: Prepare for every contingency, automate the infrastructure, then deliver flawlessly.\"",
+    subtitle: "ENGINEERING",
+    title: "Development",
+    desc: "We build robust, scalable, and secure solutions. Our elite developers execute the blueprint with meticulous precision using agile methodologies.",
+    quote: "\"Clean code, automated testing, and zero technical debt. All working for your product.\"",
     img: "/process_step4.png",
+  },
+  {
+    num: "05",
+    subtitle: "QUALITY ASSURANCE",
+    title: "Testing",
+    desc: "We ensure quality through thorough testing and QA. We run exhaustive QA cycles, security audits, load testing, and staging walkthroughs.",
+    quote: "\"Our mantra: Prepare for every contingency, then deliver flawlessly.\"",
+    img: "/process_step1.png",
+  },
+  {
+    num: "06",
+    subtitle: "GO LIVE",
+    title: "Deployment",
+    desc: "We deploy smoothly and ensure a seamless go-live. When deployment day arrives, every system parameter is dialed in and ready for users.",
+    quote: "\"Your software launches flawlessly, ready to handle massive scale from day one.\"",
+    img: "/process_step2.png",
+  },
+  {
+    num: "07",
+    subtitle: "LONG TERM",
+    title: "Support",
+    desc: "We provide ongoing support to keep you growing. 24/7 monitoring, maintenance, and iterative improvements ensure your product stays ahead.",
+    quote: "\"We keep you informed, involved, and confident at every step of the journey.\"",
+    img: "/process_step3.png",
   }
 ];
 
 export default function ProcessSection() {
   return (
-    <section className="relative w-full bg-[#FCFBFA] py-16 overflow-hidden font-sans text-[#1A1A1A]">
+    <section className="relative w-full bg-transparent py-16 overflow-hidden font-sans text-[#1A1A1A]">
       
       {/* Background large text - made darker to be visible */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
@@ -51,26 +77,24 @@ export default function ProcessSection() {
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         
-        {/* Header Section - reduced mb to save space */}
-        <div className="text-center mb-20 max-w-4xl mx-auto flex flex-col items-center">
-          <span className="text-[#C18A58] uppercase tracking-[0.3em] font-bold text-sm mb-4">
-            OUR PROCESS
+        {/* Header Section */}
+        <div className="text-center mb-10 max-w-4xl mx-auto flex flex-col items-center">
+          <span className="text-[--primary] uppercase tracking-[0.3em] font-bold text-sm mb-4">
+            OUR APPROACH
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#050505] leading-tight mb-6 drop-shadow-sm">
-            From Vision to Deployment,<br />
-            <span className="italic text-[#C18A58]">We Build Everything</span>
-          </h2>
+          <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#050505] leading-tight mb-6 drop-shadow-sm uppercase">
+            Our Development Process
+          </Text3DBounce>
           <p className="text-base md:text-lg text-gray-600 font-medium max-w-2xl leading-relaxed">
-            Our proven 4-step engineering process ensures every scalable system is delivered on time, within budget, and beyond expectations.
+            A structured, transparent process that keeps you informed at every stage — from initial discovery through long-term support.
           </p>
         </div>
 
         {/* Timeline Container */}
         <div className="relative w-full">
           {/* Vertical Line - Hidden on small mobile, visible from md upwards */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-[#E5DCCF] -translate-x-1/2 z-0" />
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gray-200 -translate-x-1/2 z-0" />
           
-          {/* Reduced gap between steps to reduce scrolling */}
           <div className="flex flex-col gap-16 md:gap-24 relative z-10">
             {steps.map((step, index) => {
               const isEven = index % 2 === 1; // 0-indexed, so index 1 is "02" (even step)
@@ -82,16 +106,16 @@ export default function ProcessSection() {
                 >
                   
                   {/* Timeline Center Node (Desktop only) */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full border-[4px] border-[#C18A58] bg-[#FCFBFA] z-20 shadow-sm items-center justify-center">
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full border-[4px] border-[--primary] bg-transparent z-20 shadow-sm items-center justify-center">
                   </div>
 
                   {/* Text Content Block */}
                   <div className={`w-full md:w-1/2 flex flex-col ${isEven ? "md:items-start md:pl-16" : "md:items-end md:text-right md:pr-16"} text-center md:text-left`}>
                     <div className="max-w-xl">
-                      <span className="text-5xl md:text-7xl font-serif text-[#4A3628] block mb-2">
+                      <span className="text-5xl md:text-7xl font-black block mb-2 text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>
                         {step.num}
                       </span>
-                      <span className="uppercase tracking-widest text-[#C18A58] font-bold text-xs md:text-sm mb-2 block">
+                      <span className="uppercase tracking-widest text-[--secondary] font-bold text-xs md:text-sm mb-2 block">
                         {step.subtitle}
                       </span>
                       <h3 className="text-3xl md:text-4xl font-serif text-[#050505] mb-4">
@@ -100,8 +124,11 @@ export default function ProcessSection() {
                       <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6 font-medium">
                         {step.desc}
                       </p>
-                      <div className={`relative ${isEven ? "pl-5 border-l-2 border-[#C18A58]" : "md:pr-5 md:border-r-2 md:border-l-0 border-l-2 pl-5 md:pl-0 border-[#C18A58]"}`}>
-                        <p className="text-lg md:text-xl text-[#C18A58] italic font-serif leading-relaxed">
+                      <div className={`relative ${isEven ? "pl-5 border-l-4 border-[--primary]" : "md:pr-5 md:border-r-4 md:border-l-0 border-l-4 pl-5 md:pl-0 border-[--primary]"}`}>
+                        <p 
+                          className="text-lg md:text-xl italic font-serif leading-relaxed text-transparent bg-clip-text"
+                          style={{ backgroundImage: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
+                        >
                           {step.quote}
                         </p>
                       </div>
@@ -110,12 +137,12 @@ export default function ProcessSection() {
 
                   {/* Image Block */}
                   <div className={`w-full md:w-1/2 flex ${isEven ? "md:justify-end md:pr-8" : "md:justify-start md:pl-8"} justify-center`}>
-                    <div className="relative w-full max-w-[500px] aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl">
+                    <ImageReveal className="w-full max-w-[500px] aspect-[4/3] rounded-[2rem] shadow-2xl">
                       <div 
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
                         style={{ backgroundImage: `url(${step.img})` }}
                       />
-                    </div>
+                    </ImageReveal>
                   </div>
 
                 </div>

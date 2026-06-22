@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, Code, Cpu, Cloud, Smartphone, Database, Bot } from "lucide-react";
+import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 
 export default function ServicesSection() {
   const services = [
@@ -36,7 +37,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#F2EFE7] font-sans">
+    <section className="py-12 px-6 bg-transparent font-sans">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Header Section */}
@@ -45,9 +46,9 @@ export default function ServicesSection() {
             <h4 className="font-bold tracking-widest text-sm mb-4 flex items-center gap-2" style={{ color: "var(--primary)" }}>
               / Services
             </h4>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight mb-6">
+            <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight mb-6">
               We Provide The Best Services
-            </h2>
+            </Text3DBounce>
             <p className="text-gray-600 text-lg leading-relaxed font-medium">
               We offer top-tier software engineering and AI solutions tailored to your enterprise needs. Our expert team builds scalable, secure, and intelligent systems to drive unparalleled growth.
             </p>
@@ -55,7 +56,7 @@ export default function ServicesSection() {
           
           <Link 
             href="/contact" 
-            className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-transform hover:-translate-y-1 shrink-0"
+            className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-full shadow-lg shrink-0 btn-default"
             style={{ backgroundColor: "var(--primary)" }}
           >
             Book A Consultation <ArrowRight className="w-5 h-5" />

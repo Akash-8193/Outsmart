@@ -8,7 +8,7 @@ import { blogs } from "@/lib/blogData";
 export default function BlogSection() {
 
   return (
-    <section className="py-24 px-6 bg-[#F2EFE7] font-sans">
+    <section className="py-12 px-6 bg-transparent font-sans">
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
         <div className="text-center mb-16 flex flex-col items-center">
@@ -47,17 +47,15 @@ export default function BlogSection() {
                 </h3>
               </Link>
               
-              {/* Footer / Read More with Line Divider */}
-              <div className="mt-auto border-b border-gray-300 pb-6">
+              {/* Footer / Read More Button */}
+              <div className="mt-auto pt-4 pb-2">
                 <Link 
                   href={`/blog/${blog.slug}`} 
-                  className="inline-flex items-center font-bold text-sm tracking-widest uppercase text-gray-900 transition-colors"
-                  style={{ transitionProperty: "color", transitionDuration: "300ms" }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = "var(--primary)"}
-                  onMouseLeave={(e) => e.currentTarget.style.color = "#111827"} // text-gray-900
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-bold text-sm tracking-widest uppercase transition-transform hover:-translate-y-1 shadow-md hover:shadow-xl"
+                  style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
                 >
                   READ MORE 
-                  <ArrowUpRight className="ml-1 w-5 h-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </Link>
               </div>
             </motion.div>

@@ -60,7 +60,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
 
   return (
     <PageTransition>
-      <div className="bg-[#FCFBFA] min-h-screen font-sans text-gray-900 pb-24">
+      <div className="bg-[#FCFBFA] min-h-screen font-sans text-gray-900 pb-12">
         
         {/* Hero Section */}
         <div className="relative w-full h-[70vh] min-h-[600px] flex flex-col justify-end overflow-hidden">
@@ -107,7 +107,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
         </div>
 
         {/* Content Section */}
-        <div className="max-w-7xl mx-auto px-6 pt-24">
+        <div className="max-w-7xl mx-auto px-6 pt-12">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
             
             {/* Left Column - Label */}

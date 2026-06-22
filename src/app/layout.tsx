@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import LenisProvider from "@/components/LenisProvider";
 import CustomCursor from "@/components/CustomCursor";
 import Preloader from "@/components/Preloader";
+import { AntigravityEffect } from "@/components/animations/AntigravityEffect";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
         <Preloader />
         <LenisProvider>
           <CustomCursor />
+          <AntigravityEffect />
           <Navbar />
           <main className="min-h-screen">
             {children}

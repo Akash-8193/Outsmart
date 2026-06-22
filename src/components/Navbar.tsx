@@ -11,7 +11,7 @@ const links = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
+  { name: "Projects", href: "/portfolio" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -23,9 +23,9 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 bg-[#F2EFE7]/90 backdrop-blur-md text-[#0A0A0A]">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <img 
-            src="/logo.png" 
-            alt="Outsmart Technology" 
+          <img
+            src="/logo.png"
+            alt="Outsmart Technology"
             className="h-8 w-auto object-contain transition-transform hover:scale-105"
             onError={(e) => {
               const target = e.target as HTMLImageElement;

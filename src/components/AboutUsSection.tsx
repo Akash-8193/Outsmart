@@ -3,25 +3,21 @@
 import Link from "next/link";
 import { CheckSquare, Code, Layers, Server, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
+import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
+import { ImageReveal } from "@/components/animations/ImageReveal";
 
 export default function AboutUsSection() {
   return (
-    <section className="py-24 px-6 bg-[#F9F8F6] font-sans overflow-hidden">
+    <section className="py-12 px-6 bg-transparent font-sans overflow-hidden">
       <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
         
         {/* Left Column - Image Grid */}
         <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4 md:gap-6 relative">
           
           {/* Top Left Image */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-[2rem] overflow-hidden aspect-[4/5] relative shadow-lg"
-          >
+          <ImageReveal className="rounded-[2rem] shadow-lg aspect-[4/5] relative">
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center" />
-          </motion.div>
+          </ImageReveal>
           
           {/* Top Right Card */}
           <motion.div 
@@ -43,7 +39,7 @@ export default function AboutUsSection() {
             </div>
             
             {/* Center Overlapping Badge */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-black w-[88px] h-[88px] rounded-full flex items-center justify-center shadow-xl z-10 border-4 border-[#F9F8F6]">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-black w-[88px] h-[88px] rounded-full flex items-center justify-center shadow-xl z-10 border-4 border-[#F9F8F6] gsap-float">
                {/* Decorative Circular Text could go here, but using an icon for clean tech look */}
                <Code className="w-8 h-8" style={{ color: "var(--primary)" }} />
                <svg className="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]" viewBox="0 0 100 100">
@@ -58,15 +54,9 @@ export default function AboutUsSection() {
           </motion.div>
           
           {/* Bottom Full Width Image */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="col-span-2 rounded-[2rem] overflow-hidden aspect-[21/9] relative shadow-lg"
-          >
+          <ImageReveal className="col-span-2 rounded-[2rem] shadow-lg aspect-[21/9] relative">
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center" />
-          </motion.div>
+          </ImageReveal>
           
         </div>
 
@@ -80,9 +70,9 @@ export default function AboutUsSection() {
           </div>
           
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.05] tracking-tight mb-6 uppercase">
+          <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.05] tracking-tight mb-6 uppercase">
             Our Purpose. Our Commitment.
-          </h2>
+          </Text3DBounce>
           
           {/* Paragraph */}
           <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-10 font-medium">
@@ -125,7 +115,7 @@ export default function AboutUsSection() {
           <div className="pt-6 border-t border-gray-200">
             <Link 
               href="/about" 
-              className="inline-block text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-transform hover:-translate-y-1"
+              className="inline-block text-white font-bold px-8 py-4 rounded-xl shadow-lg btn-default"
               style={{ backgroundColor: "var(--primary)" }}
             >
               More About Us

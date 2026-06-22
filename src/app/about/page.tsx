@@ -5,9 +5,16 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PageTransition from "@/components/PageTransition";
+import PageHero from "@/components/PageHero";
 import { Shield, Zap, Target, Lightbulb, Users, Globe } from "lucide-react";
 import AboutUsSection from "@/components/AboutUsSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
+import MissionVisionSection from "@/components/MissionVisionSection";
+import OurExpertiseSection from "@/components/OurExpertiseSection";
+import IndustriesWeServeSection from "@/components/IndustriesWeServeSection";
+import TechnologyStackSection from "@/components/TechnologyStackSection";
+import OtherSolutionsSection from "@/components/OtherSolutionsSection";
+import WhatWeDoSection from "@/components/WhatWeDoSection";
 
 export default function About() {
   const processRef = useRef<HTMLDivElement>(null);
@@ -73,34 +80,39 @@ export default function About() {
 
   return (
     <PageTransition>
-      <div className="pt-32 pb-20 px-6 min-h-screen">
-        {/* Header */}
-        <section className="max-w-4xl mx-auto text-center mb-32">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold mb-8"
-            style={{ color: "var(--primary)" }}
-          >
-            Pioneering the <br/> AI Frontier.
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-gray-700 leading-relaxed"
-          >
-            Outsmart Technology was founded on a simple premise: the software of tomorrow will write itself, heal itself, and think for itself. We are a collective of engineers, data scientists, and designers dedicated to helping ambitious companies outpace their competition by embracing the AI revolution.
-          </motion.p>
-        </section>
+      <PageHero 
+        subtitle="WHO WE ARE"
+        title="ABOUT US" 
+        description="Pioneering the AI Frontier. We are a collective of engineers, data scientists, and designers dedicated to helping ambitious companies outpace their competition by embracing the AI revolution."
+        image="/service_ai_automation.png"
+      />
+      <div className="pb-20 px-6 min-h-screen">
 
         {/* Sections from Home Page as requested */}
-        <div className="mt-20">
+        <div className="mt-10">
           <AboutUsSection />
         </div>
-        <div className="mt-10 mb-20">
+        <div className="mt-10 mb-10">
           <WhyChooseUsSection />
         </div>
+
+        {/* Mission & Vision */}
+        <MissionVisionSection />
+
+        {/* Our Expertise */}
+        <OurExpertiseSection />
+
+        {/* What We Do */}
+        <WhatWeDoSection />
+
+        {/* Industries We Serve */}
+        <IndustriesWeServeSection />
+
+        {/* Technology Stack */}
+        <TechnologyStackSection />
+
+        {/* Other Solutions We Build */}
+        <OtherSolutionsSection />
       </div>
     </PageTransition>
   );

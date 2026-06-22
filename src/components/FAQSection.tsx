@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, X, Star } from "lucide-react";
+import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
+import { ImageReveal } from "@/components/animations/ImageReveal";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -31,18 +33,18 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#F2EFE7]">
+    <section className="py-12 px-6 bg-transparent">
       <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-stretch">
         
         {/* Left Column - Image & Stats */}
         <div className="w-full lg:w-1/2 relative pt-8 lg:pt-0">
-          <div className="w-full h-[500px] lg:h-[800px] rounded-[2rem] overflow-hidden relative shadow-md">
+          <ImageReveal className="w-full h-[500px] lg:h-[800px] rounded-[2rem] shadow-md">
             {/* High-quality tech/office stock image as a placeholder for the church image */}
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80')] bg-cover bg-center" />
-          </div>
+          </ImageReveal>
           
           {/* Stats Card overlapping bottom-left */}
-          <div className="absolute -bottom-8 left-4 md:-left-4 text-white p-6 md:p-8 rounded-[1.5rem] shadow-xl w-64 md:w-72 border-8 border-[#F2EFE7]" style={{ backgroundColor: "var(--primary)" }}>
+          <div className="absolute -bottom-8 left-4 md:-left-4 text-white p-6 md:p-8 rounded-[1.5rem] shadow-xl w-64 md:w-72 border-8 border-[#F2EFE7] gsap-float" style={{ backgroundColor: "var(--primary)" }}>
             <div className="flex -space-x-3 mb-6">
               <img src="https://i.pravatar.cc/100?img=3" alt="Reviewer" className="w-12 h-12 rounded-full border-[3px] bg-white" style={{ borderColor: "var(--primary)" }} />
               <img src="https://i.pravatar.cc/100?img=4" alt="Reviewer" className="w-12 h-12 rounded-full border-[3px] bg-white" style={{ borderColor: "var(--primary)" }} />
@@ -66,15 +68,19 @@ export default function FAQSection() {
             Frequently Asked Questions
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black uppercase leading-[1.05] mb-12 tracking-tight text-gray-900">
+          <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-[3.5rem] font-black uppercase leading-[1.05] mb-12 tracking-tight text-gray-900">
             Answers To The Question You Might Have About Us
-          </h2>
+          </Text3DBounce>
 
           <div className="flex flex-col gap-4">
             {faqs.map((faq, idx) => {
               const isOpen = openIndex === idx;
               return (
-                <div 
+                <motion.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.5 }}
                   key={idx}
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
                   className={`rounded-xl overflow-hidden cursor-pointer transition-all duration-300 shadow-sm ${
@@ -105,7 +111,7 @@ export default function FAQSection() {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </motion.div>
               );
             })}
           </div>

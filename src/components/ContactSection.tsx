@@ -34,7 +34,7 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="py-20 px-6 relative w-full">
+    <div className="py-12 px-6 relative w-full">
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row gap-16">
         <div className="w-full md:w-5/12">
           <motion.h2 
@@ -58,21 +58,21 @@ export default function ContactSection() {
 
           <div className="space-y-8">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#F2EFE7] flex items-center justify-center text-[--primary] shadow-sm shrink-0">
+              <div className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center text-[--primary] shadow-sm shrink-0">
                 <Phone size={20} />
               </div>
               <p className="text-lg font-bold text-gray-800">+91 9599 34 2525</p>
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#F2EFE7] flex items-center justify-center text-[--primary] shadow-sm shrink-0">
+              <div className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center text-[--primary] shadow-sm shrink-0">
                 <Mail size={20} />
               </div>
               <p className="text-lg font-bold text-gray-800">info@outsmarttechnology.com</p>
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#F2EFE7] flex items-center justify-center text-[--primary] shadow-sm shrink-0">
+              <div className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center text-[--primary] shadow-sm shrink-0">
                 <MapPin size={20} />
               </div>
               <p className="text-lg font-bold text-gray-800">www.outsmarttechnology.com</p>
@@ -98,7 +98,7 @@ export default function ContactSection() {
                     <input 
                       required
                       type="text" 
-                      className="w-full bg-[#F2EFE7]/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors"
+                      className="w-full bg-transparent/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors"
                       placeholder="John Doe"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -109,7 +109,7 @@ export default function ContactSection() {
                     <input 
                       required
                       type="email" 
-                      className="w-full bg-[#F2EFE7]/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors"
+                      className="w-full bg-transparent/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors"
                       placeholder="john@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -120,7 +120,7 @@ export default function ContactSection() {
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">Project Type</label>
                   <select 
-                    className="w-full bg-[#F2EFE7]/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors appearance-none"
+                    className="w-full bg-transparent/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors appearance-none"
                     value={formData.type}
                     onChange={(e) => setFormData({...formData, type: e.target.value})}
                   >
@@ -137,7 +137,7 @@ export default function ContactSection() {
                   <textarea 
                     required
                     rows={5}
-                    className="w-full bg-[#F2EFE7]/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors resize-none"
+                    className="w-full bg-transparent/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors resize-none"
                     placeholder="Tell us about your project..."
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}

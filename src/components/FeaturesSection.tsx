@@ -31,7 +31,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-white font-sans overflow-hidden">
+    <section className="py-12 px-6 bg-white font-sans overflow-hidden">
       <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
         
         {/* Left Column: Overlapping Circle Images */}

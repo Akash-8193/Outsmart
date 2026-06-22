@@ -51,3 +51,120 @@ html.lenis, html.lenis body {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+/* --- Impactcare Animations --- */
+
+/* 3.5 Image Hover — Diagonal Shine */
+.image-anime {
+  position: relative;
+  overflow: hidden;
+}
+.image-anime::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 0%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transition: all 600ms linear;
+  pointer-events: none;
+  z-index: 10;
+}
+.image-anime:hover::after {
+  height: 250%;
+  background-color: transparent;
+}
+
+/* 3.9 Button Hover — Skew + Color Wipe */
+.btn-default {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease-in-out;
+  z-index: 1;
+}
+.btn-default:hover {
+  transform: skew(15deg);
+}
+.btn-default::before,
+.btn-default::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  transition: all 0.4s ease-in-out;
+  z-index: -1;
+  background-color: rgba(255, 255, 255, 0.2); /* Adjust this color based on design */
+}
+.btn-default::before {
+  left: 0;
+}
+.btn-default::after {
+  right: 0;
+}
+.btn-default:hover::before,
+.btn-default:hover::after {
+  width: 60%;
+}
+
+/* 3.10 Counter Box Stagger */
+.excellence-counter-boxes .excellence-counter-item {
+  transition: all 0.4s ease-in-out;
+}
+.excellence-counter-boxes:hover .excellence-counter-item:nth-child(odd) {
+  transform: translateY(-40px);
+}
+.excellence-counter-boxes:hover .excellence-counter-item:nth-child(even) {
+  transform: translateY(0px);
+}
+
+/* 3.13 Pulsing Ring / Border Zoom */
+@keyframes border-zooming {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.border-zooming-icon {
+  position: relative;
+}
+.border-zooming-icon::before,
+.border-zooming-icon::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  border: 1px solid var(--primary);
+  transform: scale(0.6);
+  animation: border-zooming 1.2s infinite linear;
+  pointer-events: none;
+}
+.border-zooming-icon::after {
+  animation-delay: 0.3s;
+}
+
+/* 3.14 Navigation Dropdown Animation */
+.main-menu ul li > ul {
+  transform: scaleY(0.8);
+  transform-origin: top;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+.main-menu ul li:hover > ul {
+  transform: scaleY(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* GSAP Antigravity Default Styling */
+.gsap-float {
+  will-change: transform;
+}
