@@ -6,6 +6,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PageTransition from "@/components/PageTransition";
 import { Shield, Zap, Target, Lightbulb, Users, Globe } from "lucide-react";
+import AboutUsSection from "@/components/AboutUsSection";
+import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 
 export default function About() {
   const processRef = useRef<HTMLDivElement>(null);
@@ -92,58 +94,13 @@ export default function About() {
           </motion.p>
         </section>
 
-        {/* Why Choose Us */}
-        <section className="max-w-7xl mx-auto mb-32 usps-section">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Why Choose Us</h2>
-            <p className="text-lg text-gray-600">The Outsmart Advantage</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {usps.map((usp, idx) => (
-              <div key={idx} className="usp-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full mb-6 flex items-center justify-center text-[--primary] bg-[--primary]/10">
-                  {usp.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-3">{usp.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{usp.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Our Process */}
-        <section className="max-w-4xl mx-auto mb-32" ref={processRef}>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Process</h2>
-            <p className="text-lg text-gray-600">How we turn complex problems into elegant solutions.</p>
-          </div>
-          
-          <div className="relative pl-8 md:pl-0">
-            {/* Vertical Line */}
-            <div className="absolute left-[39px] md:left-1/2 top-0 bottom-0 w-1 bg-gray-200 transform md:-translate-x-1/2 origin-top">
-              <div ref={timelineLineRef} className="w-full h-full origin-top" style={{ background: "linear-gradient(to bottom, var(--primary), var(--secondary))" }} />
-            </div>
-
-            {processSteps.map((step, idx) => (
-              <div key={idx} className={`relative flex items-center mb-16 ${idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
-                <div className="hidden md:block md:w-1/2" />
-                
-                {/* Node */}
-                <div className="absolute left-0 md:left-1/2 w-10 h-10 bg-white border-4 rounded-full transform -translate-x-[5px] md:-translate-x-1/2 z-10 flex items-center justify-center font-bold text-sm" style={{ borderColor: "var(--primary)", color: "var(--primary)" }}>
-                  {idx + 1}
-                </div>
-                
-                {/* Content */}
-                <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${idx % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16 md:text-left"}`}>
-                  <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
-                    <h3 className="text-xl font-bold mb-2 text-[--primary]">{step.title}</h3>
-                    <p className="text-gray-600 text-sm">{step.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Sections from Home Page as requested */}
+        <div className="mt-20">
+          <AboutUsSection />
+        </div>
+        <div className="mt-10 mb-20">
+          <WhyChooseUsSection />
+        </div>
       </div>
     </PageTransition>
   );

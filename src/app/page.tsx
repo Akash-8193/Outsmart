@@ -9,6 +9,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PageTransition from "@/components/PageTransition";
 import AboutUsSection from "@/components/AboutUsSection";
 import ServicesSection from "@/components/ServicesSection";
+import ProcessSection from "@/components/ProcessSection";
+import WhyChooseUsSection from "@/components/WhyChooseUsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
@@ -178,6 +181,12 @@ export default function Home() {
         {/* Services Section */}
         <ServicesSection />
 
+        {/* Process Section */}
+        <ProcessSection />
+
+        {/* Why Choose Us Section */}
+        <WhyChooseUsSection />
+
         {/* Features Section */}
         <FeaturesSection />
 
@@ -206,36 +215,7 @@ export default function Home() {
 
 
         {/* Testimonials */}
-        <section className="py-32 px-6 bg-white relative z-10">
-          <div className="max-w-7xl mx-auto">
-             <div className="text-center mb-16">
-               <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "var(--primary)" }}>Client Success</h2>
-               <p className="text-lg text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Here's what our partners have to say.</p>
-             </div>
-             
-             <div className="flex overflow-x-auto pb-8 snap-x snap-mandatory gap-6" style={{ scrollbarWidth: "none" }}>
-               {[
-                 { quote: "Outsmart completely transformed our customer service pipeline with their AI agents. We've cut response times by 80%.", author: "Sarah Jenkins", role: "CTO, Nexus E-Commerce" },
-                 { quote: "Their engineering team is world-class. The scalable architecture they built handles millions of our daily transactions flawlessly.", author: "Michael Chang", role: "VP Engineering, GlobalPay" },
-                 { quote: "The generative AI tools Outsmart developed for our internal team have boosted productivity by an order of magnitude.", author: "Elena Rodriguez", role: "Operations Director, MedCare" },
-                 { quote: "A rare combination of cutting-edge AI expertise and rock-solid software engineering principles.", author: "David Kim", role: "Founder, Logistics Pro" },
-               ].map((test, idx) => (
-                 <div key={idx} className="min-w-[85vw] md:min-w-[400px] snap-center bg-[#F2EFE7]/30 p-8 rounded-3xl border border-gray-100 flex flex-col justify-between">
-                   <div className="mb-6">
-                     <div className="flex gap-1 mb-4 text-[#8E44AD]">
-                       {[1,2,3,4,5].map(star => <svg key={star} width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>)}
-                     </div>
-                     <p className="text-xl text-gray-800 font-medium leading-relaxed italic">"{test.quote}"</p>
-                   </div>
-                   <div>
-                     <h4 className="font-bold text-lg">{test.author}</h4>
-                     <p className="text-sm text-gray-600">{test.role}</p>
-                   </div>
-                 </div>
-               ))}
-             </div>
-          </div>
-        </section>
+        <TestimonialsSection />
 
         {/* FAQ Section */}
         <FAQSection />

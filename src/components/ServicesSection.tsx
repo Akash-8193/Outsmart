@@ -6,36 +6,42 @@ import { ArrowRight, Code, Cpu, Cloud, Smartphone, Database, Bot } from "lucide-
 export default function ServicesSection() {
   const services = [
     {
+      id: "custom-software",
       title: "Custom Software",
       desc: "Scalable enterprise web applications and complex systems built from the ground up to solve your unique challenges.",
       icon: <Code className="w-8 h-8" />,
       img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
     },
     {
+      id: "ai-agents",
       title: "AI Agents",
       desc: "Autonomous generative AI agents that automate customer support, internal workflows, and complex data tasks.",
       icon: <Bot className="w-8 h-8" />,
       img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
     },
     {
+      id: "cloud-architecture",
       title: "Cloud Architecture",
       desc: "Robust cloud infrastructure, highly secure DevOps pipelines, and strategic IT consulting for the modern web.",
       icon: <Cloud className="w-8 h-8" />,
       img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"
     },
     {
+      id: "mobile-apps",
       title: "Mobile Apps",
       desc: "Intelligent, high-performance mobile applications built natively for both iOS and Android platforms.",
       icon: <Smartphone className="w-8 h-8" />,
       img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80"
     },
     {
+      id: "data-analytics",
       title: "Data Analytics",
       desc: "Advanced data pipelines, sophisticated machine learning models, and predictive analytics dashboards.",
       icon: <Database className="w-8 h-8" />,
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
     },
     {
+      id: "saas-platforms",
       title: "SaaS Platforms",
       desc: "End-to-end development of secure, highly scalable, multi-tenant Software as a Service digital products.",
       icon: <Cpu className="w-8 h-8" />,
@@ -73,7 +79,7 @@ export default function ServicesSection() {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, idx) => (
-            <div key={idx} className="group relative rounded-3xl overflow-hidden aspect-[4/5] shadow-lg cursor-pointer">
+            <Link href={`/service/${service.id}`} key={idx} className="group relative rounded-3xl overflow-hidden h-[320px] sm:h-[280px] shadow-lg cursor-pointer block">
               {/* Background Image */}
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
@@ -81,7 +87,7 @@ export default function ServicesSection() {
               />
               
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
               
               {/* Top Left Icon */}
               <div className="absolute top-6 left-6 w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition-colors duration-300 border border-white/30 group-hover:bg-[--primary] group-hover:border-[--primary]">
@@ -89,18 +95,18 @@ export default function ServicesSection() {
               </div>
               
               {/* Bottom Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
-                <p className="text-white/80 text-sm leading-relaxed mb-8 font-medium">
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{service.title}</h3>
+                <p className="text-white/80 text-xs md:text-sm leading-relaxed mb-4 font-medium line-clamp-3">
                   {service.desc}
                 </p>
                 
                 {/* Arrow Button */}
-                <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition-colors duration-300 border border-white/30 group-hover:bg-[--primary] group-hover:border-[--primary]">
-                  <ArrowRight className="w-5 h-5" />
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition-colors duration-300 border border-white/30 group-hover:bg-[--primary] group-hover:border-[--primary]">
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         
