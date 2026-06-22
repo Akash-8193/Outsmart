@@ -9,21 +9,21 @@ export default function Contact() {
   return (
     <PageTransition>
       {/* Custom Contact Hero matching the user's 3D image layout */}
-      <section className="relative w-full min-h-screen flex items-center bg-[var(--background)] overflow-hidden pt-24 pb-12">
-        {/* Dotted Background to simulate the map texture */}
-        <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 3px 3px, var(--foreground) 1px, transparent 0)", backgroundSize: "24px 24px" }}></div>
+      <section className="relative w-full min-h-screen flex items-center bg-white overflow-hidden pt-24 pb-12">
+        {/* Dotted Background using the dedicated world map image */}
+        <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply" style={{ backgroundImage: "url('/dotted_world_map_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
         
         {/* Soft primary gradient matching the vibe */}
-        <div className="absolute top-0 left-0 w-1/2 h-full opacity-[0.05] z-0 pointer-events-none" style={{ background: "linear-gradient(to bottom right, var(--primary), transparent)" }}></div>
+        <div className="absolute top-0 left-0 w-1/2 h-full opacity-[0.03] z-0 pointer-events-none" style={{ background: "linear-gradient(to bottom right, var(--primary), transparent)" }}></div>
 
         <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-10 lg:gap-16">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
-            <Text3DBounce as="h1" className="text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] font-black leading-[1.1] mb-2 tracking-tight drop-shadow-sm font-sans" style={{ color: "var(--foreground)" }}>
+            <Text3DBounce as="h1" className="text-5xl sm:text-6xl md:text-[5rem] lg:text-[6.5rem] font-black leading-[1.1] mb-2 tracking-tight drop-shadow-sm font-sans whitespace-nowrap" style={{ color: "var(--foreground)" }}>
               Contact Us
             </Text3DBounce>
             
-            <h2 className="text-[1.75rem] md:text-[2.5rem] lg:text-[3.25rem] font-bold leading-[1.2] mb-6 tracking-tight" style={{ color: "var(--foreground)" }}>
+            <h2 className="text-3xl sm:text-4xl md:text-[2.5rem] lg:text-[3.25rem] font-bold leading-[1.2] mb-6 tracking-tight" style={{ color: "var(--foreground)" }}>
               Start Your Digital <br className="hidden lg:block" />
               <span style={{ color: "var(--primary)" }}>Transformation Journey</span>
             </h2>
@@ -50,9 +50,12 @@ export default function Contact() {
           
           {/* Right Image */}
           <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-16 lg:mt-0">
-            <ImageReveal className="relative z-10 w-full max-w-[850px] ml-auto">
-              <img src="/contact_hero_3d.png" alt="Contact Us 3D Illustration" className="w-full h-auto object-contain mix-blend-multiply scale-105 lg:scale-110 lg:translate-x-8 gsap-float" style={{ filter: "hue-rotate(105deg)" }} />
-            </ImageReveal>
+            {/* mix-blend-multiply is placed on a non-animated wrapper to prevent CSS composite layer bugs with GSAP */}
+            <div className="relative z-10 w-full max-w-[950px] ml-auto mix-blend-multiply">
+              <div className="w-full h-full gsap-float">
+                <img src="/contact_hero_3d.png" alt="Contact Us 3D Illustration" className="w-full h-auto object-contain brightness-105 contrast-105 scale-110 lg:scale-125 lg:translate-x-12" />
+              </div>
+            </div>
             
             {/* Soft backdrop glow to enhance the 3D effect */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] rounded-full blur-3xl -z-10 pointer-events-none opacity-20" style={{ backgroundColor: "var(--primary)" }}></div>
@@ -72,6 +75,38 @@ export default function Contact() {
         
         <ContactSection />
       </div>
+
+      {/* Location Map Section Matching User Design */}
+      <section className="w-full py-24 bg-[var(--background)] relative flex flex-col items-center px-6 md:px-12 lg:px-20 xl:px-32">
+        {/* Pill Badge */}
+        <div className="flex items-center gap-3 px-5 py-2 bg-white rounded-full shadow-sm mb-6 border border-gray-100">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-600 shadow-[0_0_8px_rgba(220,38,38,0.6)]"></div>
+          <span className="text-xs font-bold tracking-widest text-slate-800 uppercase">Where We Are Located</span>
+        </div>
+        
+        {/* Heading matching the exact website style */}
+        <h2 className="text-[1.75rem] md:text-[2.5rem] lg:text-[3.25rem] font-bold leading-[1.2] mb-6 tracking-tight text-center" style={{ color: "var(--foreground)" }}>
+          Find Our Office Location Easily
+        </h2>
+        
+        {/* Description */}
+        <p className="text-center text-slate-600 max-w-2xl mb-14 text-lg font-medium">
+          Our office is conveniently located in Noida's prime tech hub, making it simple for clients and partners to visit us for consultations and collaborations.
+        </p>
+
+        {/* Map Container - Reduced height and max-width to make it "thinner" and less huge */}
+        <div className="w-full max-w-[1100px] h-[350px] md:h-[450px] mx-auto bg-gray-200 rounded-3xl overflow-hidden shadow-2xl relative border-8 border-white group">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14013.125219420559!2d77.3175402602715!3d28.591321458284566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4f62e84d41b%3A0xc638a16dbd7daaa1!2sSector%208%2C%20Noida%2C%20Uttar%20Pradesh%20201301%2C%20India!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen={true} 
+            loading="lazy"
+            className="filter contrast-[1.05] saturate-[1.1] transition-transform duration-700 group-hover:scale-105"
+          ></iframe>
+        </div>
+      </section>
     </PageTransition>
   );
 }
