@@ -8,17 +8,17 @@ import {
 
 export default function IndustriesWeServeSection() {
   const industries = [
-    { name: "Healthcare", icon: <HeartPulse className="w-8 h-8" />, color: "from-pink-500 to-rose-500" },
-    { name: "Education", icon: <GraduationCap className="w-8 h-8" />, color: "from-blue-500 to-cyan-500" },
-    { name: "HR & Recruitment", icon: <Users className="w-8 h-8" />, color: "from-purple-500 to-indigo-500" },
-    { name: "Finance", icon: <Landmark className="w-8 h-8" />, color: "from-emerald-500 to-teal-500" },
-    { name: "Retail & E-comm", icon: <ShoppingCart className="w-8 h-8" />, color: "from-orange-500 to-amber-500" },
-    { name: "Logistics", icon: <Truck className="w-8 h-8" />, color: "from-sky-500 to-blue-600" },
-    { name: "Manufacturing", icon: <Factory className="w-8 h-8" />, color: "from-slate-500 to-gray-700" },
-    { name: "Real Estate", icon: <Home className="w-8 h-8" />, color: "from-fuchsia-500 to-pink-600" },
-    { name: "Hospitality", icon: <Hotel className="w-8 h-8" />, color: "from-red-500 to-rose-600" },
-    { name: "Startups & SaaS", icon: <Rocket className="w-8 h-8" />, color: "from-violet-500 to-purple-600" },
-    { name: "Enterprises", icon: <Building2 className="w-8 h-8" />, color: "from-teal-500 to-emerald-600" }
+    { name: "Healthcare", icon: <HeartPulse className="w-8 h-8" />, color: "from-pink-500 to-rose-500", image: "/domain-bgs/tech_bg_healthcare_1782393182262.png" },
+    { name: "Education", icon: <GraduationCap className="w-8 h-8" />, color: "from-blue-500 to-cyan-500", image: "/domain-bgs/tech_bg_education_1782393195300.png" },
+    { name: "HR & Recruitment", icon: <Users className="w-8 h-8" />, color: "from-purple-500 to-indigo-500", image: "/domain-bgs/tech_bg_hr_1782393208787.png" },
+    { name: "Finance", icon: <Landmark className="w-8 h-8" />, color: "from-emerald-500 to-teal-500", image: "/domain-bgs/tech_bg_finance_1782393220064.png" },
+    { name: "Retail & E-comm", icon: <ShoppingCart className="w-8 h-8" />, color: "from-orange-500 to-amber-500", image: "/domain-bgs/tech_bg_retail_1782393231502.png" },
+    { name: "Logistics", icon: <Truck className="w-8 h-8" />, color: "from-sky-500 to-blue-600", image: "/domain-bgs/tech_bg_logistics_1782393243150.png" },
+    { name: "Manufacturing", icon: <Factory className="w-8 h-8" />, color: "from-slate-500 to-gray-700", image: "/domain-bgs/tech_bg_manufacturing_1782393252038.png" },
+    { name: "Real Estate", icon: <Home className="w-8 h-8" />, color: "from-fuchsia-500 to-pink-600", image: "/domain-bgs/tech_bg_real_estate_1782393262136.png" },
+    { name: "Hospitality", icon: <Hotel className="w-8 h-8" />, color: "from-red-500 to-rose-600", image: "/domain-bgs/tech_bg_hospitality_1782393272681.png" },
+    { name: "Startups & SaaS", icon: <Rocket className="w-8 h-8" />, color: "from-violet-500 to-purple-600", image: "/domain-bgs/tech_bg_finance_1782393220064.png" },
+    { name: "Enterprises", icon: <Building2 className="w-8 h-8" />, color: "from-teal-500 to-emerald-600", image: "/domain-bgs/tech_bg_education_1782393195300.png" }
   ];
 
   // Helper to split industries into 3 columns for a staggered masonry effect
@@ -133,8 +133,15 @@ function IndustryCard({ item, index }: { item: any, index: number }) {
       transition={{ delay: (index % 4) * 0.1, type: "spring", stiffness: 100, damping: 20 }}
       className="group relative bg-white p-8 rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden aspect-square flex flex-col justify-between"
     >
+      {/* Background Image */}
+      {item.image && (
+        <div className="absolute inset-0 z-0">
+          <img src={item.image} alt={item.name} className="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500 mix-blend-multiply" />
+        </div>
+      )}
+
       {/* Dynamic Hover Gradient Border via pseudo-element illusion */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+      <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-0`}></div>
       
       {/* Icon Badge */}
       <div className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br ${item.color} text-white shadow-lg transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 relative z-10`}>

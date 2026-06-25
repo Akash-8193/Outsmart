@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="40" y1="28" x2="220" y2="228" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7FD"/>
+      <stop offset="1" stop-color="#F3F6FF"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="88" y1="52" x2="168" y2="204" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="94" y1="70" x2="162" y2="184" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B5179E"/>
+      <stop offset="1" stop-color="#7B2CBF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#7B2CBF" flood-opacity=".12"/>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="34" fill="url(#bg)"/>
+  <circle cx="62" cy="60" r="20" fill="#F9A8D4"/>
+  <circle cx="214" cy="58" r="16" fill="#DBEAFE"/>
+  <circle cx="202" cy="200" r="26" fill="#E9D5FF"/>
+  <g filter="url(#shadow)">
+    <rect x="90" y="44" width="76" height="168" rx="20" fill="url(#phone)"/>
+    <rect x="96" y="58" width="64" height="136" rx="14" fill="#0B1220"/>
+    <rect x="104" y="68" width="48" height="16" rx="8" fill="#E879F9"/>
+    <rect x="104" y="92" width="48" height="28" rx="10" fill="url(#accent)" opacity=".16"/>
+    <rect x="104" y="128" width="48" height="28" rx="10" fill="#22D3EE" opacity=".14"/>
+    <rect x="104" y="164" width="48" height="16" rx="8" fill="#A78BFA" opacity=".24"/>
+    <circle cx="128" cy="206" r="10" fill="#CBD5E1"/>
+    <circle cx="128" cy="206" r="5" fill="#7B2CBF"/>
+    <path d="M128 92c12 0 22 10 22 22" stroke="#E879F9" stroke-width="5" stroke-linecap="round"/>
+    <path d="M128 92c-12 0-22 10-22 22" stroke="#60A5FA" stroke-width="5" stroke-linecap="round"/>
+    <path d="M110 148l18-14 18 14" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/>
+    <circle cx="184" cy="92" r="16" fill="#FCE7F3"/>
+    <path d="M184 80c7 0 12 5 12 12 0 8-12 20-12 20s-12-12-12-20c0-7 5-12 12-12Z" fill="#B5179E"/>
+    <circle cx="74" cy="92" r="12" fill="#DBEAFE"/>
+    <path d="M72 86v12l8-6-8-6Z" fill="#7B2CBF"/>
+  </g>
+</svg>

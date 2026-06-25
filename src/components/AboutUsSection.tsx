@@ -31,14 +31,14 @@ export default function AboutUsSection() {
             {/* Top Half */}
             <div className="flex-1 flex flex-col items-center justify-center p-6 text-white text-center pb-12" style={{ backgroundColor: "var(--primary)" }}>
                <h3 className="text-4xl md:text-5xl font-black mb-1">
-                 <AnimatedCounter value={10} suffix="+" />
+                 <AnimatedCounter value={99} suffix="%" />
                </h3>
-               <p className="font-bold uppercase tracking-widest text-xs md:text-sm opacity-90">Years of<br/>experience</p>
+               <p className="font-bold uppercase tracking-widest text-xs md:text-sm opacity-90">Client<br/>Satisfaction</p>
             </div>
             
             {/* Bottom Half */}
             <div className="bg-[#0A0A0A] flex-1 flex items-end justify-center pb-8 pt-12 text-white">
-               <p className="font-bold text-sm md:text-base tracking-wide">24/7 technical support</p>
+               <p className="font-bold text-sm md:text-base tracking-wide">Proven Track Record</p>
             </div>
             
             {/* Center Overlapping Badge */}
