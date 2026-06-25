@@ -108,11 +108,11 @@ export default function Home() {
                     <img className="w-12 h-12 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=1" alt="Avatar" />
                     <img className="w-12 h-12 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=2" alt="Avatar" />
                     <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center text-xs font-black z-10 text-white" style={{ backgroundColor: "var(--primary)" }}>
-                      150+
+                    PROVEN
                     </div>
                   </div>
                   <p className="text-sm text-gray-600 font-semibold leading-tight max-w-[120px]">
-                    Successful Enterprise Projects
+                    Trusted Client Delivery
                   </p>
                 </div>
               </div>
@@ -212,13 +212,13 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center excellence-counter-boxes">
               {[
-                { value: "150+", label: "Projects Delivered" },
-                { value: "45+", label: "AI Agents Built" },
-                { value: "99%", label: "Happy Clients" },
-                { value: "10+", label: "Years Experience" },
+                { value: "Enterprise", label: "Delivered Solutions" },
+                { value: "Automation", label: "AI Workflows" },
+                { value: "Trusted", label: "Client Partnerships" },
+                { value: "Expertise", label: "Team Experience" },
               ].map((stat, idx) => (
                 <div key={idx} className="stat-item excellence-counter-item flex flex-col items-center justify-center p-6 bg-white/10 rounded-3xl backdrop-blur-md border border-white/20">
-                  <span className="text-4xl md:text-5xl font-black mb-2">{stat.value}</span>
+                  <span className="mb-2 block w-full px-2 text-center text-[clamp(1.5rem,1.8vw,2.3rem)] font-black leading-none tracking-tight">{stat.value}</span>
                   <span className="text-sm md:text-base font-medium text-white/80 uppercase tracking-wider">{stat.label}</span>
                 </div>
               ))}
@@ -244,7 +244,7 @@ export default function Home() {
         <section className="py-10 md:py-16 px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <Text3DBounce as="h2" className="text-4xl md:text-6xl font-bold mb-8">Ready to Outsmart the Competition?</Text3DBounce>
-            <p className="text-xl text-gray-600 mb-6">Let's build smarter digital solutions together.</p>
+            <p className="text-xl text-gray-600 mb-6">Let&apos;s build smarter digital solutions together.</p>
             <p className="text-lg font-bold text-gray-800 mb-12">
               <span className="text-[--primary]">+91 9599 34 2525</span> | info@outsmarttechnology.com
             </p>

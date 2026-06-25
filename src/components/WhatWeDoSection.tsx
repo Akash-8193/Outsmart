@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
-import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 
 export default function WhatWeDoSection() {
   const services = [
@@ -116,7 +115,7 @@ export default function WhatWeDoSection() {
             />
           </motion.div>
 
-          {/* Floating Badge (25+ Years Experience equivalent) */}
+          {/* Floating Badge (Proven Expertise equivalent) */}
           <motion.div 
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -125,9 +124,9 @@ export default function WhatWeDoSection() {
             className="absolute top-1/4 right-0 lg:-right-8 bg-white p-6 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-20 border border-gray-100 flex flex-col items-center gsap-float"
           >
             <span className="text-4xl font-black mb-1 flex items-center justify-center" style={{ color: "var(--primary)" }}>
-              <AnimatedCounter value={10} suffix="+" />
+              PROVEN
             </span>
-            <span className="text-sm font-bold text-gray-600 uppercase tracking-wider">Years Experience</span>
+            <span className="text-sm font-bold text-gray-600 uppercase tracking-wider">EXPERTISE</span>
           </motion.div>
 
           {/* Floating decorative elements */}
