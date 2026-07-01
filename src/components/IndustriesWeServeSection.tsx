@@ -74,7 +74,7 @@ export default function IndustriesWeServeSection() {
             transition={{ delay: 0.3 }}
           >
             <a href="/contact" className="group inline-flex items-center gap-4 text-lg font-bold text-gray-900 hover:text-[--primary] transition-colors mb-12">
-              Discuss Your Industry
+              Let's Talk
               <div className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center group-hover:border-[--primary] group-hover:bg-[--primary] group-hover:text-white transition-all duration-300">
                 <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
               </div>

@@ -110,7 +110,7 @@ export default function OurExpertiseSection() {
               <span className="w-8 h-8 rounded-full bg-white text-[--primary] flex items-center justify-center">
                 <ArrowRight className="w-5 h-5" />
               </span>
-              Get Started Today
+              Let's Talk
             </Link>
           </motion.div>
 

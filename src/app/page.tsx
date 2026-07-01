@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import PageTransition from "@/components/PageTransition";
 import AboutUsSection from "@/components/AboutUsSection";
-import WhatWeDoSection from "@/components/WhatWeDoSection";
 import ProcessSection from "@/components/ProcessSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -17,7 +16,6 @@ import IndustriesWeServeSection from "@/components/IndustriesWeServeSection";
 import TechnologyStackSection from "@/components/TechnologyStackSection";
 import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
-import OurExpertiseSection from "@/components/OurExpertiseSection";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import { ArrowRight, Code, Cpu, Smartphone, Server } from "lucide-react";
 
@@ -100,7 +98,7 @@ export default function Home() {
                   className="text-white font-black px-8 py-4.5 rounded-xl shadow-lg btn-default whitespace-nowrap"
                   style={{ backgroundColor: "var(--primary)" }}
                 >
-                  Book Free Consultation
+                  Let's Talk
                 </Link>
                 
                 <div className="flex items-center gap-4">
@@ -182,16 +180,8 @@ export default function Home() {
         {/* About Us Section */}
         <AboutUsSection />
 
-        {/* What We Do Section (Replaces ServicesSection based on slide) */}
-        <WhatWeDoSection />
-
         {/* Why Choose Us Section */}
         <WhyChooseUsSection />
-
-
-
-        {/* Our Expertise Section */}
-        <OurExpertiseSection />
 
 
 
@@ -253,7 +243,7 @@ export default function Home() {
               className="inline-block px-10 py-5 rounded-full text-white font-bold text-xl shadow-2xl hover:shadow-[--primary]/50 btn-default"
               style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
             >
-              Start Your Project
+              Let's Talk
             </Link>
           </div>
         </section>

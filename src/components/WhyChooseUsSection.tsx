@@ -1,171 +1,202 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Briefcase, Settings, Layers, Zap, Headphones, Cpu, UserCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Target, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 
-const features = [
-  {
-    title: "Industry-Focused Solutions",
-    desc: "Tailored solutions built for your industry needs.",
-    icon: <Briefcase className="w-5 h-5" style={{ color: "var(--primary)" }} />
-  },
-  {
-    title: "Custom Development",
-    desc: "Built around your unique business goals.",
-    icon: <Settings className="w-5 h-5" style={{ color: "var(--primary)" }} />
-  },
-  {
-    title: "Scalable Architecture",
-    desc: "Systems designed to grow with your business.",
-    icon: <Layers className="w-5 h-5" style={{ color: "var(--primary)" }} />
-  },
-  {
-    title: "Fast Delivery",
-    desc: "Quick turnaround without compromising quality.",
-    icon: <Zap className="w-5 h-5" style={{ color: "var(--primary)" }} />
-  },
-  {
-    title: "Dedicated Support",
-    desc: "Reliable support whenever you need it.",
-    icon: <Headphones className="w-5 h-5" style={{ color: "var(--primary)" }} />
-  },
-  {
-    title: "Modern Tech Stack",
-    desc: "Built using the latest secure technologies.",
-    icon: <Cpu className="w-5 h-5" style={{ color: "var(--primary)" }} />
-  },
-  {
-    title: "User-Centric Design",
-    desc: "Experiences designed for better usability.",
-    icon: <UserCheck className="w-5 h-5" style={{ color: "var(--primary)" }} />
-  },
-  {
-    title: "AI-Driven Innovation",
-    desc: "Smart AI solutions that drive efficiency.",
-    icon: <Sparkles className="w-5 h-5" style={{ color: "var(--primary)" }} />
-  }
-];
-
 export default function WhyChooseUsSection() {
   return (
-    <section className="py-8 px-6 bg-transparent font-sans overflow-hidden">
-      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-8 items-center">
+    <section className="py-16 md:py-24 px-6 bg-white font-sans overflow-hidden">
+      <div className="max-w-[1320px] mx-auto">
         
-        {/* Left Content Column */}
-        <div className="w-full lg:w-1/2 flex flex-col pr-0 lg:pr-12 relative z-10">
-          {/* Pill Tag */}
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-[0_4px_20px_rgba(0,0,0,0.04)] w-max mb-8 border border-gray-100"
-          >
-             <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "var(--primary)" }}></div>
-             <span className="text-sm font-bold text-gray-800 tracking-wide uppercase">Our Commitment. Your Advantage.</span>
-          </motion.div>
-
-          {/* Heading */}
-          <Text3DBounce as="h2" className="text-3xl md:text-4xl lg:text-5xl font-black text-[#0A0A0A] leading-[1.1] tracking-tight mb-6 uppercase">
-            Why Businesses Choose Us
-          </Text3DBounce>
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
           
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-600 leading-relaxed font-medium text-lg mb-12 max-w-xl"
-          >
-            We combine expertise, technology, and dedication to deliver solutions that help your business grow faster and smarter.
-          </motion.p>
+          {/* Left Content Column */}
+          <div className="w-full lg:w-1/2 flex flex-col pt-4">
+            
+            {/* Pill Tag */}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-100 w-max mb-6"
+            >
+               <div className="w-2 h-2 rounded-full bg-[#4ba835]"></div>
+               <span className="text-sm font-bold text-gray-800 tracking-wide">Why Choose Us</span>
+            </motion.div>
 
-          {/* Sleek Features List replacing the bulky boxes */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8 mb-14">
-            {features.map((feature, idx) => (
+            {/* Heading */}
+            <Text3DBounce as="h2" className="text-4xl md:text-[2.75rem] font-black text-[#0f172a] leading-[1.15] tracking-tight mb-6">
+              Expert driven digital solutions built for efficiency & trust
+            </Text3DBounce>
+            
+            {/* Paragraph */}
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-gray-500 leading-relaxed font-medium text-[1.1rem] mb-8 max-w-[500px]"
+            >
+              We are committed to delivering reliable, high-quality digital marketing solutions you can trust. With expert guidance, advanced strategies, and end-to-end support.
+            </motion.p>
+
+            {/* Highlight Box */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-[#f8f9fc] rounded-2xl p-6 mb-10 border-l-[6px] border-[#4ba835] flex items-start gap-5"
+            >
+              <div className="w-12 h-12 rounded-full bg-[#4ba835] flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-[1.35rem] font-bold text-[#0f172a] mb-2 leading-tight">Trusted Growth Partner</h3>
+                <p className="text-gray-500 text-[0.95rem] font-medium leading-relaxed">
+                  We deliver reliable marketing solutions through expert planning, quality execution, and ongoing support.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Statistics */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap items-center gap-y-8 gap-x-8 lg:gap-x-12 mb-10 py-8 border-t border-b border-gray-100"
+            >
+              <div>
+                <div className="text-4xl font-black text-[#0f172a] mb-2">1K+</div>
+                <div className="text-sm font-semibold text-gray-500">Happy Clients</div>
+              </div>
+              <div className="w-[1px] h-12 bg-gray-200 hidden sm:block"></div>
+              <div>
+                <div className="text-4xl font-black text-[#0f172a] mb-2">$1M+</div>
+                <div className="text-sm font-semibold text-gray-500">Revenue Generated</div>
+              </div>
+              <div className="w-[1px] h-12 bg-gray-200 hidden sm:block"></div>
+              <div>
+                <div className="text-4xl font-black text-[#0f172a] mb-2">100+</div>
+                <div className="text-sm font-semibold text-gray-500">Successful Campaigns</div>
+              </div>
+            </motion.div>
+
+            {/* Learn More Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            >
+              <Link 
+                href="/about" 
+                className="inline-flex items-center gap-2 bg-[#4ba835] hover:bg-[#3d8c2b] text-white font-bold py-3.5 px-8 rounded-lg transition-colors duration-300"
+              >
+                Learn More
+                <ArrowUpRight className="w-5 h-5" />
+              </Link>
+            </motion.div>
+
+          </div>
+
+          {/* Right Images Column */}
+          <div className="w-full lg:w-1/2 flex flex-col gap-6 lg:mt-0 mt-8">
+            
+            {/* Top Wide Image Area */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative w-full h-[280px] md:h-[320px] rounded-[1.5rem] overflow-hidden group"
+            >
+              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Team collaborating" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              
+              {/* Overlay Tags */}
+              <div className="absolute bottom-6 left-0 w-full flex flex-wrap justify-center gap-2.5 px-4">
+                {["SEO Services", "Performance Ads", "UI/UX Design", "Content Strategy"].map((tag, i) => (
+                  <span key={i} className="bg-black/40 backdrop-blur-md border border-white/20 text-white text-[13px] font-medium px-4 py-1.5 rounded-[4px] cursor-pointer hover:bg-black/60 transition-colors">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Bottom Two Columns */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto md:h-[320px]">
+              
+              {/* Bottom Left Vertical Image */}
               <motion.div 
-                key={idx} 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1 + (idx * 0.05) }}
-                className="flex items-start gap-4 group"
+                transition={{ delay: 0.2 }}
+                className="w-full h-[250px] md:h-full rounded-[1.5rem] overflow-hidden group"
               >
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-white shadow-sm border border-gray-100 group-hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
-                  <div className="absolute inset-0 opacity-10" style={{ backgroundColor: "var(--primary)" }}></div>
-                  {feature.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-1 leading-tight group-hover:text-[--primary] transition-colors">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {feature.desc}
-                  </p>
-                </div>
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Professional working" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </motion.div>
+
+              {/* Bottom Right Green Card */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="w-full h-full rounded-[1.5rem] bg-[#4ba835] p-8 flex flex-col justify-end relative overflow-hidden"
+              >
+                {/* Decoration Icon */}
+                <div className="absolute top-8 left-8">
+                  <div className="w-16 h-16 bg-white/10 flex items-center justify-center rounded-xl">
+                     <Target className="w-8 h-8 text-white drop-shadow-md" />
+                  </div>
+                </div>
+                
+                <h3 className="text-[1.35rem] font-bold text-white mb-2 leading-tight">Long Term Support</h3>
+                <p className="text-white/90 font-medium text-[0.95rem] leading-relaxed">
+                  We provide dependable after sales support to ensure your growth continues uninterrupted.
+                </p>
+              </motion.div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Footer Area with tags and contact text */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-20 flex flex-col items-center justify-center gap-8"
+        >
+          {/* Tags */}
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-5">
+            {["Digital Strategy", "Social Media", "Paid Advertising", "Brand Identity"].map((tag, i) => (
+              <div key={i} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#4ba835]"></div>
+                <span className="text-sm font-bold text-gray-700">{tag}</span>
+              </div>
             ))}
           </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-10"
-          >
-            {/* Contact Button matching design */}
-            <Link 
-              href="/contact" 
-              className="inline-flex items-center gap-4 text-white font-bold p-2 pr-8 rounded-full shadow-lg hover:shadow-xl btn-default"
-              style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
-            >
-              <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
-                <ArrowRight className="w-5 h-5" />
+          {/* Contact Row */}
+          <div className="flex flex-wrap items-center justify-center gap-3 text-center">
+            <div className="flex -space-x-3 mr-1">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Avatar" className="w-8 h-8 rounded-full border-2 border-white shadow-sm object-cover" />
+              <div className="w-8 h-8 rounded-full bg-[#4ba835] border-2 border-white shadow-sm flex items-center justify-center z-10">
+                <Phone className="w-3.5 h-3.5 text-white" />
               </div>
-              <span className="tracking-wide">Contact Us</span>
-            </Link>
-          </motion.div>
-        </div>
-
-        {/* Right Images Column with Creative Animation */}
-        <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[500px] mt-12 lg:mt-0">
-          
-          {/* Top Right Image */}
-          <motion.div 
-            animate={{ y: [0, -15, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 right-0 w-[85%] h-[65%] rounded-[2rem] overflow-hidden shadow-2xl z-0 image-anime"
-          >
-             <img src="/why_choose_us_1.png" alt="Why Choose Us 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-          </motion.div>
-          
-          {/* Bottom Left Image */}
-          <motion.div 
-            animate={{ y: [0, 15, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-10 left-0 w-[85%] h-[65%] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] z-10 border-[12px] border-[#FCFBFA] image-anime"
-          >
-             <img src="/why_choose_us_2.png" alt="Why Choose Us 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-          </motion.div>
-
-          {/* Creative Floating Badge */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-            className="absolute top-[45%] -left-8 md:-left-12 bg-white px-6 py-4 rounded-2xl shadow-xl z-20 flex items-center gap-4 border border-gray-100 gsap-float"
-          >
-             <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center">
-               <CheckCircle2 className="w-6 h-6 text-green-500" />
-             </div>
-             <div>
-               <div className="font-black text-gray-900 text-xl leading-none mb-1">100%</div>
-               <div className="text-xs text-gray-500 font-bold uppercase tracking-wider">Client Satisfaction</div>
-             </div>
-          </motion.div>
-
-        </div>
+            </div>
+            <p className="text-gray-700 font-medium text-[15px]">
+              Let's make something great work together. <Link href="/contact" className="text-[#4ba835] font-bold underline underline-offset-4 decoration-2 hover:text-[#3d8c2b] transition-colors">Let's Talk</Link>
+            </p>
+          </div>
+        </motion.div>
 
       </div>
     </section>

@@ -59,7 +59,7 @@ export default function ServicesSection() {
             className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-full shadow-lg shrink-0 btn-default"
             style={{ backgroundColor: "var(--primary)" }}
           >
-            Book A Consultation <ArrowRight className="w-5 h-5" />
+            Let's Talk <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
         

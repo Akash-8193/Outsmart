@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import clsx from "clsx";
 
@@ -12,6 +12,7 @@ const links = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Projects", href: "/portfolio" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -20,24 +21,21 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 20) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  });
 
   return (
     <header className="fixed top-0 md:top-4 left-0 right-0 z-50 px-0 md:px-8 pointer-events-none flex justify-center">
       <nav 
         className={clsx(
-          "w-full max-w-6xl bg-white rounded-none md:rounded-full py-2.5 px-4 md:px-6 flex items-center justify-between pointer-events-auto border-b md:border border-gray-100 transition-all duration-300",
-          scrolled ? "shadow-[0_10px_40px_rgba(0,0,0,0.08)] translate-y-0" : "shadow-md md:translate-y-2"
+          "w-full max-w-6xl bg-white rounded-none md:rounded-full px-4 md:px-6 flex items-center justify-between pointer-events-auto border-b md:border border-gray-100 transition-all duration-500 ease-in-out",
+          scrolled ? "py-1.5 md:py-2 shadow-[0_10px_40px_rgba(0,0,0,0.08)] translate-y-0" : "py-2.5 md:py-4 shadow-md md:translate-y-2"
         )}
       >
         {/* Logo - Left */}
@@ -46,7 +44,10 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Outsmart Technology"
-              className="h-10 md:h-12 w-auto object-contain transition-transform hover:scale-105"
+              className={clsx(
+                "w-auto object-contain transition-all duration-500 ease-in-out hover:scale-105",
+                scrolled ? "h-8 md:h-10" : "h-10 md:h-12"
+              )}
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
@@ -86,7 +87,7 @@ export default function Navbar() {
             <div className="w-6 h-6 md:w-8 md:h-8 rounded-md md:rounded-lg bg-black/20 flex items-center justify-center transition-transform group-hover:bg-black/30">
               <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4 text-white group-hover:rotate-12 transition-transform" />
             </div>
-            Get in Touch
+            Let's Talk
           </Link>
 
           {/* Mobile Menu Toggle */}
@@ -126,7 +127,7 @@ export default function Navbar() {
                 className="mt-4 flex items-center justify-center gap-2 py-4 rounded-xl text-white font-bold shadow-md"
                 style={{ backgroundColor: "var(--primary)" }}
               >
-                Get in Touch
+                Let's Talk
                 <ArrowUpRight className="w-5 h-5" />
               </Link>
             </div>

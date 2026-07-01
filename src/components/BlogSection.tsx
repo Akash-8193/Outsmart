@@ -5,13 +5,14 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { blogs } from "@/lib/blogData";
 
-export default function BlogSection() {
+export default function BlogSection({ hideHeader = false }: { hideHeader?: boolean }) {
 
   return (
     <section className="py-12 px-6 bg-transparent font-sans">
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 flex flex-col items-center">
+        {!hideHeader && (
+          <div className="text-center mb-16 flex flex-col items-center">
           <div className="inline-flex items-center gap-3 bg-white px-5 py-2.5 rounded-full mb-8 text-[11px] font-bold tracking-widest uppercase shadow-sm">
             <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "var(--primary)" }}></span>
             Latest Blog
@@ -20,6 +21,7 @@ export default function BlogSection() {
             INSIGHTS AND INSPIRATION FROM OUR LATEST BLOG
           </h2>
         </div>
+        )}
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">

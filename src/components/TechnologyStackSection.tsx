@@ -108,7 +108,7 @@ export default function TechnologyStackSection() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-lg shadow-xl hover:shadow-[--primary]/30 btn-default"
               style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
             >
-              Discuss Your Project
+              Let's Talk
               <ArrowUpRight className="w-5 h-5 ml-2 relative z-10" />
             </Link>
           </motion.div>

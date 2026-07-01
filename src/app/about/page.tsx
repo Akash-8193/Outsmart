@@ -9,11 +9,8 @@ import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import PageHero from "@/components/PageHero";
 import { Shield, Zap, Target, Lightbulb, Users, Globe } from "lucide-react";
 import AboutUsSection from "@/components/AboutUsSection";
-import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import MissionVisionSection from "@/components/MissionVisionSection";
 import OurExpertiseSection from "@/components/OurExpertiseSection";
-import IndustriesWeServeSection from "@/components/IndustriesWeServeSection";
-import TechnologyStackSection from "@/components/TechnologyStackSection";
 import OtherSolutionsSection from "@/components/OtherSolutionsSection";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
 
@@ -140,9 +137,6 @@ export default function About() {
         <div>
           <AboutUsSection />
         </div>
-        <div>
-          <WhyChooseUsSection />
-        </div>
 
         {/* Mission & Vision */}
         <MissionVisionSection />
@@ -152,12 +146,6 @@ export default function About() {
 
         {/* What We Do */}
         <WhatWeDoSection />
-
-        {/* Industries We Serve */}
-        <IndustriesWeServeSection />
-
-        {/* Technology Stack */}
-        <TechnologyStackSection />
 
         {/* Other Solutions We Build */}
         <OtherSolutionsSection />

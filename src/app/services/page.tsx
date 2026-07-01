@@ -7,7 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PageTransition from "@/components/PageTransition";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import Link from "next/link";
-import ProcessSection from "@/components/ProcessSection";
 import ContactSection from "@/components/ContactSection";
 
 export default function Services() {
@@ -174,8 +173,6 @@ export default function Services() {
 
       {/* Subsequent Sections wrapper with z-30 and bg-white to slide over the pinned panels */}
       <div className="relative z-30 bg-white pt-20">
-        <ProcessSection />
-
         {/* Final CTA / Contact Form */}
         <div className="bg-[#F2EFE7] mt-10 pt-10">
           <ContactSection />

@@ -197,7 +197,7 @@ export default function ProjectClientPage({ project }: { project: any }) {
             className="inline-flex items-center gap-3 px-10 py-5 rounded-full text-white font-bold text-xl shadow-2xl hover:scale-105 transition-transform"
             style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
           >
-            Start Your Project
+            Let's Talk
             <ArrowRight className="w-6 h-6" />
           </Link>
         </div>

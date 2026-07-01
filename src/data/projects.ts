@@ -75,5 +75,50 @@ export const projectsData = [
       { title: "Performance Tracking", icon: "trending-up" },
       { title: "Reports & Analytics", icon: "bar-chart-3" }
     ]
+  },
+  {
+    slug: "supply-chain-erp",
+    title: "Global Supply Chain ERP",
+    category: "Custom Software",
+    overview: "Outsmart Technology developed a comprehensive ERP solution for global logistics, featuring automated workflows and accurate stock control across multiple warehouse locations.",
+    image: "/project_erp.png",
+    coreModules: [
+      { title: "Warehouse Operations", icon: "warehouse" },
+      { title: "Inventory Forecasting", icon: "trending-up" },
+      { title: "Supplier Portal", icon: "users" },
+      { title: "Route Optimization", icon: "map" },
+      { title: "Order Fulfillment", icon: "package-check" },
+      { title: "Real-time Tracking", icon: "truck" }
+    ]
+  },
+  {
+    slug: "multi-vendor-ecommerce",
+    title: "Multi-Vendor E-Commerce",
+    category: "Web Apps",
+    overview: "Scalable digital platform built by Outsmart Technology that accelerates growth and modernizes retail operations with multi-vendor support, secure payments, and dynamic inventory.",
+    image: "/project_ecommerce.png",
+    coreModules: [
+      { title: "Vendor Dashboard", icon: "store" },
+      { title: "Order Management", icon: "shopping-cart" },
+      { title: "Payment Gateway Integration", icon: "credit-card" },
+      { title: "Product Catalog", icon: "layout-grid" },
+      { title: "Reviews & Ratings", icon: "star" },
+      { title: "Analytics & Sales", icon: "bar-chart-4" }
+    ]
+  },
+  {
+    slug: "patient-data-saas",
+    title: "Patient Data Management SaaS",
+    category: "Enterprise SaaS",
+    overview: "A HIPAA-compliant patient data management and predictive analytics dashboard designed by Outsmart Technology to help healthcare providers streamline medical records and improve patient outcomes.",
+    image: "/project_health.png",
+    coreModules: [
+      { title: "Electronic Health Records", icon: "file-heart" },
+      { title: "Appointment Scheduling", icon: "calendar" },
+      { title: "Predictive Analytics", icon: "activity" },
+      { title: "Billing & Invoicing", icon: "receipt" },
+      { title: "Patient Portal", icon: "user-round" },
+      { title: "Compliance & Security", icon: "shield-check" }
+    ]
   }
 ];
