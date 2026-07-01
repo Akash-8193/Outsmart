@@ -104,11 +104,11 @@ export default function TechnologyStackSection() {
             transition={{ delay: 0.3 }}
           >
             <Link 
-              href="/contact"
+              href="/services"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-lg shadow-xl hover:shadow-[--primary]/30 btn-default"
               style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
             >
-              Let's Talk
+              Explore Services
               <ArrowUpRight className="w-5 h-5 ml-2 relative z-10" />
             </Link>
           </motion.div>

@@ -103,14 +103,14 @@ export default function OurExpertiseSection() {
             transition={{ delay: 0.7 }}
           >
             <Link 
-              href="/contact"
+              href="/portfolio"
               className="inline-flex items-center gap-4 px-8 py-4 rounded-full text-white font-bold text-lg shadow-xl hover:shadow-[--primary]/50 btn-default"
               style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
             >
               <span className="w-8 h-8 rounded-full bg-white text-[--primary] flex items-center justify-center">
                 <ArrowRight className="w-5 h-5" />
               </span>
-              Let's Talk
+              View Projects
             </Link>
           </motion.div>
 
