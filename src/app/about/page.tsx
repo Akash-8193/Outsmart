@@ -9,6 +9,7 @@ import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import PageHero from "@/components/PageHero";
 import { Shield, Zap, Target, Lightbulb, Users, Globe } from "lucide-react";
 import AboutUsSection from "@/components/AboutUsSection";
+import AboutPageUniqueSection from "@/components/AboutPageUniqueSection";
 import MissionVisionSection from "@/components/MissionVisionSection";
 import OurExpertiseSection from "@/components/OurExpertiseSection";
 import OtherSolutionsSection from "@/components/OtherSolutionsSection";
@@ -80,7 +81,7 @@ export default function About() {
   return (
     <PageTransition>
       {/* Custom About Hero matching the user's 3D image layout & theme colors */}
-      <section className="relative w-full min-h-screen flex items-center bg-white overflow-hidden pt-24 pb-12">
+      <section className="relative w-full min-h-screen flex items-center bg-[var(--background)] overflow-hidden pt-24 pb-12">
         {/* Dotted Background using the dedicated world map image */}
         <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply" style={{ backgroundImage: "url('/dotted_world_map_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
         
@@ -103,7 +104,7 @@ export default function About() {
             <div className="w-16 h-1 mb-6 md:mb-8" style={{ backgroundColor: "var(--primary)" }}></div>
             
             <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-4 md:mb-10 max-w-md font-medium">
-              We build intelligent software and AI-powered solutions that help businesses grow.
+              We are a team of elite software engineers and AI specialists dedicated to transforming complex business challenges into scalable digital innovations.
             </p>
           </div>
           
@@ -134,9 +135,9 @@ export default function About() {
       </section>
       <div className="pb-10 px-6">
 
-        {/* Sections from Home Page as requested */}
+        {/* Exclusive About Section for About Page */}
         <div>
-          <AboutUsSection />
+          <AboutPageUniqueSection />
         </div>
 
         {/* Mission & Vision */}

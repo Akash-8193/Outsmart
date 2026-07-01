@@ -86,11 +86,11 @@ export default function Home() {
               </div>
               
               <Text3DBounce as="h1" className="text-4xl md:text-5xl lg:text-5xl font-black leading-[1.05] mb-8 tracking-tight text-gray-900">
-                Full-Stack Software & Digital Transformation
+                Custom Software Development & AI Solutions Agency
               </Text3DBounce>
               
               <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-12 max-w-xl font-medium">
-                Outsmart Technology delivers scalable, intelligent, and future-ready technology solutions. We help organizations modernize operations, automate workflows, and build digital products that accelerate growth.
+                Outsmart Technology delivers scalable, intelligent, and future-ready digital solutions. We help organizations modernize operations through <Link href="/services" className="text-[--primary] hover:underline font-bold">tailored CRM/ERP systems</Link>, <Link href="/portfolio" className="text-[--primary] hover:underline font-bold">Enterprise SaaS products</Link>, and workflow automation that accelerates growth.
               </p>
               
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 mb-14">

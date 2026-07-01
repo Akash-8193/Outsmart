@@ -79,8 +79,8 @@ export default function AboutUsSection() {
           
           {/* Paragraph */}
           <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-10 font-medium">
-            <strong className="text-gray-900">Vision:</strong> To become a trusted global technology partner enabling businesses through innovative digital solutions.<br/><br/>
-            <strong className="text-gray-900">Mission:</strong> To deliver scalable, intelligent, and user-focused software products that create measurable business impact.
+            <strong className="text-gray-900">Vision:</strong> To become a trusted global technology partner enabling businesses through <Link href="/services" className="text-[--primary] hover:underline font-bold">innovative digital solutions</Link>.<br/><br/>
+            <strong className="text-gray-900">Mission:</strong> To deliver scalable, intelligent, and user-focused <Link href="/portfolio" className="text-[--primary] hover:underline font-bold">software products</Link> that create measurable business impact.
           </p>
           
           {/* Two Horizontal Cards */}

@@ -12,12 +12,12 @@ export const projectsData = [
       { title: "Supplier Miscommunication", desc: "Disconnected communication channels cause delays in procurement.", num: "4" }
     ],
     coreModules: [
-      { title: "Stock Management", icon: "box" },
-      { title: "Purchase & Supplier Management", icon: "banknote" },
-      { title: "Warehouse Tracking", icon: "warehouse" },
-      { title: "Barcode & SKU Management", icon: "barcode" },
-      { title: "Reports & Analytics", icon: "line-chart" },
-      { title: "Alerts & Notifications", icon: "bell" }
+      { title: "Stock Management", icon: "box", desc: "Real-time tracking of all inbound and outbound stock movements." },
+      { title: "Purchase & Supplier Management", icon: "banknote", desc: "Automate purchase orders and manage supplier communications." },
+      { title: "Warehouse Tracking", icon: "warehouse", desc: "Multi-location warehouse visibility with bin-level tracking." },
+      { title: "Barcode & SKU Management", icon: "barcode", desc: "Generate and scan barcodes for lightning-fast inventory counts." },
+      { title: "Reports & Analytics", icon: "line-chart", desc: "Detailed insights into stock levels, valuations, and trends." },
+      { title: "Alerts & Notifications", icon: "bell", desc: "Instant low-stock alerts to prevent fulfillment delays." }
     ]
   },
   {
@@ -33,12 +33,12 @@ export const projectsData = [
       { title: "Poor Citizen Experience", desc: "Lack of transparency left citizens frustrated and uninformed.", num: "4" }
     ],
     coreModules: [
-      { title: "Complaint Registration", icon: "file-text" },
-      { title: "Ticket Tracking", icon: "ticket" },
-      { title: "Escalation Management", icon: "arrow-up-right" },
-      { title: "User Dashboard", icon: "layout-dashboard" },
-      { title: "Reports & Analytics", icon: "pie-chart" },
-      { title: "Notifications & Alerts", icon: "bell-ring" }
+      { title: "Complaint Registration", icon: "file-text", desc: "Multi-channel intake forms for citizens and staff." },
+      { title: "Ticket Tracking", icon: "ticket", desc: "End-to-end visibility of complaint status and history." },
+      { title: "Escalation Management", icon: "arrow-up-right", desc: "Auto-routing of overdue tickets to senior officials." },
+      { title: "User Dashboard", icon: "layout-dashboard", desc: "Personalized views for administrators, agents, and users." },
+      { title: "Reports & Analytics", icon: "pie-chart", desc: "Identify recurring issues and measure resolution times." },
+      { title: "Notifications & Alerts", icon: "bell-ring", desc: "Automated SMS and email updates on ticket progress." }
     ]
   },
   {
@@ -80,12 +80,12 @@ export const projectsData = [
       }
     ],
     coreModules: [
-      { title: "Attendance & Leave", icon: "calendar-clock" },
-      { title: "Payroll", icon: "coins" },
-      { title: "Recruitment", icon: "user-plus" },
-      { title: "Employee Self-Service", icon: "user-cog" },
-      { title: "Performance Tracking", icon: "trending-up" },
-      { title: "Reports & Analytics", icon: "bar-chart-3" }
+      { title: "Attendance & Leave", icon: "calendar-clock", desc: "Biometric integration with automated leave calculations." },
+      { title: "Payroll", icon: "coins", desc: "One-click payroll processing with automated tax compliance." },
+      { title: "Recruitment", icon: "user-plus", desc: "Applicant tracking system from job posting to onboarding." },
+      { title: "Employee Self-Service", icon: "user-cog", desc: "Mobile-friendly portal for pay slips, requests, and updates." },
+      { title: "Performance Tracking", icon: "trending-up", desc: "KPI tracking, goal setting, and 360-degree reviews." },
+      { title: "Reports & Analytics", icon: "bar-chart-3", desc: "Visual dashboards for attrition, headcount, and expenses." }
     ]
   },
   {
@@ -101,12 +101,12 @@ export const projectsData = [
       { title: "Complex Vendor Management", desc: "Managing hundreds of third-party vendors manually was unsustainable.", num: "4" }
     ],
     coreModules: [
-      { title: "Warehouse Operations", icon: "warehouse" },
-      { title: "Inventory Forecasting", icon: "trending-up" },
-      { title: "Supplier Portal", icon: "users" },
-      { title: "Route Optimization", icon: "map" },
-      { title: "Order Fulfillment", icon: "package-check" },
-      { title: "Real-time Tracking", icon: "truck" }
+      { title: "Warehouse Operations", icon: "warehouse", desc: "Centralized control over cross-docking and storage." },
+      { title: "Inventory Forecasting", icon: "trending-up", desc: "AI-driven demand prediction to optimize stock levels." },
+      { title: "Supplier Portal", icon: "users", desc: "Secure access for vendors to update shipment status." },
+      { title: "Route Optimization", icon: "map", desc: "Dynamic route planning to minimize fuel and transit time." },
+      { title: "Order Fulfillment", icon: "package-check", desc: "Automated pick, pack, and ship workflows." },
+      { title: "Real-time Tracking", icon: "truck", desc: "Live GPS integration for fleet and cargo monitoring." }
     ]
   },
   {
@@ -122,12 +122,12 @@ export const projectsData = [
       { title: "Poor Discovery", desc: "Customers couldn't easily find products across thousands of categories.", num: "4" }
     ],
     coreModules: [
-      { title: "Vendor Dashboard", icon: "store" },
-      { title: "Order Management", icon: "shopping-cart" },
-      { title: "Payment Gateway Integration", icon: "credit-card" },
-      { title: "Product Catalog", icon: "layout-grid" },
-      { title: "Reviews & Ratings", icon: "star" },
-      { title: "Analytics & Sales", icon: "bar-chart-4" }
+      { title: "Vendor Dashboard", icon: "store", desc: "Independent portals for sellers to manage products and orders." },
+      { title: "Order Management", icon: "shopping-cart", desc: "Centralized system to track split orders and fulfillment." },
+      { title: "Payment Gateway Integration", icon: "credit-card", desc: "Secure, automated payout splitting and commission tracking." },
+      { title: "Product Catalog", icon: "layout-grid", desc: "Infinite category depth with advanced search and filtering." },
+      { title: "Reviews & Ratings", icon: "star", desc: "Verified customer feedback system for vendor accountability." },
+      { title: "Analytics & Sales", icon: "bar-chart-4", desc: "Sales reports and conversion tracking for administrators." }
     ]
   },
   {
@@ -143,12 +143,12 @@ export const projectsData = [
       { title: "Lack of Predictive Care", desc: "Hospitals couldn't proactively identify at-risk patients.", num: "4" }
     ],
     coreModules: [
-      { title: "Electronic Health Records", icon: "file-heart" },
-      { title: "Appointment Scheduling", icon: "calendar" },
-      { title: "Predictive Analytics", icon: "activity" },
-      { title: "Billing & Invoicing", icon: "receipt" },
-      { title: "Patient Portal", icon: "user-round" },
-      { title: "Compliance & Security", icon: "shield-check" }
+      { title: "Electronic Health Records", icon: "file-heart", desc: "Secure, digitized patient histories accessible instantly." },
+      { title: "Appointment Scheduling", icon: "calendar", desc: "Automated booking, reminders, and calendar sync." },
+      { title: "Predictive Analytics", icon: "activity", desc: "AI models identifying patients at risk of readmission." },
+      { title: "Billing & Invoicing", icon: "receipt", desc: "Integrated insurance claims and patient billing workflows." },
+      { title: "Patient Portal", icon: "user-round", desc: "Secure access for patients to view labs and message doctors." },
+      { title: "Compliance & Security", icon: "shield-check", desc: "End-to-end encryption ensuring strict HIPAA compliance." }
     ]
   }
 ];

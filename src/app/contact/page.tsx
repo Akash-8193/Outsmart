@@ -32,7 +32,7 @@ export default function Contact() {
             <div className="w-16 h-1 mb-8" style={{ backgroundColor: "var(--primary)" }}></div>
             
             <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 max-w-md font-medium">
-              Whether it's custom software, AI solutions, or enterprise systems, our team is ready to help you grow.
+              Ready to accelerate your growth? Schedule a free technical consultation with our engineering experts to discuss your custom software or AI automation needs.
             </p>
           </div>
           

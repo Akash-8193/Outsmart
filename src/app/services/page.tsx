@@ -86,7 +86,7 @@ export default function Services() {
             <div className="w-16 h-1 mb-6 md:mb-8 mt-6" style={{ backgroundColor: "var(--primary)" }}></div>
 
             <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 max-w-md font-medium">
-              Discover who we are, what drives us, and how we build technology that empowers businesses to grow. We don't do off-the-shelf. We provide tailored, high-end technology services.
+              Discover how our Custom Software Development, AI Solutions, and Web & Mobile Applications empower businesses to scale. We build tailored, high-end enterprise technology.
             </p>
 
             <button

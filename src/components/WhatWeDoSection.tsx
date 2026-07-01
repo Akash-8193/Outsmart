@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
+import Link from "next/link";
 
 export default function WhatWeDoSection() {
   const services = [
@@ -75,7 +76,9 @@ export default function WhatWeDoSection() {
                 {/* Custom Bullet Dot */}
                 <div className="absolute left-0 top-2 w-3 h-3 rounded-full outline outline-4 outline-white" style={{ backgroundColor: "var(--primary)" }}></div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <Link href="/services" className="hover:text-[--primary] transition-colors">{service.title}</Link>
+                </h3>
                 <p className="text-gray-600 leading-relaxed font-medium text-lg border-b border-gray-100 pb-8 last:border-0 last:pb-0">
                   {service.desc}
                 </p>

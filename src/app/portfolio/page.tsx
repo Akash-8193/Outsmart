@@ -54,7 +54,7 @@ export default function Projects() {
             </div>
             
             <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 mt-6 max-w-md font-medium">
-              Explore the digital products, enterprise solutions, and AI innovations we've built for ambitious businesses.
+              Browse our success stories. See how our bespoke SaaS platforms, custom mobile apps, and automated systems have revolutionized operations for top-tier enterprises.
             </p>
             
             <button 

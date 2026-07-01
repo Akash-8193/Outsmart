@@ -208,7 +208,7 @@ export default function ProjectClientPage({ project }: { project: any }) {
                       {module.title}
                     </h3>
                     <p className="text-sm font-medium text-gray-500 leading-relaxed">
-                      Essential core capability engineered for high performance.
+                      {module.desc}
                     </p>
                   </div>
                 </div>
