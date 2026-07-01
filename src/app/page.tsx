@@ -16,6 +16,7 @@ import IndustriesWeServeSection from "@/components/IndustriesWeServeSection";
 import TechnologyStackSection from "@/components/TechnologyStackSection";
 import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
+import TrustedBySection from "@/components/TrustedBySection";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import { ArrowRight, Code, Cpu, Smartphone, Server } from "lucide-react";
 
@@ -176,6 +177,9 @@ export default function Home() {
              <span className="whitespace-nowrap">• Enterprise SaaS</span>
           </div>
         </div>
+
+        {/* Trust Indicators Section */}
+        <TrustedBySection />
 
         {/* About Us Section */}
         <AboutUsSection />
