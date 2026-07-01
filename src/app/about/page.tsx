@@ -13,6 +13,7 @@ import MissionVisionSection from "@/components/MissionVisionSection";
 import OurExpertiseSection from "@/components/OurExpertiseSection";
 import OtherSolutionsSection from "@/components/OtherSolutionsSection";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
+import AboutBentoGrid from "@/components/AboutBentoGrid";
 
 export default function About() {
   const processRef = useRef<HTMLDivElement>(null);
@@ -140,6 +141,9 @@ export default function About() {
 
         {/* Mission & Vision */}
         <MissionVisionSection />
+
+        {/* The Anatomy of Excellence (Bento Grid) */}
+        <AboutBentoGrid />
 
         {/* Our Expertise */}
         <OurExpertiseSection />

@@ -61,7 +61,7 @@ export default function Projects() {
               onClick={() => {
                 document.getElementById('portfolio-grid')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="inline-flex items-center justify-center gap-3 text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 btn-default"
+              className="inline-flex items-center justify-center gap-3 text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-[var(--primary)]/30 transition-all hover:-translate-y-1 btn-default"
               style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
             >
               <span className="relative z-10">View Portfolio</span>
@@ -100,7 +100,7 @@ export default function Projects() {
           </div>
         </motion.div>
       </section>
-      <div className="pb-20 px-6 min-h-screen">
+      <div id="portfolio-grid" className="pb-20 px-6 min-h-screen">
         <div className="max-w-[1400px] mx-auto pt-16">
 
           {/* Filter Tabs */}

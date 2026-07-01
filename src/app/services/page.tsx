@@ -8,6 +8,8 @@ import PageTransition from "@/components/PageTransition";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import Link from "next/link";
 import ContactSection from "@/components/ContactSection";
+import ServiceProcessSection from "@/components/ServiceProcessSection";
+import ServiceBenefitsSection from "@/components/ServiceBenefitsSection";
 
 export default function Services() {
   useEffect(() => {
@@ -172,9 +174,16 @@ export default function Services() {
       ))}
 
       {/* Subsequent Sections wrapper with z-30 and bg-white to slide over the pinned panels */}
-      <div className="relative z-30 bg-white pt-20">
+      <div className="relative z-30 bg-white">
+        
+        {/* Process Section */}
+        <ServiceProcessSection />
+
+        {/* Benefits Section */}
+        <ServiceBenefitsSection />
+
         {/* Final CTA / Contact Form */}
-        <div className="bg-[#F2EFE7] mt-10 pt-10">
+        <div className="bg-[#F2EFE7]">
           <ContactSection />
         </div>
       </div>
