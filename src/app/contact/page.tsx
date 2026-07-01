@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <PageTransition>
       {/* Custom Contact Hero matching the user's 3D image layout */}
-      <section className="relative w-full min-h-screen flex items-center bg-white overflow-hidden pt-24 pb-12">
+      <section className="relative w-full min-h-screen flex items-center bg-white overflow-hidden pt-32 lg:pt-40 pb-12">
         {/* Dotted Background using the dedicated world map image */}
         <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply" style={{ backgroundImage: "url('/dotted_world_map_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
         
