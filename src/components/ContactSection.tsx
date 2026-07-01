@@ -12,9 +12,27 @@ export default function ContactSection() {
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errors, setErrors] = useState<{name?: string, email?: string, message?: string}>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Custom Validation
+    const newErrors: {name?: string, email?: string, message?: string} = {};
+    if (!formData.name.trim()) newErrors.name = "Please enter your full name.";
+    if (!formData.email.trim()) {
+      newErrors.email = "Please enter your email address.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+    if (!formData.message.trim()) newErrors.message = "Please provide some details about your project.";
+    
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    
+    setErrors({});
     setStatus("loading");
     
     try {
@@ -82,7 +100,8 @@ export default function ContactSection() {
 
         <div className="w-full md:w-7/12">
           <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100 relative">
-            <h3 className="text-3xl font-bold mb-8">Send a Message</h3>
+            <h3 className="text-3xl font-bold mb-2">Send a Message</h3>
+            <p className="text-sm text-gray-500 mb-8 font-medium">We aim to respond to all inquiries within <span className="font-bold text-[var(--primary)]">24 hours</span>.</p>
             
             {status === "success" ? (
               <div className="bg-green-50 text-green-700 p-6 rounded-2xl text-center border border-green-200">
@@ -96,31 +115,37 @@ export default function ContactSection() {
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
                     <input 
-                      required
                       type="text" 
-                      className="w-full bg-transparent/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors"
-                      placeholder="John Doe"
+                      className={`w-full bg-transparent/50 border ${errors.name ? 'border-red-400 focus:border-red-500' : 'border-gray-200 hover:border-gray-300 focus:border-[--primary]'} focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors`}
+                      placeholder="e.g. John Doe"
                       value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      onChange={(e) => {
+                        setFormData({...formData, name: e.target.value});
+                        if (errors.name) setErrors({...errors, name: undefined});
+                      }}
                     />
+                    {errors.name && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.name}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
                     <input 
-                      required
                       type="email" 
-                      className="w-full bg-transparent/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors"
-                      placeholder="john@example.com"
+                      className={`w-full bg-transparent/50 border ${errors.email ? 'border-red-400 focus:border-red-500' : 'border-gray-200 hover:border-gray-300 focus:border-[--primary]'} focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors`}
+                      placeholder="e.g. john@company.com"
                       value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      onChange={(e) => {
+                        setFormData({...formData, email: e.target.value});
+                        if (errors.email) setErrors({...errors, email: undefined});
+                      }}
                     />
+                    {errors.email && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.email}</p>}
                   </div>
                 </div>
                 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">Project Type</label>
                   <select 
-                    className="w-full bg-transparent/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors appearance-none"
+                    className="w-full bg-transparent/50 border border-gray-200 hover:border-gray-300 focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors appearance-none"
                     value={formData.type}
                     onChange={(e) => setFormData({...formData, type: e.target.value})}
                   >
@@ -135,13 +160,16 @@ export default function ContactSection() {
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
                   <textarea 
-                    required
                     rows={5}
-                    className="w-full bg-transparent/50 border border-transparent focus:border-[--primary] focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors resize-none"
-                    placeholder="Tell us about your project..."
+                    className={`w-full bg-transparent/50 border ${errors.message ? 'border-red-400 focus:border-red-500' : 'border-gray-200 hover:border-gray-300 focus:border-[--primary]'} focus:bg-white focus:ring-0 rounded-xl px-4 py-3 outline-none transition-colors resize-none`}
+                    placeholder="Tell us about your project requirements, timeline, or any questions you have..."
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) => {
+                      setFormData({...formData, message: e.target.value});
+                      if (errors.message) setErrors({...errors, message: undefined});
+                    }}
                   ></textarea>
+                  {errors.message && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.message}</p>}
                 </div>
 
                 <button 

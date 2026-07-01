@@ -7,19 +7,19 @@ export default function WhatWeDoSection() {
   const services = [
     {
       title: "Custom Software Development",
-      desc: "Comprehensive solutions including ERP Systems, CRM Solutions, HRMS Platforms, Inventory & Warehouse Systems, and Workflow Automation."
+      desc: "We eliminate operational bottlenecks by building tailored systems that automate manual tasks, reduce human error, and scale seamlessly as your business grows."
     },
     {
       title: "Web & Mobile Applications",
-      desc: "High-performance Android/iOS Apps, intuitive Customer Portals, Business Dashboards, and robust Multi-Vendor Platforms."
+      desc: "Engage your customers anywhere with high-performance apps and portals designed to boost conversion rates, build brand loyalty, and deliver a frictionless user experience."
     },
     {
       title: "AI & Automation",
-      desc: "Cutting-edge AI Integrations, intelligent Chatbots, Predictive Analytics, and seamless Process Automation to drive efficiency."
+      desc: "Turn your data into a competitive advantage. We deploy intelligent automation to slash operational costs, speed up decision-making, and free your team from repetitive work."
     },
     {
       title: "Cloud & SaaS Products",
-      desc: "Scalable Multi-Tenant SaaS architectures, Subscription Platforms, and highly secure Cloud Applications tailored for growth."
+      desc: "Scale your operations effortlessly without IT headaches. Our secure cloud architectures ensure maximum uptime, global accessibility, and ironclad data protection for your peace of mind."
     }
   ];
 
@@ -58,7 +58,7 @@ export default function WhatWeDoSection() {
             transition={{ delay: 0.2 }}
             className="text-lg text-gray-600 font-medium leading-relaxed mb-12 max-w-2xl"
           >
-            We provide reliable, high-quality, and scalable digital solutions for all your business needs. From custom software to advanced AI automation, our expert engineers ensure your technology drives growth.
+            Stop letting outdated technology hold your business back. We build strategic digital solutions designed specifically to solve your operational challenges, drive revenue, and give you a permanent competitive edge.
           </motion.p>
 
           {/* Services List (Matching the Repair Site layout) */}

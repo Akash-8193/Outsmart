@@ -34,19 +34,6 @@ export default function Contact() {
             <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 max-w-md font-medium">
               Whether it's custom software, AI solutions, or enterprise systems, our team is ready to help you grow.
             </p>
-            
-            <button 
-              onClick={() => {
-                document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="inline-flex items-center justify-center gap-3 text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 btn-default"
-              style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
-            >
-              <span className="relative z-10">Let's Talk</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="relative z-10">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
           </div>
           
           {/* Right Image */}
