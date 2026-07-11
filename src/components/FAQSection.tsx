@@ -34,8 +34,8 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-12 px-6 bg-transparent">
-      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-stretch">
+    <section className="py-6 px-6 bg-transparent">
+      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-6 lg:gap-10 items-stretch">
         
         {/* Left Column - Image & Stats */}
         <div className="w-full lg:w-1/2 relative pt-8 lg:pt-0">
@@ -69,7 +69,7 @@ export default function FAQSection() {
             Frequently Asked Questions
           </div>
           
-          <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-5xl font-black uppercase leading-[1.05] mb-12 tracking-tight text-gray-900">
+          <Text3DBounce as="h2" className="text-4xl md:text-5xl lg:text-5xl font-black uppercase leading-[1.05] mb-6 tracking-tight text-gray-900">
             Answers To The Question You Might Have About Us
           </Text3DBounce>
 

@@ -1,20 +1,37 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus("error");
+      return;
+    }
+    // Simulate API call
+    setStatus("success");
+    setEmail("");
+    setTimeout(() => {
+      setStatus("idle");
+    }, 4000);
+  };
   return (
     <footer className="bg-[#0A0A0A] text-white pt-20 pb-8 px-6 font-sans border-t border-gray-900">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Top Header Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start mb-8">
           
           {/* Logo & Description */}
           <div className="col-span-1">
-            <Link href="/" className="inline-flex items-center mb-6 bg-white/95 p-3 rounded-xl shadow-lg">
-              <img src="/logo.png" alt="Outsmart Technology" className="h-10 w-auto object-contain" />
+            <Link href="/" className="inline-flex items-center mb-6 -mt-4 md:-mt-8">
+              <img src="/logo.png" alt="Outsmart Technology" className="h-28 md:h-36 w-auto object-contain" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               We Build Software That Thinks Ahead. Partner with us to outsmart the competition.
@@ -29,8 +46,7 @@ export default function Footer() {
             <div>
               <h4 className="text-xl font-bold mb-2 group-hover:text-[--primary] transition-colors">Location:</h4>
               <p className="text-gray-400 text-sm leading-relaxed max-w-[250px] group-hover:text-gray-200 transition-colors">
-                F-111, 2nd floor, Sector 8, Noida,<br />
-                U.P.-201301
+                111, F Block, 2nd Floor, Sector 8, Noida - 201301, UP, India
               </p>
             </div>
           </Link>
@@ -56,10 +72,10 @@ export default function Footer() {
         </div>
         
         {/* Divider */}
-        <div className="w-full h-px bg-gray-800 mb-14"></div>
+        <div className="w-full h-px bg-gray-800 mb-8"></div>
         
         {/* Bottom Body Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-8">
           
           {/* Contacts Column */}
           <div className="md:col-span-4 flex flex-col gap-8">
@@ -113,10 +129,10 @@ export default function Footer() {
             <h4 className="text-xl font-bold mb-6">Our Services</h4>
             <ul className="flex flex-col gap-4">
               {[
-                { name: 'AI Agents', href: '/services' },
-                { name: 'Custom Software', href: '/services' },
-                { name: 'SaaS Platforms', href: '/services' },
-                { name: 'Data Transformation', href: '/services' }
+                { name: 'Software Engineering', href: '/service/custom-software' },
+                { name: 'Digital Platforms', href: '/service/web-mobile' },
+                { name: 'Intelligence', href: '/service/ai-automation' },
+                { name: 'Infrastructure', href: '/service/cloud-saas' }
               ].map((item) => (
                 <li key={item.name} className="flex items-center gap-3">
                   <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--primary)" }}></span>
@@ -131,23 +147,31 @@ export default function Footer() {
           {/* Newsletter Column */}
           <div className="md:col-span-3">
             <h4 className="text-xl font-bold mb-6">Subscribe Our Newsletter</h4>
-            <form className="flex flex-col sm:flex-row gap-3 mb-5" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Your Email" 
-                className="bg-[#1A1A1A] border border-gray-800 rounded-lg px-4 py-3.5 text-sm focus:outline-none focus:border-gray-500 w-full text-white placeholder:text-gray-600"
-                required
-                suppressHydrationWarning
-              />
+            <form className="flex flex-col sm:flex-row gap-3 mb-2" onSubmit={handleSubscribe}>
+              <div className="w-full relative">
+                <input 
+                  type="email" 
+                  placeholder="Your Email" 
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if(status === 'error') setStatus('idle');
+                  }}
+                  className={`bg-[#1A1A1A] border rounded-lg px-4 py-3.5 text-sm focus:outline-none w-full text-white placeholder:text-gray-600 transition-colors ${status === 'error' ? 'border-red-500 focus:border-red-500' : 'border-gray-800 focus:border-gray-500'}`}
+                  suppressHydrationWarning
+                />
+              </div>
               <button 
                 type="submit" 
                 suppressHydrationWarning
-                className="text-white font-bold px-6 py-3.5 rounded-lg whitespace-nowrap transition-opacity hover:opacity-90 shadow-lg"
+                className="text-white font-bold px-6 py-3.5 rounded-lg whitespace-nowrap transition-opacity hover:opacity-90 shadow-lg shrink-0"
                 style={{ backgroundColor: "var(--primary)" }}
               >
                 Subscribe
               </button>
             </form>
+            {status === "error" && <p className="text-red-500 text-xs font-medium mb-3">Please enter a valid email address.</p>}
+            {status === "success" && <p className="text-green-500 text-xs font-medium mb-3">Successfully subscribed to our newsletter!</p>}
             <p className="text-xs text-gray-500 leading-relaxed font-medium">
               *Stay updated with the latest tech trends, expert tips, and software insights in your inbox.
             </p>

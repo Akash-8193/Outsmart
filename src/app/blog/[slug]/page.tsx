@@ -66,7 +66,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
         {/* Blog Content */}
         <div className="max-w-3xl mx-auto px-6 pt-20">
-          <div className="text-xl md:text-2xl font-medium text-gray-800 leading-relaxed mb-12 border-l-4 pl-6" style={{ borderColor: "var(--primary)" }}>
+          <div className="text-xl md:text-2xl font-medium text-gray-800 leading-relaxed mb-6 border-l-4 pl-6" style={{ borderColor: "var(--primary)" }}>
             {blog.excerpt}
           </div>
           

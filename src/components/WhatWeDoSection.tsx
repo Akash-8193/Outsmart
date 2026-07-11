@@ -25,8 +25,8 @@ export default function WhatWeDoSection() {
   ];
 
   return (
-    <section className="py-8 md:py-12 px-6 bg-transparent overflow-hidden">
-      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-20">
+    <section className="py-8 md:py-6 px-6 bg-transparent overflow-hidden">
+      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-10 md:gap-8 lg:gap-10">
         
         {/* Left Side: Content & List */}
         <div className="w-full lg:w-[55%] flex flex-col">
@@ -57,7 +57,7 @@ export default function WhatWeDoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-gray-600 font-medium leading-relaxed mb-12 max-w-2xl"
+            className="text-lg text-gray-600 font-medium leading-relaxed mb-6 max-w-2xl"
           >
             Stop letting outdated technology hold your business back. We build strategic digital solutions designed specifically to solve your operational challenges, drive revenue, and give you a permanent competitive edge.
           </motion.p>
@@ -89,7 +89,7 @@ export default function WhatWeDoSection() {
         </div>
 
         {/* Right Side: Image & Circle Background */}
-        <div className="w-full lg:w-[45%] relative mt-8 md:mt-12 lg:mt-0 flex justify-center lg:justify-end">
+        <div className="w-full lg:w-[45%] relative mt-8 md:mt-6 lg:mt-0 flex justify-center lg:justify-end">
           
           {/* Large Circle Background */}
           <motion.div 
@@ -124,7 +124,7 @@ export default function WhatWeDoSection() {
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, type: "spring", stiffness: 150 }}
-            className="absolute top-1/4 right-0 lg:-right-8 bg-white p-6 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-20 border border-gray-100 flex flex-col items-center gsap-float"
+            className="hidden md:flex absolute top-1/4 right-0 lg:-right-8 bg-white p-6 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-20 border border-gray-100 flex-col items-center gsap-float"
           >
             <span className="text-4xl font-black mb-1 flex items-center justify-center" style={{ color: "var(--primary)" }}>
               PROVEN

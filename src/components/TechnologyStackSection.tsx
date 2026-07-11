@@ -55,7 +55,7 @@ export default function TechnologyStackSection() {
   ];
 
   return (
-    <section className="relative py-16 px-6 bg-transparent overflow-hidden">
+    <section className="relative py-8 px-6 bg-transparent overflow-hidden">
       
       {/* Creative Dot Grid Background */}
       <div 

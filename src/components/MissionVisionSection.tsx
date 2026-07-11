@@ -11,7 +11,7 @@ export default function MissionVisionSection() {
       <div className="max-w-7xl mx-auto px-6 flex flex-col">
         
         {/* Journey Row (New) */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 py-12 border-b border-gray-200">
+        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10 py-6 border-b border-gray-200">
           {/* Left: Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start">
             <motion.div 
@@ -63,7 +63,7 @@ export default function MissionVisionSection() {
         </div>
 
         {/* Mission Row */}
-        <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20 py-12 border-b border-gray-200">
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-6 lg:gap-10 py-6 border-b border-gray-200">
           {/* Right (Visual): Image */}
           <div className="w-full lg:w-1/2">
             <ImageReveal className="w-full aspect-[16/10] rounded-[2rem] shadow-2xl relative overflow-hidden">
@@ -106,7 +106,7 @@ export default function MissionVisionSection() {
         </div>
 
         {/* Vision Row */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 py-12">
+        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10 py-6">
           {/* Left: Image */}
           <div className="w-full lg:w-1/2">
             <ImageReveal className="w-full aspect-[16/10] rounded-[2rem] shadow-2xl relative overflow-hidden">
@@ -149,8 +149,8 @@ export default function MissionVisionSection() {
         </div>
 
         {/* Core Values Row */}
-        <div className="py-16 border-t border-gray-200">
-          <div className="text-center mb-12 flex flex-col items-center">
+        <div className="py-8 border-t border-gray-200">
+          <div className="text-center mb-6 flex flex-col items-center">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

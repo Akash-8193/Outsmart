@@ -27,12 +27,12 @@ export default function IndustriesWeServeSection() {
   const col3 = [industries[2], industries[5], industries[8]];
 
   return (
-    <section className="py-16 px-6 bg-transparent relative overflow-hidden">
+    <section className="py-8 px-6 bg-transparent relative overflow-hidden">
       {/* Background Animated Gradient Blobs */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[var(--primary)] rounded-full blur-[200px] opacity-[0.03] animate-pulse"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[var(--secondary)] rounded-full blur-[150px] opacity-[0.03] animate-pulse" style={{ animationDelay: "2s" }}></div>
 
-      <div className="max-w-[1500px] mx-auto flex flex-col lg:flex-row gap-16 relative z-10">
+      <div className="max-w-[1500px] mx-auto flex flex-col lg:flex-row gap-8 relative z-10">
         
         {/* Left Side: Sticky Header Block */}
         <div className="w-full lg:w-1/3 flex flex-col items-start lg:sticky lg:top-32 h-fit">
@@ -62,7 +62,7 @@ export default function IndustriesWeServeSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-600 font-medium leading-relaxed mb-12 max-w-md"
+            className="text-xl text-gray-600 font-medium leading-relaxed mb-6 max-w-md"
           >
             Powering digital transformation across diverse sectors. We build tailored, scalable, and intelligent software solutions for unique operational challenges.
           </motion.p>
@@ -73,7 +73,7 @@ export default function IndustriesWeServeSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <a href="/blog" className="group inline-flex items-center gap-4 text-lg font-bold text-gray-900 hover:text-[--primary] transition-colors mb-12">
+            <a href="/blog" className="group inline-flex items-center gap-4 text-lg font-bold text-gray-900 hover:text-[--primary] transition-colors mb-6">
               Read Case Studies
               <div className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center group-hover:border-[--primary] group-hover:bg-[--primary] group-hover:text-white transition-all duration-300">
                 <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />

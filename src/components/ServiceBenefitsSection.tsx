@@ -29,7 +29,7 @@ export default function ServiceBenefitsSection() {
   ];
 
   return (
-    <section className="py-12 bg-gray-50 border-t border-gray-100 relative overflow-hidden">
+    <section className="py-6 bg-gray-50 border-t border-gray-100 relative overflow-hidden">
       {/* Decorative Blur */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--primary)] rounded-full blur-[150px] opacity-[0.03] pointer-events-none"></div>
 

@@ -44,12 +44,12 @@ export default function ProjectClientPage({ project }: { project: any }) {
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[var(--secondary)] to-transparent rounded-full blur-[120px] opacity-10 pointer-events-none -translate-x-1/4 translate-y-1/4"></div>
 
         <div className="max-w-[1400px] mx-auto relative z-10 w-full">
-          <Link href="/portfolio" className="inline-flex items-center gap-2 text-gray-500 hover:text-[var(--primary)] font-bold mb-12 transition-all hover:-translate-x-2">
+          <Link href="/portfolio" className="inline-flex items-center gap-2 text-gray-500 hover:text-[var(--primary)] font-bold mb-6 transition-all hover:-translate-x-2">
             <ArrowLeft className="w-5 h-5" />
             Back to All Projects
           </Link>
 
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="flex flex-col lg:flex-row gap-8 items-center">
             <div className="flex-1 w-full flex flex-col items-start text-left">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -125,12 +125,12 @@ export default function ProjectClientPage({ project }: { project: any }) {
 
       {/* 3. Why We Built It (Dynamic Title) */}
       {project.whyWeBuilt && (
-        <section className="py-24 px-6 bg-gray-900 relative overflow-hidden">
+        <section className="py-6 px-6 bg-gray-900 relative overflow-hidden">
           <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-[var(--primary)] rounded-full blur-[200px] opacity-[0.05] pointer-events-none"></div>
 
           <div className="max-w-[1400px] mx-auto relative z-10">
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-white">
                 WHY WE BUILT <br className="md:hidden" />
                 <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>
@@ -167,15 +167,40 @@ export default function ProjectClientPage({ project }: { project: any }) {
                   </div>
                 </motion.div>
               ))}
+              
+              {/* Filler Design for 4 items to fill the empty lg space */}
+              {project.whyWeBuilt.length === 4 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="hidden lg:flex lg:col-span-2 bg-gradient-to-br from-[var(--primary)]/10 to-transparent backdrop-blur-md p-10 rounded-[2.5rem] border border-[var(--primary)]/20 relative overflow-hidden group items-center justify-center min-h-[200px]"
+                >
+                  {/* Decorative Elements */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--primary)] rounded-full blur-[100px] opacity-10 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"></div>
+                  <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--secondary)] rounded-full blur-[100px] opacity-10 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"></div>
+                  
+                  <div className="relative z-10 text-center flex flex-col items-center">
+                     <div className="w-16 h-16 rounded-2xl bg-[var(--primary)]/20 flex items-center justify-center mb-4 backdrop-blur-md border border-[var(--primary)]/30 group-hover:scale-110 transition-transform duration-500">
+                       <Sparkles className="w-8 h-8 text-[var(--primary)]" />
+                     </div>
+                     <h3 className="text-2xl font-black text-white mb-2 tracking-wide">The Solution</h3>
+                     <p className="text-gray-400 font-medium max-w-md mx-auto leading-relaxed">
+                       We engineer intelligent software that eliminates these bottlenecks and drives operational excellence.
+                     </p>
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
         </section>
       )}
 
       {/* 4. Core Modules - Premium Layout */}
-      <section className="py-24 px-6 bg-white relative">
+      <section className="py-6 px-6 bg-white relative">
         <div className="max-w-[1400px] mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-8">
             <div className="max-w-2xl">
                <div className="flex items-center gap-4 mb-4">
                  <span className="w-8 h-[2px] bg-[var(--primary)] rounded-full"></span>
@@ -219,7 +244,7 @@ export default function ProjectClientPage({ project }: { project: any }) {
       </section>
 
       {/* 5. Modern CTA */}
-      <section className="py-24 px-6 bg-[#F2EFE7] relative overflow-hidden">
+      <section className="py-6 px-6 bg-[#F2EFE7] relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Ready to build something similar?</h2>
           <p className="text-lg md:text-xl text-gray-600 mb-10 font-medium">Let's discuss how we can engineer a custom solution tailored perfectly for your specific business needs.</p>

@@ -88,7 +88,7 @@ export default function About() {
         {/* Soft primary gradient matching the vibe */}
         <div className="absolute top-0 left-0 w-1/2 h-full opacity-[0.03] z-0 pointer-events-none" style={{ background: "linear-gradient(to bottom right, var(--primary), transparent)" }}></div>
 
-        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-0 md:gap-10 lg:gap-16">
+        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-0 md:gap-10 lg:gap-8">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
             <Text3DBounce as="h1" className="text-4xl md:text-5xl lg:text-5xl font-black leading-[1.1] mb-4 tracking-tight drop-shadow-sm font-sans" style={{ color: "var(--foreground)" }}>
@@ -109,7 +109,7 @@ export default function About() {
           </div>
           
           {/* Right Image */}
-          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-4 md:mt-16 lg:mt-0">
+          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-4 md:mt-8 lg:mt-0">
             <img src="/about_hero_3d.png" alt="About Us 3D Illustration" className="relative z-10 w-full max-w-[850px] ml-auto h-auto object-contain gsap-float scale-105 lg:scale-110 lg:translate-x-8" style={{ filter: "hue-rotate(15deg) saturate(1.1)" }} />
             
             {/* Soft backdrop glow to enhance the 3D effect */}

@@ -12,9 +12,9 @@ export default function CompanyMilestones() {
   ];
 
   return (
-    <section className="py-20 bg-white border-t border-gray-100">
+    <section className="py-10 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <Text3DBounce as="h2" className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
             How We Got Here
           </Text3DBounce>
@@ -27,7 +27,7 @@ export default function CompanyMilestones() {
           {/* Vertical Line */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-100 -translate-x-1/2"></div>
           
-          <div className="flex flex-col gap-12 md:gap-0">
+          <div className="flex flex-col gap-6 md:gap-0">
             {milestones.map((item, idx) => (
               <div key={idx} className={`relative flex flex-col md:flex-row items-center ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                 

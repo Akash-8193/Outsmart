@@ -25,7 +25,7 @@ export default function PageHero({ title, subtitle, description, image }: PageHe
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-20 flex flex-col items-center text-center px-8 py-16 md:py-20 max-w-4xl w-[90%] md:w-auto"
+        className="relative z-20 flex flex-col items-center text-center px-8 py-8 md:py-10 max-w-4xl w-[90%] md:w-auto"
         style={{
           background: "rgba(20, 20, 20, 0.4)",
           backdropFilter: "blur(12px)",

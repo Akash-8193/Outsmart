@@ -66,11 +66,11 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="relative w-full bg-transparent py-16 overflow-hidden font-sans text-[#1A1A1A]">
+    <section className="relative w-full bg-transparent py-8 overflow-hidden font-sans text-[#1A1A1A]">
       
       {/* Background large text - made darker to be visible */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
-        <h1 className="text-[10rem] md:text-[18rem] font-black text-black/[0.08] tracking-tighter leading-none mt-4">
+      <div className="absolute -top-4 md:-top-10 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0 whitespace-nowrap">
+        <h1 className="text-[22vw] sm:text-[10rem] md:text-[14rem] lg:text-[16rem] font-black text-black/[0.08] tracking-tighter leading-none uppercase">
           PROCESS
         </h1>
       </div>
@@ -95,14 +95,14 @@ export default function ProcessSection() {
           {/* Vertical Line - Hidden on small mobile, visible from md upwards */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gray-200 -translate-x-1/2 z-0" />
           
-          <div className="flex flex-col gap-16 md:gap-24 relative z-10">
+          <div className="flex flex-col gap-8 md:gap-6 relative z-10">
             {steps.map((step, index) => {
               const isEven = index % 2 === 1; // 0-indexed, so index 1 is "02" (even step)
               
               return (
                 <div 
                   key={step.num} 
-                  className={`flex flex-col md:flex-row items-center w-full gap-12 md:gap-0 ${isEven ? "md:flex-row-reverse" : ""}`}
+                  className={`flex flex-col md:flex-row items-center w-full gap-6 md:gap-0 ${isEven ? "md:flex-row-reverse" : ""}`}
                 >
                   
                   {/* Timeline Center Node (Desktop only) */}

@@ -19,7 +19,11 @@ export default function ContactSection() {
     
     // Custom Validation
     const newErrors: {name?: string, email?: string, message?: string} = {};
-    if (!formData.name.trim()) newErrors.name = "Please enter your full name.";
+    if (!formData.name.trim()) {
+      newErrors.name = "Please enter your full name.";
+    } else if (/\d/.test(formData.name)) {
+      newErrors.name = "Name cannot contain numbers.";
+    }
     if (!formData.email.trim()) {
       newErrors.email = "Please enter your email address.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -52,8 +56,8 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="py-12 px-6 relative w-full">
-      <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row gap-16">
+    <div className="py-6 px-6 relative w-full">
+      <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-5/12">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -69,7 +73,7 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-700 mb-12"
+            className="text-xl text-gray-700 mb-6"
           >
             We're here to help and answer any question you may have. Let's build something great together!
           </motion.p>
@@ -120,7 +124,8 @@ export default function ContactSection() {
                       placeholder="e.g. John Doe"
                       value={formData.name}
                       onChange={(e) => {
-                        setFormData({...formData, name: e.target.value});
+                        const val = e.target.value.replace(/[0-9]/g, '');
+                        setFormData({...formData, name: val});
                         if (errors.name) setErrors({...errors, name: undefined});
                       }}
                     />

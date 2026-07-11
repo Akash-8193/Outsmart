@@ -37,11 +37,11 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-12 px-6 bg-transparent font-sans">
+    <section className="py-6 px-6 bg-transparent font-sans">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 gap-8">
           <div className="max-w-2xl">
             <h4 className="font-bold tracking-widest text-sm mb-4 flex items-center gap-2" style={{ color: "var(--primary)" }}>
               / Services

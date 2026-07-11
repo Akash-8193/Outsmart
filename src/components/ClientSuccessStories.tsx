@@ -24,9 +24,9 @@ export default function ClientSuccessStories() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50 border-t border-gray-100">
+    <section className="py-10 bg-gray-50 border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
           <div className="max-w-2xl">
             <Text3DBounce as="h2" className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
               Real Results for Real People

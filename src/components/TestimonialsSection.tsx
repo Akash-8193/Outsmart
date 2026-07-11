@@ -39,7 +39,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative w-full bg-transparent py-12 overflow-hidden font-sans text-[#1A1A1A]">
+    <section className="relative w-full bg-transparent py-6 overflow-hidden font-sans text-[#1A1A1A]">
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -54,8 +54,8 @@ export default function TestimonialsSection() {
       `}} />
 
       {/* Background large text */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
-        <h1 className="text-[5rem] md:text-[10rem] lg:text-[12rem] font-black text-black/[0.05] tracking-tighter leading-none mt-4 uppercase">
+      <div className="absolute top-2 md:top-4 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0 whitespace-nowrap">
+        <h1 className="text-[12.5vw] sm:text-[5rem] md:text-[8rem] lg:text-[10rem] font-black text-black/[0.05] tracking-tighter leading-none uppercase">
           TESTIMONIALS
         </h1>
       </div>

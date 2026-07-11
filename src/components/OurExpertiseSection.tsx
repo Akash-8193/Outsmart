@@ -15,8 +15,8 @@ export default function OurExpertiseSection() {
   ];
 
   return (
-    <section className="py-12 px-6 bg-transparent">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+    <section className="py-6 px-6 bg-transparent">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-6 items-center">
         
         {/* Left Side - Image Card */}
         <div className="w-full lg:w-1/2">
@@ -62,13 +62,13 @@ export default function OurExpertiseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-600 leading-relaxed mb-12 max-w-xl"
+            className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6 max-w-xl"
           >
             Outsmart Technology's expertise ensures a smooth, secure, and scalable digital transformation journey for every business. We build robust enterprise solutions.
           </motion.p>
 
           {/* Progress Bars */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 mb-14">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 mb-8">
             {skills.map((skill, idx) => (
               <motion.div 
                 key={idx}

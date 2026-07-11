@@ -31,8 +31,8 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="py-12 px-6 bg-white font-sans overflow-hidden">
-      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+    <section className="py-6 px-6 bg-white font-sans overflow-hidden">
+      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-8 lg:gap-6 items-center">
         
         {/* Left Column: Overlapping Circle Images */}
         <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-start pt-10 pl-10">
@@ -72,7 +72,7 @@ export default function FeaturesSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#0A0A0A] leading-[1.1] tracking-tight mb-6">
             Our Custom <span style={{ color: "var(--primary)" }}>Solutions</span>
           </h2>
-          <p className="text-gray-600 leading-relaxed font-medium text-lg mb-12">
+          <p className="text-gray-600 leading-relaxed font-medium text-lg mb-6">
             From enterprise systems to customer-focused platforms, we build powerful digital solutions that streamline operations, drive growth, and create meaningful experiences.
           </p>
 

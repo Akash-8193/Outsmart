@@ -53,11 +53,11 @@ export default function RootLayout({
               "description": "Enterprise software development agency specializing in custom SaaS, AI automation, and mobile apps in Noida.",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "F-111, 2nd floor, Sector 8",
+                "streetAddress": "111, F Block, 2nd Floor, Sector 8",
                 "addressLocality": "Noida",
-                "addressRegion": "Uttar Pradesh",
+                "addressRegion": "UP",
                 "postalCode": "201301",
-                "addressCountry": "IN"
+                "addressCountry": "India"
               },
               "geo": {
                 "@type": "GeoCoordinates",

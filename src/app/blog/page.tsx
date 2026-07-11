@@ -18,7 +18,7 @@ export default function BlogPage() {
           {/* Soft primary gradient */}
           <div className="absolute top-0 left-0 w-1/2 h-full opacity-[0.03] z-0 pointer-events-none" style={{ background: "linear-gradient(to bottom right, var(--primary), transparent)" }} />
 
-          <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-0 md:gap-10 lg:gap-16 min-h-[60vh] md:min-h-[70vh]">
+          <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-0 md:gap-10 lg:gap-8 min-h-[60vh] md:min-h-[70vh]">
             {/* Left Content */}
             <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
               <h3 className="text-lg font-bold tracking-[0.2em] uppercase mb-4" style={{ color: "var(--primary)" }}>
@@ -55,7 +55,7 @@ export default function BlogPage() {
             </div>
             
             {/* Right Image */}
-            <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-12 md:mt-16 lg:mt-0">
+            <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-6 md:mt-8 lg:mt-0">
               <div className="relative z-10 w-full max-w-[700px] ml-auto mix-blend-multiply">
                 <img src="/blog_hero_3d.png" alt="Blog Hero Illustration" className="w-full h-auto object-contain brightness-105 contrast-105 gsap-float" />
               </div>
@@ -90,7 +90,7 @@ export default function BlogPage() {
         </div>
 
         {/* Contact Section at the bottom */}
-        <div className="relative z-10 bg-[#F2EFE7] mt-12 pt-12">
+        <div className="relative z-10 bg-[#F2EFE7] mt-6 pt-12">
           <ContactSection />
         </div>
       </main>

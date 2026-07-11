@@ -89,11 +89,11 @@ export default function Home() {
                 Custom Software Development & AI Solutions Agency
               </Text3DBounce>
               
-              <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-12 max-w-xl font-medium">
+              <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-6 max-w-xl font-medium">
                 Outsmart Technology delivers scalable, intelligent, and future-ready digital solutions. We help organizations modernize operations through <Link href="/services" className="text-[--primary] hover:underline font-bold">tailored CRM/ERP systems</Link>, <Link href="/portfolio" className="text-[--primary] hover:underline font-bold">Enterprise SaaS products</Link>, and workflow automation that accelerates growth.
               </p>
               
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 mb-14">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 mb-8">
                 <Link 
                   href="/contact" 
                   className="text-white font-black px-8 py-4.5 rounded-xl shadow-lg btn-default whitespace-nowrap"
@@ -133,7 +133,7 @@ export default function Home() {
             </div>
             
             {/* Right Image */}
-            <div className="w-full lg:w-1/2 relative mt-12 lg:mt-0 flex justify-center items-end h-full">
+            <div className="w-full lg:w-1/2 relative mt-6 lg:mt-0 flex justify-center items-end h-full">
               <div className="absolute top-1/4 left-10 text-[--primary] animate-pulse z-20">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/></svg>
               </div>
@@ -160,7 +160,7 @@ export default function Home() {
 
         {/* Ticker / Marquee */}
         <div className="w-full overflow-hidden py-5 shadow-xl relative z-20" style={{ backgroundColor: "var(--primary)" }}>
-          <div className="flex animate-marquee items-center gap-16 text-white font-black text-xl lg:text-2xl tracking-widest uppercase">
+          <div className="flex animate-marquee items-center gap-8 text-white font-black text-xl lg:text-2xl tracking-widest uppercase">
              <span className="whitespace-nowrap">• Custom Software</span>
              <span className="whitespace-nowrap">• Autonomous AI Agents</span>
              <span className="whitespace-nowrap">• Enterprise SaaS</span>
@@ -202,7 +202,7 @@ export default function Home() {
         <TechnologyStackSection />
 
         {/* Quick Stats */}
-        <section ref={statsRef} className="py-12 relative overflow-hidden text-white" style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>
+        <section ref={statsRef} className="py-6 relative overflow-hidden text-white" style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center excellence-counter-boxes">
               {[
@@ -235,11 +235,11 @@ export default function Home() {
         <BlogSection />
 
         {/* Final CTA */}
-        <section className="py-10 md:py-16 px-6 text-center">
+        <section className="py-10 md:py-8 px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <Text3DBounce as="h2" className="text-4xl md:text-6xl font-bold mb-8">Ready to Outsmart the Competition?</Text3DBounce>
             <p className="text-xl text-gray-600 mb-6">Let&apos;s build smarter digital solutions together.</p>
-            <p className="text-lg font-bold text-gray-800 mb-12">
+            <p className="text-lg font-bold text-gray-800 mb-6">
               <span className="text-[--primary]">+91 9599 34 2525</span> | info@outsmarttechnology.com
             </p>
             <Link 

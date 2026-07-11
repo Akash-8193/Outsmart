@@ -33,10 +33,10 @@ export default function ServiceProcessSection() {
   ];
 
   return (
-    <section className="py-12 bg-white relative overflow-hidden">
+    <section className="py-6 bg-white relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-6">
         
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}

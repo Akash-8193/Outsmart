@@ -7,10 +7,10 @@ import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="py-16 md:py-24 px-6 bg-white font-sans overflow-hidden">
+    <section className="py-8 md:py-6 px-6 bg-white font-sans overflow-hidden">
       <div className="max-w-[1320px] mx-auto">
         
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
           
           {/* Left Content Column */}
           <div className="w-full lg:w-1/2 flex flex-col pt-4">
@@ -22,7 +22,7 @@ export default function WhyChooseUsSection() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-100 w-max mb-6"
             >
-               <div className="w-2 h-2 rounded-full bg-[#4ba835]"></div>
+               <div className="w-2 h-2 rounded-full bg-[var(--primary)]"></div>
                <span className="text-sm font-bold text-gray-800 tracking-wide">Why Choose Us</span>
             </motion.div>
 
@@ -48,9 +48,9 @@ export default function WhyChooseUsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-[#f8f9fc] rounded-2xl p-6 mb-10 border-l-[6px] border-[#4ba835] flex items-start gap-5"
+              className="bg-[#f8f9fc] rounded-2xl p-6 mb-6 border-l-[6px] border-[var(--primary)] flex items-start gap-5"
             >
-              <div className="w-12 h-12 rounded-full bg-[#4ba835] flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-full bg-[var(--primary)] flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -67,38 +67,55 @@ export default function WhyChooseUsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="flex flex-wrap items-center gap-y-8 gap-x-8 lg:gap-x-12 mb-10 py-8 border-t border-b border-gray-100"
+              className="flex flex-row flex-wrap sm:flex-nowrap items-center gap-y-4 gap-x-5 lg:gap-x-6 xl:gap-x-8 mb-6 py-5 border-t border-b border-gray-100"
             >
-              <div>
-                <div className="text-4xl font-black text-[#0f172a] mb-2">1K+</div>
-                <div className="text-sm font-semibold text-gray-500">Happy Clients</div>
+              <div className="flex-1 shrink-0">
+                <div className="text-3xl xl:text-4xl font-black text-[#0f172a] mb-1">1K+</div>
+                <div className="text-xs xl:text-sm font-semibold text-gray-500 whitespace-nowrap">Happy Clients</div>
               </div>
-              <div className="w-[1px] h-12 bg-gray-200 hidden sm:block"></div>
-              <div>
-                <div className="text-4xl font-black text-[#0f172a] mb-2">$1M+</div>
-                <div className="text-sm font-semibold text-gray-500">Revenue Generated</div>
+              <div className="w-[1px] h-10 bg-gray-200 hidden sm:block"></div>
+              <div className="flex-1 shrink-0">
+                <div className="text-3xl xl:text-4xl font-black text-[#0f172a] mb-1">$1M+</div>
+                <div className="text-xs xl:text-sm font-semibold text-gray-500 whitespace-nowrap">Revenue Generated</div>
               </div>
-              <div className="w-[1px] h-12 bg-gray-200 hidden sm:block"></div>
-              <div>
-                <div className="text-4xl font-black text-[#0f172a] mb-2">100+</div>
-                <div className="text-sm font-semibold text-gray-500">Successful Campaigns</div>
+              <div className="w-[1px] h-10 bg-gray-200 hidden sm:block"></div>
+              <div className="flex-1 shrink-0">
+                <div className="text-3xl xl:text-4xl font-black text-[#0f172a] mb-1">100+</div>
+                <div className="text-xs xl:text-sm font-semibold text-gray-500 whitespace-nowrap">Successful Campaigns</div>
               </div>
             </motion.div>
 
-            {/* Learn More Button */}
+            {/* Learn More Button & Contact */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
+              className="flex flex-col sm:flex-row items-center justify-between gap-6 mt-6 w-full"
             >
               <Link 
                 href="/about" 
-                className="inline-flex items-center gap-2 bg-[#4ba835] hover:bg-[#3d8c2b] text-white font-bold py-3.5 px-8 rounded-lg transition-colors duration-300"
+                className="inline-flex items-center gap-2 text-white font-bold py-3.5 px-8 rounded-lg transition-colors duration-300 shrink-0 self-start sm:self-auto"
+                style={{ backgroundColor: "var(--primary)" }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--secondary)"}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "var(--primary)"}
               >
                 Learn More
                 <ArrowUpRight className="w-5 h-5" />
               </Link>
+              
+              {/* Contact Row */}
+              <div className="flex items-center gap-3 shrink-0 self-start sm:self-auto">
+                <div className="flex -space-x-3 mr-1">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Avatar" className="w-8 h-8 rounded-full border-2 border-white shadow-sm object-cover" />
+                  <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm flex items-center justify-center z-10" style={{ backgroundColor: "var(--primary)" }}>
+                    <Phone className="w-3.5 h-3.5 text-white" />
+                  </div>
+                </div>
+                <p className="text-gray-700 font-medium text-[14px]">
+                  Let's make something great work together. <Link href="/contact" className="font-bold underline underline-offset-4 decoration-2 transition-colors" style={{ color: "var(--primary)" }}>Let's Talk</Link>
+                </p>
+              </div>
             </motion.div>
 
           </div>
@@ -111,7 +128,7 @@ export default function WhyChooseUsSection() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative w-full h-[280px] md:h-[320px] rounded-[1.5rem] overflow-hidden group"
+              className="relative w-full h-[280px] lg:h-[260px] rounded-[1.5rem] overflow-hidden group"
             >
               <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Team collaborating" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               
@@ -126,7 +143,7 @@ export default function WhyChooseUsSection() {
             </motion.div>
 
             {/* Bottom Two Columns */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto md:h-[320px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto md:h-[260px]">
               
               {/* Bottom Left Vertical Image */}
               <motion.div 
@@ -145,58 +162,43 @@ export default function WhyChooseUsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="w-full h-full rounded-[1.5rem] bg-[#4ba835] p-8 flex flex-col justify-end relative overflow-hidden"
+                className="w-full h-full rounded-[1.5rem] p-6 pt-32 md:pt-6 flex flex-col justify-end relative overflow-hidden"
+                style={{ backgroundColor: "var(--primary)" }}
               >
                 {/* Decoration Icon */}
-                <div className="absolute top-8 left-8">
-                  <div className="w-16 h-16 bg-white/10 flex items-center justify-center rounded-xl">
-                     <Target className="w-8 h-8 text-white drop-shadow-md" />
+                <div className="absolute top-6 left-6">
+                  <div className="w-14 h-14 bg-white/10 flex items-center justify-center rounded-xl">
+                     <Target className="w-7 h-7 text-white drop-shadow-md" />
                   </div>
                 </div>
                 
-                <h3 className="text-[1.35rem] font-bold text-white mb-2 leading-tight">Long Term Support</h3>
-                <p className="text-white/90 font-medium text-[0.95rem] leading-relaxed">
+                <h3 className="text-[1.25rem] font-bold text-white mb-2 leading-tight">Long Term Support</h3>
+                <p className="text-white/90 font-medium text-[0.9rem] leading-relaxed">
                   We provide dependable after sales support to ensure your growth continues uninterrupted.
                 </p>
               </motion.div>
 
             </div>
+            
+            {/* Tags moved under the right column */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="mt-2 flex flex-wrap items-center justify-start gap-3 lg:gap-4"
+            >
+              {["Digital Strategy", "Social Media", "Paid Advertising", "Brand Identity"].map((tag, i) => (
+                <div key={i} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]"></div>
+                  <span className="text-sm font-bold text-gray-700">{tag}</span>
+                </div>
+              ))}
+            </motion.div>
 
           </div>
 
         </div>
-
-        {/* Footer Area with tags and contact text */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-20 flex flex-col items-center justify-center gap-8"
-        >
-          {/* Tags */}
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-5">
-            {["Digital Strategy", "Social Media", "Paid Advertising", "Brand Identity"].map((tag, i) => (
-              <div key={i} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#4ba835]"></div>
-                <span className="text-sm font-bold text-gray-700">{tag}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Contact Row */}
-          <div className="flex flex-wrap items-center justify-center gap-3 text-center">
-            <div className="flex -space-x-3 mr-1">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Avatar" className="w-8 h-8 rounded-full border-2 border-white shadow-sm object-cover" />
-              <div className="w-8 h-8 rounded-full bg-[#4ba835] border-2 border-white shadow-sm flex items-center justify-center z-10">
-                <Phone className="w-3.5 h-3.5 text-white" />
-              </div>
-            </div>
-            <p className="text-gray-700 font-medium text-[15px]">
-              Let's make something great work together. <Link href="/contact" className="text-[#4ba835] font-bold underline underline-offset-4 decoration-2 hover:text-[#3d8c2b] transition-colors">Let's Talk</Link>
-            </p>
-          </div>
-        </motion.div>
 
       </div>
     </section>

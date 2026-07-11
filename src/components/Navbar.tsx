@@ -45,7 +45,7 @@ export default function Navbar() {
               src="/logo.png"
               alt="Outsmart Technology"
               className={clsx(
-                "w-auto object-contain transition-all duration-500 ease-in-out hover:scale-105",
+                "w-auto object-contain transition-all duration-500 ease-in-out origin-left scale-[1.3] md:scale-[1.4] hover:scale-[1.35] md:hover:scale-[1.45]",
                 scrolled ? "h-8 md:h-10" : "h-10 md:h-12"
               )}
               onError={(e) => {

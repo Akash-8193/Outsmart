@@ -41,7 +41,7 @@ export default function Preloader() {
             <img 
               src="/logo.png" 
               alt="Outsmart Technology" 
-              className="relative z-10 w-auto h-16 md:h-24 object-contain"
+              className="relative z-10 w-auto h-24 md:h-32 object-contain scale-110"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
@@ -50,7 +50,7 @@ export default function Preloader() {
             />
             
             {/* Progress Bar */}
-            <div className="mt-12 w-48 h-1 bg-gray-200 rounded-full overflow-hidden relative z-10">
+            <div className="mt-6 w-48 h-1 bg-gray-200 rounded-full overflow-hidden relative z-10">
               <motion.div 
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}

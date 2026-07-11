@@ -35,7 +35,7 @@ export default function Projects() {
         {/* Soft primary gradient matching the vibe */}
         <div className="absolute top-0 left-0 w-1/2 h-full opacity-[0.03] z-0 pointer-events-none" style={{ background: "linear-gradient(to bottom right, var(--primary), transparent)" }}></div>
 
-        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-0 md:gap-10 lg:gap-16">
+        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-0 md:gap-10 lg:gap-8">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
             <h3 className="text-lg font-bold tracking-[0.2em] uppercase mb-4" style={{ color: "var(--primary)" }}>
@@ -72,7 +72,7 @@ export default function Projects() {
           </div>
           
           {/* Right Image with mix-blend-multiply wrapper and soft mask to hide white fringing and shadows seamlessly */}
-          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-4 md:mt-16 lg:mt-0">
+          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-4 md:mt-8 lg:mt-0">
             <div className="relative z-10 w-full max-w-[850px] ml-auto mix-blend-multiply">
               <div className="w-full h-full" style={{ WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 95%)", maskImage: "linear-gradient(to bottom, black 85%, transparent 95%)" }}>
                 <img src="/projects_hexagon_hero.png" alt="Our Projects Hexagon 3D Illustration" className="w-full h-auto object-contain brightness-105 contrast-105" />
@@ -104,12 +104,12 @@ export default function Projects() {
         <div className="max-w-[1400px] mx-auto pt-16">
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
-            {categories.map((category) => (
+          <div className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-3 md:gap-4 mb-10 md:mb-8">
+            {categories.map((category, index) => (
               <button
                 key={category}
                 onClick={() => setActiveTab(category)}
-                className={`px-6 py-2 rounded-full text-sm font-semibold transition-colors relative ${activeTab === category ? "text-white" : "text-gray-600 hover:text-[--primary]"}`}
+                className={`${index === 0 ? "col-span-2 md:col-span-1" : ""} flex items-center justify-center px-2 md:px-6 py-2.5 md:py-2 rounded-full text-[13px] md:text-sm font-semibold transition-colors relative ${activeTab === category ? "text-white" : "text-gray-600 hover:text-[--primary]"}`}
               >
                 {activeTab === category && (
                   <motion.div
@@ -189,7 +189,7 @@ export default function Projects() {
             </AnimatePresence>
           </motion.div>
 
-          <div className="mt-24 text-center">
+          <div className="mt-6 text-center">
             <div className="inline-flex items-center justify-center w-full max-w-2xl bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
               <div className="text-left">
                 <h3 className="text-3xl font-bold mb-4">Have a project in mind?</h3>

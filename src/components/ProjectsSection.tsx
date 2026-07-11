@@ -26,11 +26,11 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section className="py-12 px-6 bg-transparent font-sans">
+    <section className="py-6 px-6 bg-transparent font-sans">
       <div className="max-w-[1400px] mx-auto">
 
         {/* Header Row */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6">
           <div className="max-w-2xl">
             {/* Pill */}
             <div className="flex items-center gap-3 mb-6">
@@ -46,7 +46,7 @@ export default function ProjectsSection() {
 
           <Link
             href="/portfolio"
-            className="px-8 py-3.5 rounded-lg font-bold text-[#0A0A0A] btn-default"
+            className="px-8 py-3.5 rounded-lg font-bold text-white btn-default"
             style={{ backgroundColor: "var(--primary)" }}
           >
             View All Project

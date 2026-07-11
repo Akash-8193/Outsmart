@@ -19,13 +19,13 @@ export default function TrustedBySection() {
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #0A0A0A 0%, var(--primary) 150%)" }}>
+    <section className="relative py-10 overflow-hidden" style={{ background: "linear-gradient(135deg, #0A0A0A 0%, var(--primary) 150%)" }}>
       
       {/* Background Animated Gradient Blobs */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[var(--primary)] rounded-full blur-[200px] opacity-[0.15] animate-pulse pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[var(--secondary)] rounded-full blur-[150px] opacity-[0.15] animate-pulse pointer-events-none" style={{ animationDelay: "2s" }}></div>
 
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
         
         {/* Left Side: 3D Badge & Title */}
         <div className="w-full lg:w-[40%] flex flex-col items-center lg:items-start text-center lg:text-left">

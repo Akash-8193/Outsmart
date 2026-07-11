@@ -10,7 +10,7 @@ import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 export default function AboutUsSection() {
   return (
     <section className="py-8 px-6 bg-transparent font-sans overflow-hidden">
-      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-6 lg:gap-8 items-center">
         
         {/* Left Column - Image Grid */}
         <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4 md:gap-6 relative">
@@ -103,7 +103,7 @@ export default function AboutUsSection() {
           </div>
           
           {/* Checkboxes */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mb-6">
             <div className="flex items-center gap-3">
               <ShieldCheck className="w-6 h-6 shrink-0" style={{ color: "var(--primary)" }} />
               <span className="text-sm font-semibold text-gray-700">Comprehensive Security Audits</span>

@@ -6,10 +6,10 @@ import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 
 export default function AboutBentoGrid() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-6 bg-white relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-6">
         
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <Text3DBounce as="h2" className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
             The Anatomy of Excellence
           </Text3DBounce>

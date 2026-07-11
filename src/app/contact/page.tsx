@@ -17,7 +17,7 @@ export default function Contact() {
         {/* Soft primary gradient matching the vibe */}
         <div className="absolute top-0 left-0 w-1/2 h-full opacity-[0.03] z-0 pointer-events-none" style={{ background: "linear-gradient(to bottom right, var(--primary), transparent)" }}></div>
 
-        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-0 md:gap-10 lg:gap-16">
+        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 mx-auto flex flex-col lg:flex-row items-center relative z-10 gap-0 md:gap-10 lg:gap-8">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-20">
             <Text3DBounce as="h1" className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-black leading-[1.1] mb-2 tracking-tight drop-shadow-sm font-sans whitespace-nowrap" style={{ color: "var(--foreground)" }}>
@@ -37,7 +37,7 @@ export default function Contact() {
           </div>
           
           {/* Right Image */}
-          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-4 md:mt-16 lg:mt-0">
+          <div className="w-full lg:w-1/2 relative flex justify-center items-center mt-4 md:mt-8 lg:mt-0">
             {/* mix-blend-multiply is placed on a non-animated wrapper to prevent CSS composite layer bugs with GSAP */}
             <div className="relative z-10 w-full max-w-[950px] ml-auto mix-blend-multiply">
               <div className="w-full h-full gsap-float">
@@ -81,7 +81,7 @@ export default function Contact() {
       </div>
 
       {/* Location Map Section Matching User Design */}
-      <section id="location-map" className="w-full py-24 bg-[var(--background)] relative flex flex-col items-center px-6 md:px-12 lg:px-20 xl:px-32">
+      <section id="location-map" className="w-full py-6 bg-[var(--background)] relative flex flex-col items-center px-6 md:px-12 lg:px-20 xl:px-32">
         {/* Pill Badge */}
         <div className="flex items-center gap-3 px-5 py-2 bg-white rounded-full shadow-sm mb-6 border border-gray-100">
           <div className="w-2.5 h-2.5 rounded-full bg-red-600 shadow-[0_0_8px_rgba(220,38,38,0.6)]"></div>
@@ -94,7 +94,7 @@ export default function Contact() {
         </h2>
         
         {/* Description */}
-        <p className="text-center text-slate-600 max-w-2xl mb-14 text-lg font-medium">
+        <p className="text-center text-slate-600 max-w-2xl mb-8 text-lg font-medium">
           Our office is conveniently located in Noida's prime tech hub, making it simple for clients and partners to visit us for consultations and collaborations.
         </p>
 

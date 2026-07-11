@@ -7,9 +7,9 @@ import { Rocket, Cpu, Sparkles, Layers, Zap } from "lucide-react";
 
 export default function AboutPageUniqueSection() {
   return (
-    <section className="py-24 px-6 bg-[var(--background)] relative overflow-hidden mb-12">
+    <section className="py-6 px-6 bg-[var(--background)] relative overflow-hidden mb-6">
 
-      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
+      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-8 relative z-10">
         
         {/* Left Side: Text Content */}
         <div className="w-full lg:w-[55%] flex flex-col">
@@ -29,7 +29,7 @@ export default function AboutPageUniqueSection() {
             <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>Future of Tech</span>
           </Text3DBounce>
           
-          <div className="space-y-6 text-gray-600 text-lg md:text-xl leading-relaxed font-medium mb-12 max-w-2xl">
+          <div className="space-y-6 text-gray-600 text-lg md:text-xl leading-relaxed font-medium mb-6 max-w-2xl">
             <p>
               Outsmart Technology is a collective of elite software engineers, AI researchers, and digital strategists. We don't just write code; we engineer competitive advantages.
             </p>

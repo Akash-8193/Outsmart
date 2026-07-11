@@ -145,7 +145,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
 
         {/* Content Section */}
         <div className="max-w-7xl mx-auto px-6 pt-16">
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-6">
             
             {/* Left Column - Sticky Label */}
             <div className="w-full lg:w-1/4 shrink-0">
@@ -156,13 +156,13 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
             
             {/* Right Column - Details */}
             <div className="w-full lg:w-3/4 flex flex-col">
-              <h2 className="text-2xl md:text-3xl font-medium text-gray-900 leading-[1.6] mb-12">
+              <h2 className="text-2xl md:text-3xl font-medium text-gray-900 leading-[1.6] mb-6">
                 {service.longDesc}
               </h2>
               
-              <div className="w-full h-[1px] bg-gray-200 mb-12" />
+              <div className="w-full h-[1px] bg-gray-200 mb-6" />
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <h4 className="text-xl font-bold text-gray-900 mb-6">Overview</h4>
                   <p className="text-gray-600 text-lg leading-relaxed">
@@ -188,7 +188,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
               </div>
 
               {/* Target Audience / Ideal For */}
-              <div className={`mt-16 relative overflow-hidden rounded-[2.5rem] bg-gray-900 p-10 md:p-14 shadow-2xl group`}>
+              <div className={`mt-8 relative overflow-hidden rounded-[2.5rem] bg-gray-900 p-10 md:p-14 shadow-2xl group`}>
                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] opacity-10 group-hover:opacity-20 transition-opacity duration-1000"></div>
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-1000 pointer-events-none"></div>
                 <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start md:items-center">
@@ -205,7 +205,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
               </div>
 
               {/* Business Benefits */}
-              <div className="mt-20">
+              <div className="mt-10">
                 <div className="flex items-center gap-4 mb-10">
                   <span className="w-10 h-[2px]" style={{ backgroundColor: "var(--primary)" }}></span>
                   <h3 className="text-3xl font-black text-gray-900 tracking-tight">The Value You Get</h3>
@@ -224,8 +224,8 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
               </div>
 
               {/* How It Works */}
-              <div className="mt-20">
-                <div className="flex items-center gap-4 mb-12">
+              <div className="mt-10">
+                <div className="flex items-center gap-4 mb-6">
                   <span className="w-10 h-[2px]" style={{ backgroundColor: "var(--primary)" }}></span>
                   <h3 className="text-3xl font-black text-gray-900 tracking-tight">How We Deliver</h3>
                 </div>
@@ -246,7 +246,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
               </div>
 
               {/* Technologies */}
-              <div className="mt-20">
+              <div className="mt-10">
                 <div className="flex items-center gap-4 mb-10">
                   <span className="w-10 h-[2px]" style={{ backgroundColor: "var(--primary)" }}></span>
                   <h3 className="text-3xl font-black text-gray-900 tracking-tight">Tech Stack</h3>
@@ -264,7 +264,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
               </div>
 
               {/* Internal Linking / Next Steps (SEO & Navigation) */}
-              <div className="mt-24 mb-24 pt-16 border-t border-gray-100 relative">
+              <div className="mt-6 mb-6 pt-16 border-t border-gray-100 relative">
                 <h3 className="text-2xl font-black text-gray-900 mb-8">Keep Exploring</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   
