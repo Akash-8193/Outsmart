@@ -6,89 +6,96 @@ import { ArrowLeft, ArrowRight, CheckCircle2, Target } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import { notFound } from "next/navigation";
 
-// Define the service data mapping
-const serviceData: Record<string, any> = {
-  "custom-software": {
-    id: "01",
-    category: "Software Engineering",
-    title: "Custom Software",
-    subtitle: "Precision, Impact, and Brand Excellence.",
-    desc: "We engineer high-performance web applications, SaaS platforms, and enterprise systems tailored to your unique operational workflows.",
-    features: ["ERP Systems", "CRM Solutions", "HRMS Platforms", "Inventory & Warehouse Systems", "Workflow Automation"],
-    image: "/service_custom_software.png",
-    longDesc: "From massive enterprise systems to intimate internal tools, we deliver custom software that aligns perfectly with your brand's vision. We handle every technical detail—from architecture design and API integration to scalable deployments and post-launch analytics—ensuring a seamless, professional experience that leaves a lasting impact on your operations.",
-    benefits: ["Eliminate manual bottlenecks with custom automation", "Scale effortlessly without paying per-user software licenses", "Enterprise-grade security tailored to your industry", "Zero technical debt with modern, clean architecture"],
-    howItWorks: [
-      { title: "Discovery", desc: "We map out your business workflow and identify bottlenecks." },
-      { title: "Architecture", desc: "We design a scalable technical blueprint and UI/UX prototype." },
-      { title: "Development", desc: "We build your software in rapid, transparent weekly sprints." }
-    ],
-    technologies: ["React", "Node.js", "Python", "AWS", "Docker", "PostgreSQL"],
-    idealFor: "Medium to large enterprises looking to automate complex workflows, reduce operational costs, or replace expensive legacy software.",
-    bannerDirection: "bg-gradient-to-tr"
-  },
-  "web-mobile": {
-    id: "02",
-    category: "Digital Platforms",
-    title: "Web & Mobile Apps",
-    subtitle: "Intuitive & Powerful Interfaces.",
-    desc: "From sleek consumer apps to complex business portals, we build cross-platform applications that deliver seamless user experiences.",
-    features: ["Android/iOS Apps", "Customer Portals", "Business Dashboards", "Multi-Vendor Platforms"],
-    image: "/service_web_mobile.png",
-    longDesc: "Our team crafts highly engaging, intuitive web and mobile applications designed to perform flawlessly across all devices. We focus on stunning UI/UX, robust performance, and scalable backends to ensure your digital products provide exceptional value to your users.",
-    benefits: ["Native-like performance on all platforms", "Higher user retention through stunning, intuitive UI/UX", "Offline capabilities and real-time syncing", "Seamless integration with your existing backend systems"],
-    howItWorks: [
-      { title: "UX Strategy", desc: "We wireframe the entire user journey for maximum engagement." },
-      { title: "UI Design", desc: "We craft visually stunning, pixel-perfect interfaces." },
-      { title: "Engineering", desc: "We code robust frontend and backend systems." }
-    ],
-    technologies: ["React Native", "Flutter", "Next.js", "Swift", "Kotlin", "Firebase"],
-    idealFor: "Startups launching a new digital product, or businesses needing a dedicated mobile presence to engage their customers on the go.",
-    bannerDirection: "bg-gradient-to-bl"
-  },
-  "ai-automation": {
-    id: "03",
-    category: "Intelligence",
-    title: "AI & Automation",
-    subtitle: "Transformative Autonomous Workflows.",
-    desc: "Transform your operations with intelligent automation and AI. We build custom solutions that handle support and predict trends.",
-    features: ["AI Integrations", "Chatbots", "Predictive Analytics", "Process Automation"],
-    image: "/service_ai_automation.png",
-    longDesc: "Embrace the future with our advanced AI and automation solutions. We integrate cutting-edge machine learning models, autonomous chatbots, and predictive analytics directly into your business processes, dramatically reducing manual effort and uncovering new opportunities for growth.",
-    benefits: ["Reduce manual human labor by up to 80%", "Provide 24/7 intelligent customer support", "Make data-driven decisions with predictive analytics", "Stay ahead of competitors by leveraging cutting-edge LLMs"],
-    howItWorks: [
-      { title: "Data Audit", desc: "We analyze your data sources and operational bottlenecks." },
-      { title: "Model Training", desc: "We fine-tune AI models specific to your business context." },
-      { title: "Integration", desc: "We seamlessly connect the AI into your existing workflows." }
-    ],
-    technologies: ["OpenAI", "TensorFlow", "PyTorch", "LangChain", "Vector DBs", "Python"],
-    idealFor: "Forward-thinking companies that want to dramatically cut operational costs, automate customer service, or extract insights from large datasets.",
-    bannerDirection: "bg-gradient-to-t"
-  },
-  "cloud-saas": {
-    id: "04",
-    category: "Infrastructure",
-    title: "Cloud & SaaS Products",
-    subtitle: "Infrastructure you can trust.",
-    desc: "We design, build, and deploy highly scalable cloud-native products and multi-tenant SaaS platforms ready for global audiences.",
-    features: ["Multi-Tenant SaaS", "Subscription Platforms", "Scalable Cloud Apps", "Cloud Infrastructure Setup"],
-    image: "/service_cloud_saas.png",
-    longDesc: "Build your digital empire on a solid foundation. We architect and deploy multi-tenant SaaS platforms and cloud infrastructures using AWS, Azure, and Google Cloud. Enjoy unparalleled scalability, bulletproof security, and seamless continuous delivery for your most critical products.",
-    benefits: ["99.99% guaranteed uptime for mission-critical apps", "Auto-scaling infrastructure that grows with your user base", "Secure multi-tenant data isolation", "Optimized cloud costs to prevent budget overruns"],
-    howItWorks: [
-      { title: "Cloud Strategy", desc: "We design an architecture optimized for cost and scale." },
-      { title: "Core Build", desc: "We develop the multi-tenant backend and subscription logic." },
-      { title: "Deployment", desc: "We set up automated CI/CD pipelines for secure rollouts." }
-    ],
-    technologies: ["AWS", "Azure", "GCP", "Kubernetes", "Terraform", "Stripe API"],
-    idealFor: "Founders building the next big SaaS product, or enterprises migrating legacy on-premise systems to a secure cloud environment.",
-    bannerDirection: "bg-gradient-to-br"
-  }
-};
+import { supabase } from "@/lib/supabaseClient";
 
-export default function ServiceDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const resolvedParams = use(params);
-  const service = serviceData[resolvedParams.id];
+// Since it's server component, we fetch directly
+export const revalidate = 0;
+
+export default async function ServiceDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  
+  // Try fetching from Supabase first
+  const { data, error } = await supabase
+    .from("services")
+    .select("*")
+    .eq("slug", resolvedParams.id)
+    .single();
+
+  let service = data;
+
+  if (!service) {
+    // Check fallback just in case database is empty but slug is one of the initial ones
+    const fallbackServices: Record<string, any> = {
+      "custom-software": {
+        id: "01", category: "Software Engineering", title: "Custom Software",
+        subtitle: "Precision, Impact, and Brand Excellence.",
+        desc: "We engineer high-performance web applications, SaaS platforms, and enterprise systems tailored to your unique operational workflows.",
+        features: ["ERP Systems", "CRM Solutions", "HRMS Platforms", "Inventory & Warehouse Systems", "Workflow Automation"],
+        image: "/service_custom_software.png",
+        longDesc: "From massive enterprise systems to intimate internal tools, we deliver custom software that aligns perfectly with your brand's vision.",
+        benefits: ["Eliminate manual bottlenecks with custom automation", "Scale effortlessly without paying per-user software licenses", "Enterprise-grade security tailored to your industry", "Zero technical debt with modern, clean architecture"],
+        howItWorks: [{ title: "Discovery", desc: "We map out your business workflow and identify bottlenecks." }, { title: "Architecture", desc: "We design a scalable technical blueprint and UI/UX prototype." }, { title: "Development", desc: "We build your software in rapid, transparent weekly sprints." }],
+        technologies: ["React", "Node.js", "Python", "AWS", "Docker", "PostgreSQL"],
+        idealFor: "Medium to large enterprises looking to automate complex workflows.",
+        bannerDirection: "bg-gradient-to-tr"
+      },
+      "web-mobile": {
+        id: "02", category: "Digital Platforms", title: "Web & Mobile Apps",
+        subtitle: "Intuitive & Powerful Interfaces.",
+        desc: "From sleek consumer apps to complex business portals, we build cross-platform applications.",
+        features: ["Android/iOS Apps", "Customer Portals", "Business Dashboards", "Multi-Vendor Platforms"],
+        image: "/service_web_mobile.png",
+        longDesc: "Our team crafts highly engaging, intuitive web and mobile applications designed to perform flawlessly across all devices.",
+        benefits: ["Native-like performance on all platforms", "Higher user retention through stunning, intuitive UI/UX", "Offline capabilities and real-time syncing", "Seamless integration with your existing backend systems"],
+        howItWorks: [{ title: "UX Strategy", desc: "We wireframe the entire user journey for maximum engagement." }, { title: "UI Design", desc: "We craft visually stunning, pixel-perfect interfaces." }, { title: "Engineering", desc: "We code robust frontend and backend systems." }],
+        technologies: ["React Native", "Flutter", "Next.js", "Swift", "Kotlin", "Firebase"],
+        idealFor: "Startups launching a new digital product, or businesses needing a dedicated mobile presence.",
+        bannerDirection: "bg-gradient-to-bl"
+      },
+      "ai-automation": {
+        id: "03", category: "Intelligence", title: "AI & Automation",
+        subtitle: "Transformative Autonomous Workflows.",
+        desc: "Transform your operations with intelligent automation and AI.",
+        features: ["AI Integrations", "Chatbots", "Predictive Analytics", "Process Automation"],
+        image: "/service_ai_automation.png",
+        longDesc: "Embrace the future with our advanced AI and automation solutions. We integrate cutting-edge machine learning models.",
+        benefits: ["Reduce manual human labor by up to 80%", "Provide 24/7 intelligent customer support", "Make data-driven decisions with predictive analytics", "Stay ahead of competitors by leveraging cutting-edge LLMs"],
+        howItWorks: [{ title: "Data Audit", desc: "We analyze your data sources and operational bottlenecks." }, { title: "Model Training", desc: "We fine-tune AI models specific to your business context." }, { title: "Integration", desc: "We seamlessly connect the AI into your existing workflows." }],
+        technologies: ["OpenAI", "TensorFlow", "PyTorch", "LangChain", "Vector DBs", "Python"],
+        idealFor: "Forward-thinking companies that want to dramatically cut operational costs.",
+        bannerDirection: "bg-gradient-to-t"
+      },
+      "cloud-saas": {
+        id: "04", category: "Infrastructure", title: "Cloud & SaaS Products",
+        subtitle: "Infrastructure you can trust.",
+        desc: "We design, build, and deploy highly scalable cloud-native products and multi-tenant SaaS platforms ready for global audiences.",
+        features: ["Multi-Tenant SaaS", "Subscription Platforms", "Scalable Cloud Apps", "Cloud Infrastructure Setup"],
+        image: "/service_cloud_saas.png",
+        longDesc: "Build your digital empire on a solid foundation. We architect and deploy multi-tenant SaaS platforms.",
+        benefits: ["99.99% guaranteed uptime for mission-critical apps", "Auto-scaling infrastructure that grows with your user base", "Secure multi-tenant data isolation", "Optimized cloud costs to prevent budget overruns"],
+        howItWorks: [{ title: "Cloud Strategy", desc: "We design an architecture optimized for cost and scale." }, { title: "Core Build", desc: "We develop the multi-tenant backend and subscription logic." }, { title: "Deployment", desc: "We set up automated CI/CD pipelines for secure rollouts." }],
+        technologies: ["AWS", "Azure", "GCP", "Kubernetes", "Terraform", "Stripe API"],
+        idealFor: "Founders building the next big SaaS product, or enterprises migrating legacy systems.",
+        bannerDirection: "bg-gradient-to-br"
+      }
+    };
+    
+    service = fallbackServices[resolvedParams.id];
+  }
+
+  if (!service) {
+    notFound();
+  }
+
+  // Format properties for UI mapping if coming from DB
+  if (service.long_desc) {
+    service.longDesc = service.long_desc;
+    service.howItWorks = service.how_it_works;
+    service.idealFor = service.ideal_for;
+    service.bannerDirection = service.banner_direction;
+    service.desc = service.description;
+    service.id = service.slug.substring(0, 2).toUpperCase(); // mock an ID
+  }
 
   if (!service) {
     notFound();

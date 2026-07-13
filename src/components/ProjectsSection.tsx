@@ -3,28 +3,43 @@
 import Link from "next/link";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 
-const projects = [
-  {
-    category: "Enterprise HRMS",
-    title: "FOVESTTA HR Management Platform",
-    image: "/project_hrms.png",
-    slug: "fovestta",
-  },
-  {
-    category: "Custom Software",
-    title: "NBCC Complaint Management System",
-    image: "/project_complaint.png",
-    slug: "nbcc-complaint",
-  },
-  {
-    category: "Logistics & Operations",
-    title: "Automated Inventory Management",
-    image: "/project_inventory.png",
-    slug: "inventory-management",
-  }
-];
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabaseClient";
+import { projectsData } from "@/data/projects";
+
+interface ProjectItem {
+  category: string;
+  title: string;
+  image: string;
+  slug: string;
+}
 
 export default function ProjectsSection() {
+  const [projectsList, setProjectsList] = useState<ProjectItem[]>([]);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const { data, error } = await supabase
+          .from("projects")
+          .select("category, title, image, slug")
+          .order("created_at", { ascending: false })
+          .limit(3);
+
+        if (error) throw error;
+        
+        if (data && data.length > 0) {
+          setProjectsList(data);
+        } else {
+          setProjectsList(projectsData.slice(0, 3));
+        }
+      } catch (err) {
+        console.error("Failed to fetch projects, falling back to static:", err);
+        setProjectsList(projectsData.slice(0, 3));
+      }
+    }
+    fetchProjects();
+  }, []);
   return (
     <section className="py-6 px-6 bg-transparent font-sans">
       <div className="max-w-[1400px] mx-auto">
@@ -55,7 +70,7 @@ export default function ProjectsSection() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {projects.map((project, idx) => (
+          {projectsList.map((project, idx) => (
             <Link href={`/portfolio/${project.slug}`} key={idx} className="group cursor-pointer flex flex-col h-full">
               {/* Image Container */}
               <div className="w-full aspect-[4/3] rounded-[2rem] overflow-hidden mb-6 shadow-[0_10px_40px_rgba(0,0,0,0.06)] relative image-anime">

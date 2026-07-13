@@ -1,26 +1,63 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
-const categories = ["All", "Enterprise SaaS", "Custom Software", "Web Apps", "Operations"];
+import { supabase } from "@/lib/supabaseClient";
+import { projectsData } from "@/data/projects";
 
-const projects = [
-  { id: 1, title: "FOVESTTA HRMS", category: "Enterprise SaaS", img: "/project_hrms.png", client: "Corporate Enterprises", desc: "Advanced human resource management platform simplifying workforce operations through automation.", slug: "fovestta" },
-  { id: 2, title: "Complaint Management Software", category: "Custom Software", img: "/project_complaint.png", client: "NBCC", desc: "Streamlines complaint registration, tracking, escalation, and resolution across departments.", slug: "nbcc-complaint" },
-  { id: 3, title: "Inventory Management System", category: "Operations", img: "/project_inventory.png", client: "Retail & Logistics", desc: "Helps businesses track, manage, and optimize inventory operations with real-time visibility.", slug: "inventory-management" },
-  { id: 4, title: "Global Supply Chain ERP", category: "Custom Software", img: "/project_erp.png", client: "Logistics", desc: "Automated workflows and accurate stock control across multiple warehouse locations.", slug: "supply-chain-erp" },
-  { id: 5, title: "Multi-Vendor E-Commerce", category: "Web Apps", img: "/project_ecommerce.png", client: "Retail", desc: "Scalable digital platforms that accelerate growth and modernize retail operations.", slug: "multi-vendor-ecommerce" },
-  { id: 6, title: "Patient Data Management SaaS", category: "Enterprise SaaS", img: "/project_health.png", client: "Healthcare", desc: "HIPAA-compliant patient data management and predictive analytics dashboards.", slug: "patient-data-saas" },
-];
+const fallbackProjects = projectsData.map((p, idx) => ({
+  id: String(idx + 1),
+  title: p.title,
+  category: p.category,
+  img: p.image,
+  client: "Outsmart Technology",
+  desc: p.overview,
+  slug: p.slug
+}));
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState("All");
+  const [projectsList, setProjectsList] = useState(fallbackProjects);
+  const [categories, setCategories] = useState(["All", "Enterprise HRMS", "Custom Software", "Logistics & Operations", "Web Apps", "Enterprise SaaS"]);
 
-  const filteredProjects = projects.filter((project) => {
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const { data, error } = await supabase
+          .from("projects")
+          .select("*")
+          .order("created_at", { ascending: false });
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          const formatted = data.map((p) => ({
+            id: p.id,
+            title: p.title,
+            category: p.category,
+            img: p.image,
+            client: "Outsmart Technology",
+            desc: p.overview,
+            slug: p.slug
+          }));
+          setProjectsList(formatted);
+          
+          // Extract unique categories
+          const uniqueCategories = Array.from(new Set(formatted.map(p => p.category)));
+          setCategories(["All", ...uniqueCategories]);
+        }
+      } catch (err) {
+        console.error("Failed to fetch projects:", err);
+      }
+    }
+    fetchProjects();
+  }, []);
+
+  const filteredProjects = projectsList.filter((project) => {
     if (activeTab === "All") return true;
     return project.category === activeTab;
   });

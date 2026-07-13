@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { supabase } from "@/lib/supabaseClient";
 import PageTransition from "@/components/PageTransition";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import Link from "next/link";
@@ -12,9 +13,40 @@ import ServiceProcessSection from "@/components/ServiceProcessSection";
 import ServiceBenefitsSection from "@/components/ServiceBenefitsSection";
 
 export default function Services() {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  const [servicesList, setServicesList] = useState<any[]>([]);
 
+  useEffect(() => {
+    async function fetchServices() {
+      try {
+        const { data, error } = await supabase
+          .from("services")
+          .select("*")
+          .order("created_at", { ascending: true });
+
+        if (error) throw error;
+        
+        if (data && data.length > 0) {
+          setServicesList(data);
+        } else {
+          // Fallback static
+          setServicesList([
+            { id: "custom-software", slug: "custom-software", category: "Software Engineering", title: "Custom Software", subtitle: "Scalable. Secure. Bespoke.", image: "/service_custom_software.png" },
+            { id: "web-mobile", slug: "web-mobile", category: "Digital Platforms", title: "Web & Mobile Apps", subtitle: "Intuitive & Powerful Interfaces.", image: "/service_web_mobile.png" },
+            { id: "ai-automation", slug: "ai-automation", category: "Intelligence", title: "AI & Automation", subtitle: "Transformative Autonomous Workflows.", image: "/service_ai_automation.png" },
+            { id: "cloud-saas", slug: "cloud-saas", category: "Infrastructure", title: "Cloud & SaaS Products", subtitle: "Infrastructure you can trust.", image: "/service_cloud_saas.png" }
+          ]);
+        }
+      } catch (err) {
+        console.error("Failed to fetch services:", err);
+      }
+    }
+    fetchServices();
+  }, []);
+
+  useEffect(() => {
+    if (servicesList.length === 0) return;
+
+    gsap.registerPlugin(ScrollTrigger);
     const panels = gsap.utils.toArray(".fullscreen-panel");
 
     panels.forEach((panel: any) => {
@@ -29,38 +61,7 @@ export default function Services() {
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
-  }, []);
-
-  const services = [
-    {
-      id: "custom-software",
-      category: "Software Engineering",
-      title: "Custom Software",
-      subtitle: "Scalable. Secure. Bespoke.",
-      image: "/service_custom_software.png"
-    },
-    {
-      id: "web-mobile",
-      category: "Digital Platforms",
-      title: "Web & Mobile Apps",
-      subtitle: "Intuitive & Powerful Interfaces.",
-      image: "/service_web_mobile.png"
-    },
-    {
-      id: "ai-automation",
-      category: "Intelligence",
-      title: "AI & Automation",
-      subtitle: "Transformative Autonomous Workflows.",
-      image: "/service_ai_automation.png"
-    },
-    {
-      id: "cloud-saas",
-      category: "Infrastructure",
-      title: "Cloud & SaaS Products",
-      subtitle: "Infrastructure you can trust.",
-      image: "/service_cloud_saas.png"
-    }
-  ];
+  }, [servicesList]);
 
   return (
     <PageTransition>
@@ -133,7 +134,7 @@ export default function Services() {
       <div id="services-list"></div>
 
       {/* Full-Screen Service Cards */}
-      {services.map((service, idx) => (
+      {servicesList.map((service, idx) => (
         <div
           key={service.id}
           className="fullscreen-panel h-screen w-full relative overflow-hidden flex items-center justify-center"
@@ -162,7 +163,7 @@ export default function Services() {
               </p>
 
               <Link
-                href={`/service/${service.id}`}
+                href={`/service/${service.slug}`}
                 className="group inline-flex items-center gap-4 text-sm font-bold tracking-widest uppercase text-gray-900"
               >
                 <span>Explore Experience</span>

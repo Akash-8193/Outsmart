@@ -1,11 +1,49 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { blogs } from "@/lib/blogData";
+import { blogs as localBlogs } from "@/lib/blogData";
+import { supabase } from "@/lib/supabaseClient";
+
+interface BlogItem {
+  title: string;
+  slug: string;
+  image: string;
+}
 
 export default function BlogSection({ hideHeader = false }: { hideHeader?: boolean }) {
+  const [blogsList, setBlogsList] = useState<BlogItem[]>([]);
+
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        const { data, error } = await supabase
+          .from("blogs")
+          .select("title, slug, image_url")
+          .order("created_at", { ascending: false });
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          const formatted = data.map((item) => ({
+            title: item.title,
+            slug: item.slug,
+            image: item.image_url,
+          }));
+          setBlogsList(formatted);
+        } else {
+          // Fallback to local static blogs if Supabase is empty
+          setBlogsList(localBlogs);
+        }
+      } catch (err) {
+        console.error("Failed to fetch live blogs, falling back to static:", err);
+        setBlogsList(localBlogs);
+      }
+    }
+    fetchBlogs();
+  }, []);
 
   return (
     <section className="py-6 px-6 bg-transparent font-sans">
@@ -13,19 +51,19 @@ export default function BlogSection({ hideHeader = false }: { hideHeader?: boole
         {/* Header */}
         {!hideHeader && (
           <div className="text-center mb-8 flex flex-col items-center">
-          <div className="inline-flex items-center gap-3 bg-white px-5 py-2.5 rounded-full mb-8 text-[11px] font-bold tracking-widest uppercase shadow-sm">
-            <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "var(--primary)" }}></span>
-            Latest Blog
+            <div className="inline-flex items-center gap-3 bg-white px-5 py-2.5 rounded-full mb-8 text-[11px] font-bold tracking-widest uppercase shadow-sm">
+              <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "var(--primary)" }}></span>
+              Latest Blog
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-5xl font-black uppercase leading-[1.05] tracking-tight text-gray-900 max-w-4xl mx-auto">
+              INSIGHTS AND INSPIRATION FROM OUR LATEST BLOG
+            </h2>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-5xl font-black uppercase leading-[1.05] tracking-tight text-gray-900 max-w-4xl mx-auto">
-            INSIGHTS AND INSPIRATION FROM OUR LATEST BLOG
-          </h2>
-        </div>
         )}
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-8">
-          {blogs.map((blog, idx) => (
+          {blogsList.map((blog, idx) => (
             <motion.div 
               key={idx}
               initial={{ opacity: 0, y: 30 }}
@@ -67,3 +105,4 @@ export default function BlogSection({ hideHeader = false }: { hideHeader?: boole
     </section>
   );
 }
+

@@ -7,9 +7,18 @@ export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Check if preloader has already been shown in this session
+    const hasShown = sessionStorage.getItem("preloader_shown");
+    
+    if (hasShown) {
+      setIsLoading(false);
+      return;
+    }
+
     // Show the preloader for 2.5 seconds to let the beautiful animation play out
     const timer = setTimeout(() => {
       setIsLoading(false);
+      sessionStorage.setItem("preloader_shown", "true");
     }, 2500);
 
     return () => clearTimeout(timer);

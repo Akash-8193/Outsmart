@@ -10,20 +10,37 @@ import { ArrowLeft, CheckCircle2 } from "lucide-react";
 // Since we want framer-motion animations everywhere, let's make the entire page "use client" by creating a Client component wrapper.
 
 import ProjectClientPage from "./ProjectClientPage";
+import { supabase } from "@/lib/supabaseClient";
 
-export function generateStaticParams() {
-  return projectsData.map((project) => ({
-    slug: project.slug,
-  }));
-}
+export const revalidate = 0; // Ensure dynamic rendering
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const project = projectsData.find((p) => p.slug === resolvedParams.slug);
+  
+  // Try fetching from Supabase first
+  const { data, error } = await supabase
+    .from("projects")
+    .select("*")
+    .eq("slug", resolvedParams.slug)
+    .single();
+
+  let project = data;
+
+  // Fallback to static data if not found in Supabase
+  if (!project || error) {
+    project = projectsData.find((p) => p.slug === resolvedParams.slug);
+  }
 
   if (!project) {
     notFound();
   }
 
-  return <ProjectClientPage project={project} />;
+  // Map database fields to the static expected format for the client page if necessary
+  const formattedProject = {
+    ...project,
+    whyWeBuilt: project.why_we_built || project.whyWeBuilt,
+    coreModules: project.core_modules || project.coreModules
+  };
+
+  return <ProjectClientPage project={formattedProject} />;
 }

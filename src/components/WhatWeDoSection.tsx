@@ -3,26 +3,60 @@
 import { motion } from "framer-motion";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabaseClient";
 
 export default function WhatWeDoSection() {
-  const services = [
+  const fallbackServices = [
     {
       title: "Custom Software Development",
+      slug: "custom-software",
       desc: "We eliminate operational bottlenecks by building tailored systems that automate manual tasks, reduce human error, and scale seamlessly as your business grows."
     },
     {
       title: "Web & Mobile Applications",
+      slug: "web-mobile",
       desc: "Engage your customers anywhere with high-performance apps and portals designed to boost conversion rates, build brand loyalty, and deliver a frictionless user experience."
     },
     {
       title: "AI & Automation",
+      slug: "ai-automation",
       desc: "Turn your data into a competitive advantage. We deploy intelligent automation to slash operational costs, speed up decision-making, and free your team from repetitive work."
     },
     {
       title: "Cloud & SaaS Products",
+      slug: "cloud-saas",
       desc: "Scale your operations effortlessly without IT headaches. Our secure cloud architectures ensure maximum uptime, global accessibility, and ironclad data protection for your peace of mind."
     }
   ];
+
+  const [servicesList, setServicesList] = useState(fallbackServices);
+
+  useEffect(() => {
+    async function fetchServices() {
+      try {
+        const { data, error } = await supabase
+          .from("services")
+          .select("title, subtitle, slug")
+          .order("created_at", { ascending: true })
+          .limit(4);
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          const formatted = data.map((s) => ({
+            title: s.title,
+            slug: s.slug,
+            desc: s.subtitle
+          }));
+          setServicesList(formatted);
+        }
+      } catch (err) {
+        console.error("Failed to fetch services:", err);
+      }
+    }
+    fetchServices();
+  }, []);
 
   return (
     <section className="py-8 md:py-6 px-6 bg-transparent overflow-hidden">
@@ -64,7 +98,7 @@ export default function WhatWeDoSection() {
 
           {/* Services List (Matching the Repair Site layout) */}
           <div className="space-y-8 relative before:absolute before:inset-y-0 before:left-1.5 before:w-px before:bg-gray-200">
-            {services.map((service, idx) => (
+            {servicesList.map((service, idx) => (
               <motion.div 
                 key={idx}
                 initial={{ opacity: 0, x: -20 }}
@@ -77,7 +111,7 @@ export default function WhatWeDoSection() {
                 <div className="absolute left-0 top-2 w-3 h-3 rounded-full outline outline-4 outline-white" style={{ backgroundColor: "var(--primary)" }}></div>
                 
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  <Link href="/services" className="hover:text-[--primary] transition-colors">{service.title}</Link>
+                  <Link href={`/service/${service.slug}`} className="hover:text-[--primary] transition-colors">{service.title}</Link>
                 </h3>
                 <p className="text-gray-600 leading-relaxed font-medium text-lg border-b border-gray-100 pb-8 last:border-0 last:pb-0">
                   {service.desc}

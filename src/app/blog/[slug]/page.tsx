@@ -5,15 +5,41 @@ import { ArrowLeft, Clock, Calendar, User } from "lucide-react";
 import { blogs } from "@/lib/blogData";
 import PageTransition from "@/components/PageTransition";
 
-export function generateStaticParams() {
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }));
-}
+import { supabase } from "@/lib/supabaseClient";
+
+export const dynamic = "force-dynamic"; // Enable dynamic fetching
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const blog = blogs.find((b) => b.slug === resolvedParams.slug);
+  let blog: any = blogs.find((b) => b.slug === resolvedParams.slug);
+
+  if (!blog) {
+    try {
+      const { data, error } = await supabase
+        .from("blogs")
+        .select("*")
+        .eq("slug", resolvedParams.slug)
+        .single();
+
+      if (data) {
+        blog = {
+          title: data.title,
+          slug: data.slug,
+          content: data.content.replace(/\n/g, '<br />'), // support simple multiline text in plain editor
+          image: data.image_url,
+          category: "Technology",
+          author: "Outsmart Engineering",
+          date: new Date(data.created_at).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'short', day: 'numeric'
+          }),
+          readTime: "5 min read",
+          excerpt: data.content.substring(0, 120) + "..."
+        };
+      }
+    } catch (err) {
+      console.error("Error loading blog details from Supabase:", err);
+    }
+  }
 
   if (!blog) {
     notFound();

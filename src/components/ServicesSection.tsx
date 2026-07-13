@@ -1,11 +1,13 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, Code, Cpu, Cloud, Smartphone, Database, Bot } from "lucide-react";
+import { supabase } from "@/lib/supabaseClient";
 import { Text3DBounce } from "@/components/animations/SplitTextAnimations";
 
 export default function ServicesSection() {
-  const services = [
+  const fallbackServices = [
     {
       id: "custom-software",
       title: "Custom Software",
@@ -36,6 +38,36 @@ export default function ServicesSection() {
     }
   ];
 
+  const [servicesList, setServicesList] = useState(fallbackServices);
+
+  useEffect(() => {
+    async function fetchServices() {
+      try {
+        const { data, error } = await supabase
+          .from("services")
+          .select("slug, title, subtitle, image, category")
+          .order("created_at", { ascending: true })
+          .limit(4);
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          const formatted = data.map((s) => ({
+            id: s.slug,
+            title: s.title,
+            desc: s.subtitle,
+            icon: <Code className="w-8 h-8" />, // Default icon
+            img: s.image
+          }));
+          setServicesList(formatted);
+        }
+      } catch (err) {
+        console.error("Failed to fetch services:", err);
+      }
+    }
+    fetchServices();
+  }, []);
+
   return (
     <section className="py-6 px-6 bg-transparent font-sans">
       <div className="max-w-[1400px] mx-auto">
@@ -65,7 +97,7 @@ export default function ServicesSection() {
         
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {services.map((service, idx) => (
+          {servicesList.map((service, idx) => (
             <Link href={`/service/${service.id}`} key={idx} className="group relative rounded-3xl overflow-hidden h-[320px] sm:h-[280px] shadow-lg cursor-pointer block">
               {/* Background Image */}
               <div 
