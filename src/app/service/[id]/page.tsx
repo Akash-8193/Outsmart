@@ -1,6 +1,3 @@
-"use client";
-
-import { use } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, CheckCircle2, Target } from "lucide-react";
 import PageTransition from "@/components/PageTransition";

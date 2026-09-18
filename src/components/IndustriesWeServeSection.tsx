@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  HeartPulse, GraduationCap, Users, Landmark, ShoppingCart, 
+import {
+  HeartPulse, GraduationCap, Users, Landmark, ShoppingCart,
   Truck, Factory, Home, Hotel, Rocket, Building2, ArrowRight
 } from "lucide-react";
 
@@ -33,10 +33,10 @@ export default function IndustriesWeServeSection() {
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[var(--secondary)] rounded-full blur-[150px] opacity-[0.03] animate-pulse" style={{ animationDelay: "2s" }}></div>
 
       <div className="max-w-[1500px] mx-auto flex flex-col lg:flex-row gap-8 relative z-10">
-        
+
         {/* Left Side: Sticky Header Block */}
         <div className="w-full lg:w-1/3 flex flex-col items-start lg:sticky lg:top-32 h-fit">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -46,18 +46,18 @@ export default function IndustriesWeServeSection() {
             <span className="text-sm font-bold tracking-widest text-gray-800 uppercase">Domains</span>
           </motion.div>
 
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-5xl font-black text-gray-900 leading-[1.05] tracking-tight mb-8"
           >
-            Industries <br/>
+            Industries <br />
             <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(90deg, var(--primary), var(--secondary))" }}>We Serve.</span>
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -66,7 +66,7 @@ export default function IndustriesWeServeSection() {
           >
             Powering digital transformation across diverse sectors. We build tailored, scalable, and intelligent software solutions for unique operational challenges.
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -89,19 +89,19 @@ export default function IndustriesWeServeSection() {
             transition={{ delay: 0.5, type: "spring" }}
             className="hidden lg:block w-full max-w-[450px] mt-10 relative left-[-20px]"
           >
-             {/* Glow behind character */}
-             <div className="absolute inset-0 bg-[var(--primary)] rounded-full blur-[80px] opacity-[0.15] mix-blend-multiply"></div>
-             <img 
-               src="https://illustrations.popsy.co/amber/student-going-to-school.svg" 
-               alt="Industry Expert" 
-               className="w-[120%] max-w-none h-auto drop-shadow-2xl object-contain relative z-10 hover:scale-105 transition-transform duration-500 origin-bottom" 
-             />
+            {/* Glow behind character */}
+            <div className="absolute inset-0 bg-[var(--primary)] rounded-full blur-[80px] opacity-[0.15] mix-blend-multiply"></div>
+            <img
+              src="/ai_expert_illustration_transparent.png"
+              alt="Industry Expert"
+              className="w-[120%] max-w-none h-auto drop-shadow-2xl object-contain relative z-10 hover:scale-105 transition-transform duration-500 origin-bottom scale-x-[-1]"
+            />
           </motion.div>
         </div>
 
         {/* Right Side: Staggered Dynamic Grid */}
         <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          
+
           {/* Column 1 */}
           <div className="flex flex-col gap-6 md:pt-16">
             {col1.map((item, idx) => <IndustryCard key={idx} item={item} index={idx} />)}
@@ -142,18 +142,18 @@ function IndustryCard({ item, index }: { item: any, index: number }) {
 
       {/* Dynamic Hover Gradient Border via pseudo-element illusion */}
       <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-0`}></div>
-      
+
       {/* Icon Badge */}
       <div className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br ${item.color} text-white shadow-lg transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 relative z-10`}>
         {item.icon}
       </div>
-      
+
       {/* Card Content */}
       <div className="relative z-10">
         <h3 className="font-bold text-gray-900 text-2xl leading-tight mb-2 group-hover:text-[--primary] transition-colors">
           {item.name}
         </h3>
-        
+
         {/* Subtle decorative line */}
         <div className="w-10 h-1 bg-gray-200 rounded-full group-hover:w-full transition-all duration-500" style={{ backgroundImage: "linear-gradient(90deg, var(--primary), var(--secondary))" }}></div>
       </div>
